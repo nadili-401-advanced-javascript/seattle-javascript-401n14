@@ -1,0 +1,5 @@
+Demo Folder
+
+Add a separate folder here for each demo. Demos should be well named, well commented.
+
+Delete this file before publishing this course to the students

@@ -1,0 +1,5 @@
+Starter Code Folders
+
+Add a separate folder here for any starter code that is required for a lab assignment
+
+Delete this file before publishing this course to the students

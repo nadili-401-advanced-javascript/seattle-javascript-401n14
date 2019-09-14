@@ -1,0 +1,40 @@
+{
+  "config": {
+    "target": "http://localhost:3000",
+    "phases": [
+      {
+        "duration": 2,
+        "arrivalRate": 10
+      },
+      {
+        "duration": 10,
+        "arrivalRate": 300
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "Create Teams",
+      "flow": [
+        {
+          "post": {
+            "url": "/api/v1/teams",
+            "json": {
+              "name": "Foobar"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Teams",
+      "flow": [
+        {
+          "get": {
+            "url": "/api/v1/teams"
+          }
+        }
+      ]
+    }
+  ]
+}
