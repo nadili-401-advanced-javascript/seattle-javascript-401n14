@@ -17,7 +17,7 @@ You will be submitting the URL to this working sandbox as part of your assignmen
 
 ### Hooks Practice
 
-Begin with: `starter-code/todo`
+Begin with: `starter-code/practice`
 
 To get familiar with the hooks API, you'll build a simple application that uses the state hook to manage form state, a reducer hook to manage application state, and the effect hook to handle a simple side effect.
 
