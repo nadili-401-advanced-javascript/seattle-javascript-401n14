@@ -38,7 +38,7 @@
 * [31: Advanced React Native](./class-31/README.md)
 * [32: Gatsby and Next](./class-32/README.md)
 ---
-
 2 week final project 
+
 --- 
 
