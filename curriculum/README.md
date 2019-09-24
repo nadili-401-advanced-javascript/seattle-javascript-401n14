@@ -18,10 +18,10 @@
 * [15: Event Driven Applications](./class-15/README.md)
 * [16: TCP Protocol](./class-16/README.md)
 * [17: Socket.io](./class-17/README.md)
-===
+---
 2 week midterm project
 
-===
+---
 * [18: Component Based UI](./class-18/README.md)
 * [19: React Testing and Deployment](./class-19/README.md)
 * [20: Props and State](./class-20/README.md)
@@ -37,7 +37,8 @@
 * [30: React Native](./class-30/README.md)
 * [31: Advanced React Native](./class-31/README.md)
 * [32: Gatsby and Next](./class-32/README.md)
-===
+---
+
 2 week final project 
-=== 
+--- 
 
