@@ -5,7 +5,7 @@
 * [02: Classes/Inheritance](./class-02/README.md)
 * [03: Async](./class-03/README.md)
 * [04: Data Modeling](./class-04/README.md)
-* [05: Data Modeline with NoSQL Databases](./class-05/README.md)
+* [05: Data Modeling with NoSQL Databases](./class-05/README.md)
 * [06: HTTP and REST](./class-06/README.md)
 * [07: Express](./class-07/README.md)
 * [08: Express Routing and Connected API](./class-08/README.md)
