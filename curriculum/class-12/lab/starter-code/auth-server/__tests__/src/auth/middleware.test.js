@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.SECRET="test";
+
 const supergoose = require('../../supergoose.js');
 const auth = require('../../../src/auth/middleware.js');
 const Users = require('../../../src/auth/users-model.js');
@@ -25,7 +27,7 @@ describe('Auth Middleware', () => {
   // admin:password: YWRtaW46cGFzc3dvcmQ=
   // admin:foo: YWRtaW46Zm9v
   
-  let errorObject = {"message": "Invalid User ID/Password", "status": 401, "statusMessage": "Unauthorized"};
+  let errorObject = "Invalid User ID/Password";
   
   describe('user authentication', () => {
     

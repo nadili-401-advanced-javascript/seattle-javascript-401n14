@@ -3,36 +3,46 @@
 const User = require('./users-model.js');
 
 module.exports = (req, res, next) => {
-
+  
+  // Basic am9objpqb2hubnk=
+  // Bearer Token ...
   try {
-
     let [authType, authString] = req.headers.authorization.split(/\s+/);
-
-    // BASIC Auth  ... Authorization:Basic ZnJlZDpzYW1wbGU=
-
-    switch(authType.toLowerCase()) {
-      case 'basic':
+    
+    switch( authType.toLowerCase() ) {
+      case 'basic': 
         return _authBasic(authString);
-      default:
+      case 'bearer':
+        return _authBearer(authString);
+      default: 
         return _authError();
     }
-
-  } catch(e) {
-    return _authError();
   }
-
-  function _authBasic(authString) {
-    let base64Buffer = Buffer.from(authString,'base64'); // <Buffer 01 02...>
-    let bufferString = base64Buffer.toString(); // john:mysecret
-    let [username,password] = bufferString.split(':');  // variables username="john" and password="mysecret"
-    let auth = {username,password};  // {username:"john", password:"mysecret"}
-
+  catch(e) {
+    console.log(e);
+  }
+  
+  
+  function _authBasic(str) {
+    // str: am9objpqb2hubnk=
+    let base64Buffer = Buffer.from(str, 'base64'); // <Buffer 01 02 ...>
+    let bufferString = base64Buffer.toString();    // john:mysecret
+    let [username, password] = bufferString.split(':'); // john='john'; mysecret='mysecret']
+    let auth = {username,password}; // { username:'john', password:'mysecret' }
+    
     return User.authenticateBasic(auth)
-      .then( user => _authenticate(user) );
+      .then(user => _authenticate(user) )
+      .catch(next);
   }
 
+  function _authBearer(authString) {
+    return User.authenticateToken(authString)
+      .then( user => _authenticate(user) )
+      .catch(next);
+  }
+  
   function _authenticate(user) {
-    if ( user ) {
+    if(user) {
       req.user = user;
       req.token = user.generateToken();
       next();
@@ -41,10 +51,9 @@ module.exports = (req, res, next) => {
       _authError();
     }
   }
-
+  
   function _authError() {
-    next({status: 401, statusMessage: 'Unauthorized', message: 'Invalid User ID/Password'});
+    next('Invalid User ID/Password');
   }
-
+  
 };
-

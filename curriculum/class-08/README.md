@@ -1,4 +1,4 @@
-# Express Routing & Connected API
+# Class 08 - Express Routing & Connected API
 
 ## Learning Objectives
 

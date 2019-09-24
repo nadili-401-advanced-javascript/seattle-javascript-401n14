@@ -3,47 +3,46 @@
 const superagent = require('superagent');
 const Users = require('../users-model.js');
 
-const API = 'http://localhost:3000';
-const GTS = 'https://www.googleapis.com/oauth2/v4/token';
-const SERVICE = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
+const authorize = (req) => {
 
-let authorize = (request) => {
-  
-  console.log('(1)', request.query.code);
-  
-  return superagent.post(GTS)
+  let code = req.query.code;
+  console.log('(1) CODE:', code);
+
+  return superagent.post('https://www.googleapis.com/oauth2/v4/token')
     .type('form')
     .send({
-      code: request.query.code,
+      code: code,
       client_id: process.env.GOOGLE_CLIENT_ID,
       client_secret: process.env.GOOGLE_CLIENT_SECRET,
-      redirect_uri: `${API}/oauth`,
+      redirect_uri: `${process.env.API_URL}/oauth`,
       grant_type: 'authorization_code',
     })
     .then( response => {
       let access_token = response.body.access_token;
-      console.log('(2)', access_token);
+      console.log('(2) ACCESS TOKEN:', access_token);
       return access_token;
     })
     .then(token => {
-      console.log(SERVICE, token);
-      return superagent.get(SERVICE)
+      return superagent.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect')
         .set('Authorization', `Bearer ${token}`)
         .then( response => {
           let user = response.body;
-          console.log('(3)', user);
+          user.access_token = token;
+          console.log('(3) GOOGLEUSER', user);
           return user;
         });
     })
-    .then( oauthUser => {
-      console.log('(4) Create Our Account');
-      return Users.createFromOauth(oauthUser.email);
+    .then(oauthUser => {
+      console.log('(4) CREATE ACCOUNT');
+      return Users.createFromOAuth(oauthUser);
     })
-    .then( actualUser => {
-      return actualUser.generateToken(); 
+    .then(actualRealUser => {
+      console.log('(5) ALMOST ...', actualRealUser);
+      return actualRealUser.generateToken();
     })
-    .catch( error => error );
+    .catch(error => error);
+
+
 };
 
-
-module.exports = authorize;
+module.exports = {authorize};

@@ -1,53 +1,53 @@
-# LAB: Socket.io - Message Queue Server
+# LAB - React Testing and Deployment
 
-For this lab assignment, we will be writing a Message Queue server that monitors database events, and then modifying our API server to fire events into that Queue on all CRUD operations in our models. This will use a 3rd party library (@nmq/q) to do this work.
+Write Unit and Acceptance tests for your Counter application; Deploy to the cloud
 
 ## Before you begin
 Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
 
-
 ## Getting Started
+Starter code has been provided for you in the `/lab/starter-code` folder. 
 
-Get your api server up and running!  You're going to be modifying it in this lab.
+For this assignment, work locally instead of at Code Sandbox, as you'll need to create testing snapshots, build your docs and view the production build files.
 
-You will likely be creating 3 new git repositories to house the servers for this lab assignment
+Create a new repository for this assignment, copy the starter-code folder contents into it, and run an npm install to get started.
 
-### Assignment - Message Queue Server and Logger
+## Requirements
 
-* Create a message queue server
-* Initiate a queue called "files" that monitors "save" and "error" events
-* Initiate a queue called "database" that monitors "create", "read", "update", "delete" and "error" events
-* Create a logger application 
-* Connects to the "file" and "database" queues
-* Performs a custom `console.log()` on the events named above
+### Write Tests
+* Write tests to cover the counter component
+  * For Up and Down events
+    * Assert state changes properly
+    * Assert that state is being transferred to the DOM
+    * Assert DOM stability via snapshot testing.
+      * i.e. take a snapshot, change the markup/jsx, assert failure.  Put it back to make it all good.
+* Add some sleek and amazing styling, different from the previous lab.
 
-### Assignment 1 - File Writer (warm-up)
-This will be a repeat of the previous labs, this time using your new message queue server.
+### Deploy the application
+* Create a new repository for your application at Github and connect your sandbox to it.
+* Clone the repo to your local machine
+* Make sure that 'aws.yml' and 'build' are in your .gitignore, and then commit your code back to github
+* Perform an `npm install`
+* Perform an `npm run build`
+  * You should now have a fully functional static build in the builds folder
+  * You can verify this by running `live-server` from within the build folder
+* In your README, Submit all 3 deployed URLs from the below steps as well as your Travis tests and documentation links.
+ 
+#### Netlify
+* Setup Netlify to deploy from your master branch
 
-* In the starter code, you'll once again find an `app.js` that reads and modifies a file.
-* On a successful write, publish a "save" event to the "file" queue
-* On error, publish an "error" event to the "file" queue
-* Modularize the file reader
+#### AWS S3 Website
+* Run the build script `npm run build` for your application
+* Do a manual deployment of the `build` folder contents to a new Bucket and Cloud at AWS
+* Set the permissions to public
+* Enable Static Website Hosting
 
-### Assignment 2 - API Server
-Alter your API server to publish events on all CRUD Operations
-
-* Import the Queue client library
-* Perform a publish into the database queue, after "create", "update", "delete" and on any errors in your models.
-
-**Questions**
-
-* Where is the best place to do this? In the `mongo.js`? In each mongoose model?
-* How will you trap and publish error events?
-* Where will you identify the Queue server?
-
-### Testing
-* What will your approach be to asserting the API server published the right event?
-* How will you write assertions on the logger?
-
-### Deployment
-* Deployment is not required
+#### AWS Elastic Beanstalk
+* Use the `aws-tools` npm package to create an aws.yml file
+* Prepare an automated deployment through Cloud Formation using the `aws.yml` file you've created
+* Your App should auto-deploy to AWS Cloudfront.
 
 
 ### Assignemnt Submission Instructions
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
+* Submit links to both deployments at AWS

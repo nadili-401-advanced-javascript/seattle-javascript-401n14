@@ -1,4 +1,4 @@
-# Classes, Inheritance, Functional Programming
+# Class 02 - Classes, Inheritance and Functional Programming
 
 ## Learning Objectives
 * create npm scripts for automating command line tasks

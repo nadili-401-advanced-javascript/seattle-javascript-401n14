@@ -1,4 +1,4 @@
-# Data Modeling With NoSQL Databases
+# Class 05 - Data Modeling With NoSQL Databases
 
 ## Learning Objectives
 * Understand the differences between SQL and noSQL Databases

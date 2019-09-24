@@ -18,6 +18,12 @@ users.pre('save', async function() {
   }
 });
 
+users.statics.authenticateToken = function(token) {
+  let parsedToken = jwt.verify(token, process.env.SECRET);
+  let query = {_id: parsedToken.id};
+  return this.findOne(query);
+};
+
 users.statics.authenticateBasic = function(auth) {
   let query = {username:auth.username};
   return this.findOne(query)
@@ -28,25 +34,6 @@ users.statics.authenticateBasic = function(auth) {
 users.methods.comparePassword = function(password) {
   return bcrypt.compare( password, this.password )
     .then( valid => valid ? this : null);
-};
-
-users.statics.createFromOauth = function(email) {
-
-  if(! email) { return Promise.reject('Validation Error'); }
-
-  return this.findOne( {email} )
-    .then(user => {
-      if( !user ) { throw new Error('User Not Found'); }
-      console.log('Welcome Back', user.username);
-      return user;
-    })
-    .catch( error => {
-      console.log('Creating new user');
-      let username = email;
-      let password = 'none';
-      return this.create({username, password, email});
-    });
-
 };
 
 users.methods.generateToken = function() {

@@ -1,4 +1,4 @@
-# Async
+# Class 03 - Async
 
 ## Learning Objectives
 * understand how synchronous and asynchronous code runs in the Javascript runtime

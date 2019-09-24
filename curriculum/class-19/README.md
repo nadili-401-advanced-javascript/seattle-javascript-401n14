@@ -1,9 +1,11 @@
-#  Socket.io - Message Queue Server
+# Class 19 - React Testing and Deployment
 
 ## Learning Objectives
 
-* Describe and Draw the architecture for a Message Queue server
-* Describe namespaces and rooms in Socket.io
+* Write and Execute Snapshot tests for a React Application
+* Write and Execute Enzyme (live) tests for a React Application
+* Deploy a React applicaation to AWS S3 manually
+* Deploy a React application to cloudfront directly from github
 
 ## Outline
 * :05 **Housekeeping/Recap**
@@ -15,81 +17,86 @@
 * Break
 * :60 **Main Topic**
 
-## Computer Science Concept:
-* Namespaces and Clustering
+## UI Concept:
+* SASS
+  * @import
+  * Mixins
+    * @include
 
-## Message Queues
-A Queue server runs independently, and is tasked with routing events and messaging between clients.
+## Main Topics:
 
-- Any connected client can "publish" a message into the server.
-- Any connected client can "subscribe" to receive messages by type.
+### AWS Deployments
+* Buckets
+  * Storage containers for static assets
+* Cloud Front
+  * The Cloud! Your stuff all over the planet, with a secure URL
+* Cloud Formation and Code Deploy
+  * Deployment pipleline that connects Github, Buckets and Cloud Front
 
-The Queue server has the ability to see which clients are connected,  to which Queues they are attached and further, to which events they are subscribed.  The Queue server is tasked with receiving any published message and then distributing it out to all connected and subscribed clients.
+### React Testing
+* **Snapshots** - Make assertions on the *exact* generated markup at any state of the application.
+* **Render Testing** - Similar to snapshots, but allows for jQuery-like inspection of the virtual DOM tree
+* **Shallow Testing** - Executes and renders the called/container component, but does not compose children.
+* **Mounting** - Executes the full component and children. Allows for inspection of rendered Virtual DOM as well as the current state
 
-**What is a message?**
- - A message is a package of information, categorized by queue and event
- - `queue` - Which general bucket does this message belong
-   - i.e. "Database Events", "Filesystem Events", "Network Events", etc
- - `event` - What event has happened
-   - i.e. "delete, add, update, connection lost, error", etc.
- - `payload` - data associated with the event
-   - i.e. "record id, record information, error text", etc.
+Using a combination of approaches, you can easily "use" your application and ensure that things are changing both visually and physically (elements and state) as you expect.
 
- **Use Case**
- - An API server responds to a POST request
-   - User's access rights are confirmed
-   - The data is analyzed and normalized
-   - The data is sent to the database for saving
-   - The database "publishes" a message into the queue
-     - Queue: DB
-     - Event: CREATE
-     - Payload: JSON Object containing the created record
-   - The API server sends information back to it's client as normal
- - Elsewhere ...
-   - A logging application is connected to the queue
-     - It has subscribed to the "DB" Queue and is listening for `CREATE` events
-     - When the above transaction happens, the logger "hears" the `CREATE` event and logs some details to it's logging database and updates some summary data.
-   - A web based 'dashboard' application is running and is connected to the queue
-     - It also subscribes to `DB`/`CREATE`
-     - When this event happens, it updates a counter in the browser for the operator to see that a new record was created.
-   - A monitor application is running and is connected to the queue
-     - It also subscribes to `DB`/`CREATE`
-     - When this event happens, it sends a text to all sales people alerting them that a new customer account was created.
-   - ... and so on.
-
-
-## How do the `@nmq/q` client and server modules work?
-
-Within a socket.io server, by default, every socket that connects is in the same 'pool' of sockets. Everyone potentially hears every event.
-
-While that may work well at a concert, appications typically seek to segment their users. As an example, in an event driven application, there can be made a case for a 'save' event being valid for both files and for database records.
-
-But not every client needs to know about both. Loggers may only care about file changes, and a cache server may only care about databases.
-
-What if there were 2 "pools" of events, called "files" and "db", respectively. And what if each pool could fire it's own "save" event?
-
-In socket.io, we call those "pools" `Namespaces`
-
-**Namespaces** can have their own uniquely named events or use common names, but only subscribers to a given namespace can 'hear' those events. As a client, you physically `connect()` to a namespace, which are presented as a route on the url
-  * Default/General Namespace: `localhost:3000`
-  * Codefellows Namespace: `localhost:3000/codefellows` 
-
-**Rooms** are similar. Rather than connecting to a room directly as you do with a namespace, you first connect to a namespace and then request to the server that you `join` a room.  The accepted way to do this is by sending a join event to the server, and then the server will run the join command on behalf of the client.
-
-client.js
+####Sample test for our counter component
 ```
-const instructor = io.connect('http://localhost:3000/codefellows');
-instructor.emit('join','instructors', data => {
-  console.log(data);
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Counter from '../../../../src/components/counter/counter.js';
+
+describe('<Counter/> (Enzyme Test)', () => {
+  it('is alive at application start', () => {
+    let app = mount(<Counter />);
+    expect(app.find('.count').text()).toBe('0');
+  });
+
+  it('can count up', () => {
+    let app = mount(<Counter />);
+    app.find('.up').simulate('click');
+    expect(app.state('count')).toEqual(1);
+    app.find('.up').simulate('click');
+    expect(app.state('count')).toEqual(2);
+  });
+
+  it('can count down', () => {
+    let app = mount(<Counter />);
+    app.find('.down').simulate('click');
+    expect(app.state('count')).toEqual(-1);
+    app.find('.down').simulate('click');
+    expect(app.state('count')).toEqual(-2);
+  });
+
+  it('visually displays proper polarity and value on the count element', () => {
+    let app = mount(<Counter />);
+    expect(app.find('.count.negative').exists()).toBeFalsy();
+    expect(app.find('.count.positive').exists()).toBeFalsy();
+    // Go to 1
+    app.find('.up').simulate('click');
+    expect(app.find('.count.positive').exists()).toBeTruthy();
+    expect(app.find('.count').text()).toBe('1');
+
+    // Down to zero
+    app.find('.down').simulate('click');
+    expect(app.find('.count').text()).toBe('0');
+    expect(app.find('.count.negative').exists()).toBeFalsy();
+    expect(app.find('.count.positive').exists()).toBeFalsy();
+
+    // Down to -1
+    app.find('.down').simulate('click');
+    expect(app.find('.count.negative').exists()).toBeTruthy();
+    expect(app.find('.count').text()).toBe('-1');
+  });
+});
+
+describe('<Counter/> Core Component (Snapshot Test)', () => {
+  it('renders right', () => {
+    const component = renderer.create(<Counter />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
 ```
 
-server.js
-```
-  socket.on('join', (room, cb) => {
-    socket.join(room);
-    cb(`Joined ${room}`);
-  });
-```
-
-Unlike pure events, both **rooms** and **namespaces** allow you to inspect the list of clients attached. 

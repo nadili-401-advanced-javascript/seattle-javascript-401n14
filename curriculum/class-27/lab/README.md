@@ -1,53 +1,69 @@
-# LAB - React Testing and Deployment
+# LAB - Dynamic Forms
 
-Write Unit and Acceptance tests for your Counter application; Deploy to the cloud
+Wire dynamic forms into your To Do application, replacing standard state and/or a Form Hook.
 
 ## Before you begin
 Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
 
 ## Getting Started
+
 Starter code has been provided for you in the `/lab/starter-code` folder. 
 
-For this assignment, work locally instead of at Code Sandbox, as you'll need to create testing snapshots, build your docs and view the production build files.
+Open [Code Sandbox](http://codesandbox.io) and Create a new application. When prompted, choose "From GitHub" and then paste in the URL to today's starter code folder from your fork of the class repository.
 
-Create a new repository for this assignment, copy the starter-code folder contents into it, and run an npm install to get started.
+You will be submitting the URL to this working sandbox as part of your assignment.
 
-## Requirements
+## Practice - Wire up forms
+You have been provided, in the `starter-code/practice` folder, a working application using standard React forms with some hooks that deal with the form submission
 
-### Write Tests
-* Write tests to cover the counter component
-  * For Up and Down events
-    * Assert state changes properly
-    * Assert that state is being transferred to the DOM
-    * Assert DOM stability via snapshot testing.
-      * i.e. take a snapshot, change the markup/jsx, assert failure.  Put it back to make it all good.
-* Add some sleek and amazing styling, different from the previous lab.
+**Task 1: Refactor to use Redux Forms**
+* Copy the `player-form.js` into a new file called `player-redux-form.js` 
+* Alter the `player.js` file to import this file as a new component called `PlayerFormRedux`
+* Render the PlayerFormRedux component in addition to the `PlayerForm`
+* Don't forget to wire `redux-form` into your store
 
-### Deploy the application
-* Create a new repository for your application at Github and connect your sandbox to it.
-* Clone the repo to your local machine
-* Make sure that 'aws.yml' and 'build' are in your .gitignore, and then commit your code back to github
-* Perform an `npm install`
-* Perform an `npm run build`
-  * You should now have a fully functional static build in the builds folder
-  * You can verify this by running `live-server` from within the build folder
-* In your README, Submit all 3 deployed URLs from the below steps as well as your Travis tests and documentation links.
+**Task 2: Refactor to use JSON Schema Form**
+* Copy the `player-form.js` into a new file called `player-json-form.js` 
+* Alter the `player.js` file to import this file as a new component called `PlayerFormJSON`
+* Render the PlayerFormJSON component in addition to the other 2
+  * Don't forget to import the schema.json file
+  
+**How do you know when you're done?**
+
+Your application should show 3 player forms below the list of players. You should be able to click the edit button and see a player in each of the forms. Editing and saving one should reflect in all 3 if you have this all wired up correctly.
+  
+**Stretch Goal**
+* Copy the player form again
+* Find an alternative react/redux form library
+* Wire it up
+
+For the README on this practice assignment, provide a report detailing the pros, cons, gotchas, other comparisons along with your general and implementation details for each approach.
+
+
+## To Do App Assignment
+**Refactor the To Do application to use Redux and a form library**
+
+You'll be given a working To Do application which you must refactor as follows:
  
-#### Netlify
-* Setup Netlify to deploy from your master branch
+**State Management**
+* Convert the state management to a Redux Store.
+* Create a Redux Store, a To Do store/reducer/action set
+* Wire up the components to subscribe to the store for state and actions
 
-#### AWS S3 Website
-* Run the build script `npm run build` for your application
-* Do a manual deployment of the `build` folder contents to a new Bucket and Cloud at AWS
-* Set the permissions to public
-* Enable Static Website Hosting
+**Form Handling** 
 
-#### AWS Elastic Beanstalk
-* Use the `aws-tools` npm package to create an aws.yml file
-* Prepare an automated deployment through Cloud Formation using the `aws.yml` file you've created
-* Your App should auto-deploy to AWS Cloudfront.
+Convert ths current form rendering/submission process into one of either
+
+* React JSON Schema Form
+* Redux Form
+* A form library of your own choosing
 
 
+> If you choose to use JSON Schema Form, begin by replacing the schema.json file with one suitable for the to do application
+
+> This will come from the `/api/vi/todo/schema` route in either your deployed API or the official one.
+
+
+  
 ### Assignemnt Submission Instructions
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
-* Submit links to both deployments at AWS

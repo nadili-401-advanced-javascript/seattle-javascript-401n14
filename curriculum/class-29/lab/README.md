@@ -1,79 +1,57 @@
-# LAB - Routing and Component Composition
-
-Implement routing and composed components into the To Do Application.
+# LAB - Combined Reducers, Drag and Dro
 
 ## Before you begin
 Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
 
-## Getting Started
+## Practice - Drag and Drop
 
-## Requirements
+Create a reusable Drag and Drop component system with the API described below. Ideally, this would be generic enough for you put on NPm and could be used in any application that you write in the future.
 
-**For Each of these tasks, implement a router into the application.**
+The starter code provided is optimistic -- it is wired up to use your components as shown below, and should work once you've gotten your work completed.
 
-* Wrap your `<App />` component in `<BrowserRouter />` context at the index level
-* Implement a simple navigation bar that links to Home and Code
-* `/` should render your app/assignment or primary output
-* `/about` should render a static "About Us" page of content
+`<Draggable>` Wrapper around components you want to be able to drag
+
+* `payload` property contains data to pass to the drop zone when this is dropped.
+* `dragClass` property contains the name of the class to be applied while the element is being dragged.
+```
+<Draggable dragClass="moving" payload={someDataYouCareAbout}>
+  <MyComponent>...</MyComponent>
+</Draggable>
+```
+
+`<Dropzone>` Wrapper around components you want to be able to drop things on
+
+* `onDrop` is the method/function you want to run after a drop happens. This will receive the payload sent by both the drop zone and the draggable element
+* `payload` property contains data about this drop zone to pass to the onDrop method after something has been dropped.
+* `className` is the name of a CSS Class that will be applied to the DropZone itself
+* `hoverClass` is the name of a CSS Class that will be applied while the drop zone is being hovered over.
+
+```
+const someDataAboutMe = {
+    categoryName: 'foobar'
+}
+
+const myDropHandler = (targetPayload, droppedPayload) => {
+}
+
+<DropZone 
+  className="container" 
+  hoverClass="dropable" 
+  payload={someDataAboutMe}
+  handleDrop={myDropHandler} 
+  hoverClass="hovering"
+>
+  <MyContainerThing>...</MyContainerThing>
+</Draggable>
+```
 
 
-## Practice Component Composition
-### Cards and Decks
-Begin with: `starter-code/practice`
+## Assignment - To Do
 
-You are starting with a monolithic application that reads in a `.json` file containing an array of content sections (decks), each of which contains multiple content records (cards)
-
-The application renders this content by mapping over the content such that each deck is a `<section>` and then each card within is a `<div>`
-
-Refactor this application as follows
-
-* Create separate components for `<Page />`, `<Deck />` and `<Card />`
-* Render the page by sending it the content object as a property
-* Have the page render a `<Deck />` for each content section.
-* Have the `<Deck />` render each of their content records as a `<Card />`
-* Use component composition to pre-render the cards and have the decks render them as `props.children` 
-* Use the `<If />` component library to conditionally render the content in both the decks and cards
-  * e.g. only render the `<header>` if you have a title.
+### Requirements
 
 ### Testing
-* Complete basic render testing on these components
-* Account for missing/incomplete content
+* tests that ensure the list module functions correctly with error-check parameters
 
-## To Do Application Refactor
-
-Begin with: `starter-code/todo`
-
-Again, your starter code for this assignment is a bare-bones HTML, CSS, Vanilla JS to do application.
-
-You will first need to convert this application to React and then **add the following features**, using composition and conditional rendering.
-
-* Change the "Add" form to use more fields and store this with each record
-  * Assigned To (a name)
-  * Difficulty (range from 1-5)
-  * Due Date (use a calendar)
-* Populate the initial To Do list from an API server
-* Add a `Details` button next to the `Delete` button
-  * When clicked, show a modal or slide-in with the details of the item
-  
-Style the application as you please. Be creative!
-  
-### Testing
-* Complete basic render testing on the application
-* Test state changes 
-* Modal visibility on state change 
-  * Is it rendered?
-  * Is the correct to do item in it?
- 
-### To Do App Stretch Goals
-* Save the server (`post`) when an item is added
-* Delete from the server when the `Delete` button is clicked
-
-### Additional Stretch Goals
-* Create an `npm` account and an organization
-* Write tests for an publish your `<If />` components to `npm`
-* Now, you can use them in any project.
-
-### Assignemnt Submission Instructions
+## Assignemnt Submission Instructions
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
-
-

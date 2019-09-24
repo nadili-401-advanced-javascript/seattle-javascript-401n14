@@ -1,10 +1,6 @@
-# LAB: Bearer Authorization
+# LAB: Access Control
 
-To this point, our `auth-server` is able to handle Basic Authentication (user provides a username + password) and Oauth (user authenticates through a 3rd party). When a "good" login happens, the user is provided a JWT signed "Token" from our auth-server.  
-
-This lab will have you operating on the `/signin` route to add support for Token based authentication ("Bearer Auth") using a token that you can obtain from performing the above activities.
-
-You'll be required to wire up Bearer auth properly and then to dive in deeper and add some security measures to the tokens to prevent misuse and fraud.
+Being able to login is great. But controlling access is vital to creating a scalable system. In this lab, you will implement Role Based Access Control (RBAC) using a dynamic Access Control List (ACL) with Mongo models.
 
 ## Before you begin
 Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
@@ -12,35 +8,29 @@ Refer to *Getting Started*  in the [lab submission instructions](../../../refere
 
 ## Getting Started
 
-* You'll need copy the contents of the auth-server folder into a new git repository for this lab, install your dependencies, setup your npm script commands, and pull in your config files
-* You will need to create a .env file with:
-    * MONGODB_URI
-    * PORT
-    * SECRET
-
 ## Requirements
-Implement a Bearer Authentication system with optional token expiry, api keys, and single use tokens.
 
-### Assignment 1: Install the core bearer authorization system
-* `middleware.js` - Handle the Bearer Header to pull and verify with the token
-* `users-model.js` - Add a bearer authorization method that verifies the token
-* Create a few users+passwords to test with
-
-### Assignment 2: Improve the core bearer authorization system...
-* Add support for the creation and usage of time sensitive (valid for 15 minutes) JWTs
-* Add support for the creation and usage of 'single-use' JWTs
-  * With every authenticated access, re-send a new JWT token as a cookie or header
-  * Disable those that you've already authenticated
-* Implement these via configuration (i.e. an env setting or login option) so that your system can handle multiple authorization schemes
-
-### Assignment 3: Create a Auth Key system
-  * Create a new route: `router.post('/key' ... )` that will generate a JWT without an expiration date, and noted to be an auth key (so that it won't be deleted like a single use token)
-  * Allow users to authenticate using the Auth Key as they would a normal token
-  * Auth Keys should never expire
-  * Auth Keys should be re-usable
-  * How might you make this secure?
-  
+* Create a new router that contains a few new routes (see examples below) that we can protect using our authentication model.
+* Protect your New Routes with the proper permissions based on user capability
+  * `router.get('/public-stuff')` should be visible by anyone
+  * `router.get('/hidden-stuff')` should require only a valid login
+  * `router.get('/something-to-read')` should require the `read` capability
+  * `router.post('/create-a-thing)` should require the `create` capability
+  * `router.put('/update)` should require the `update` capability
+  * `router.patch('/jp)` should require the `update` capability
+  * `router.delete('/bye-bye)` should require the `delete` capability
+  * `router.get('/everything')` should require the `superuser` capability
+* You will need to restrict based on the given permission via middleware
+* Implementation of the ACL itself should be re-written using a separate model called "roles" populated as a **virtual field** in the users table
+   * *not as a hard-coded table within the User Model as done in the demo*
+   * Hint: This might impact the .can() function and how you build out the token
+   
 ### Notes
+* You will need to create, roles and capabilities permissions in a new collection called 'roles' in  your mongoose database before anything will work properly
+* There are many ways to do this
+  * Create a route that lets you create a role (similar to a POST in the API) and create them one at a time
+  * Create a route that builds the roles collection 
+  * Write a separate .js script that builds the roles and an npm script that you can use to initiate that from the command line (or during deployment)
 
 To test your routes, you'll need to first login with a valid user to get a token, and then use httpie or postman to hit the routes using a Bearer Token
 
@@ -50,14 +40,8 @@ http post :3000/hidden-stuff "authorization: bearer TOKENHERE"
 ```
 
 ### Testing
-* Add test coverage to the auth tests to assert that:
-  * given a good token user is able to "log in" and receive a new token
-  * Tokens can optionally be expired
-  * Expired tokens do not allow a user to login
-  * Auth Keys can login a user as a token would
-  * Auth Keys do not expire
-
+* Add tests to the api routes, asserting restricted access to the routes as shown.
+* Add tests to the mongoose model for the created static and instance methods.
 
 ## Assignment Submission Instructions
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
-

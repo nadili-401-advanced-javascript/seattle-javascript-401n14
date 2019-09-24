@@ -1,51 +1,63 @@
-# LAB: OAuth
+# LAB: Bearer Authorization
 
-Our company has decided to integrate OAuth instead of managing usernames and passwords internally. In order to make the best decision, we are creating small research teams to assess the suitability of various OAuth providers.
+To this point, our `auth-server` is able to handle Basic Authentication (user provides a username + password) and Oauth (user authenticates through a 3rd party). When a "good" login happens, the user is provided a JWT signed "Token" from our auth-server.  
+
+This lab will have you operating on the `/signin` route to add support for Token based authentication ("Bearer Auth") using a token that you can obtain from performing the above activities.
+
+You'll be required to wire up Bearer auth properly and then to dive in deeper and add some security measures to the tokens to prevent misuse and fraud.
 
 ## Before you begin
 Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
 
+
 ## Getting Started
-* This lab contains 2 folders
-  * `www-server` - The Web Server with the login form
-  * `auth-server` - The Backend Server that takes care of the authentication and user creation processes
-* **You will need to create 2 new repositories from the contents of these folders**
-  * All files/folders must be at the root of the new repository, not in the sub folders they currently reside in.
-  * For the server, you will need to create a .env file with:
-      * MONGODB_URI
-      * PORT
-      * SECRET
-      * GOOGLE_API_KEY
-      * GOOGLE_CLIENT_SECRET
-* When you deploy, deploy the auth and www servers separately to Heroku, into new dynos.
+
+* You'll need copy the contents of the auth-server folder into a new git repository for this lab, install your dependencies, setup your npm script commands, and pull in your config files
+* You will need to create a .env file with:
+    * MONGODB_URI
+    * PORT
+    * SECRET
 
 ## Requirements
-* You will be assigned an OAuth provider to integrate with. Sites such as Yahoo, Github, Facebook, and AWS all have OAuth mechanisms that work similarly to Google. Integrate your provider into the auth server, using google+ as your guide, reporting back to the team with a general feasability report.
-* This is a group lab that will have you integrating OAuth with any provider.
-* Spend no more than 4 hours on this assignment.
+Implement a Bearer Authentication system with optional token expiry, api keys, and single use tokens.
 
-### backend server
-* create an account/app/credential on your assigned OAuth Provider
- * configure oauth credentials to support a client app on `http://localhost`
- * configure oauth credentials to support a server redirect uri to `http://localhost:3000/oauth`
-* create a backend route `GET /oauth` for handling oauth redirects
-* create a new file under `/src/auth/oauth` for your provider
+### Assignment 1: Install the core bearer authorization system
+* `middleware.js` - Handle the Bearer Header to pull and verify with the token
+* `users-model.js` - Add a bearer authorization method that verifies the token
+* Create a few users+passwords to test with
 
-### frontend server
-* create an index.html with an anchor tag pointing to the google authorization page
-* configure the query string with correct key value pairs
+### Assignment 2: Improve the core bearer authorization system...
+* Add support for the creation and usage of time sensitive (valid for 15 minutes) JWTs
+* Add support for the creation and usage of 'single-use' JWTs
+  * With every authenticated access, re-send a new JWT token as a cookie or header
+  * Disable those that you've already authenticated
+* Implement these via configuration (i.e. an env setting or login option) so that your system can handle multiple authorization schemes
+
+### Assignment 3: Create a Auth Key system
+  * Create a new route: `router.post('/key' ... )` that will generate a JWT without an expiration date, and noted to be an auth key (so that it won't be deleted like a single use token)
+  * Allow users to authenticate using the Auth Key as they would a normal token
+  * Auth Keys should never expire
+  * Auth Keys should be re-usable
+  * How might you make this secure?
+  
+### Notes
+
+To test your routes, you'll need to first login with a valid user to get a token, and then use httpie or postman to hit the routes using a Bearer Token
+
+**httpie**
+```
+http post :3000/hidden-stuff "authorization: bearer TOKENHERE"
+```
 
 ### Testing
-* Not Required
+* Add test coverage to the auth tests to assert that:
+  * given a good token user is able to "log in" and receive a new token
+  * Tokens can optionally be expired
+  * Expired tokens do not allow a user to login
+  * Auth Keys can login a user as a token would
+  * Auth Keys do not expire
+
 
 ## Assignment Submission Instructions
-* Complete the REPORT.md file included in the lab folder and prepare a group presentation for the class based on your findings.
-* Have 1 person from your group submit the REPORT.md
+Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
 
-## Provider Documentation Reference
-* [GitHub](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)
-* [Auth0](https://auth0.com/)
-* [Wordpress](https://developer.wordpress.com/docs/oauth2/)
-* [Facebook](https://developers.facebook.com/docs/facebook-login/)
-* [LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin)
-* [Amazon](https://developer.amazon.com/login-with-amazon)

@@ -1,4 +1,4 @@
-# Node Ecosystem
+# Class 01 - Node Ecosystem
 
 ## Learning Objectives
 * setup a NodeJS Package using npm

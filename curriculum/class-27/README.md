@@ -1,11 +1,10 @@
-# React Testing and Deployment
+# Class 27 - Dynamic Forms
 
 ## Learning Objectives
 
-* Write and Execute Snapshot tests for a React Application
-* Write and Execute Enzyme (live) tests for a React Application
-* Deploy a React applicaation to AWS S3 manually
-* Deploy a React application to cloudfront directly from github
+* Implement a generic form using Redux Form
+* Implement a generic standard form using JSON Schema
+* Connect form data back to the store
 
 ## Outline
 * :05 **Housekeeping/Recap**
@@ -18,85 +17,102 @@
 * :60 **Main Topic**
 
 ## UI Concept:
-* SASS
-  * @import
-  * Mixins
-    * @include
+* UX: Form Usability and Styling
+* <Record> Component
 
-## Main Topics:
+## Main Topic:
+* Dynamic forms from JSON Schema
+* Manually creating forms
+* Handling RESTful actions in state
 
-### AWS Deployments
-* Buckets
-  * Storage containers for static assets
-* Cloud Front
-  * The Cloud! Your stuff all over the planet, with a secure URL
-* Cloud Formation and Code Deploy
-  * Deployment pipleline that connects Github, Buckets and Cloud Front
+### JSON Schema Form
+Generates a full form through configuration. Given a proper JSON schema, and proper rule sets, the forms will auto appear and populate.
 
-### React Testing
-* **Snapshots** - Make assertions on the *exact* generated markup at any state of the application.
-* **Render Testing** - Similar to snapshots, but allows for jQuery-like inspection of the virtual DOM tree
-* **Shallow Testing** - Executes and renders the called/container component, but does not compose children.
-* **Mounting** - Executes the full component and children. Allows for inspection of rendered Virtual DOM as well as the current state
+In either a POC, or a system where top-down forms are ok, this is a great solution to jump in with.
 
-Using a combination of approaches, you can easily "use" your application and ensure that things are changing both visually and physically (elements and state) as you expect.
+```javascript
+import Form from 'react-jsonschema-form';
 
-####Sample test for our counter component
-```
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Counter from '../../../../src/components/counter/counter.js';
+  // When the form is submitted, you'll get an object from it.
+  handleSubmit = (form) => {
+    console.log(form.formData);
+  }
 
-describe('<Counter/> (Enzyme Test)', () => {
-  it('is alive at application start', () => {
-    let app = mount(<Counter />);
-    expect(app.find('.count').text()).toBe('0');
-  });
+  // Create the form with valid JSON Schema Object and some display rules (optional) in {uiSchema}
 
-  it('can count up', () => {
-    let app = mount(<Counter />);
-    app.find('.up').simulate('click');
-    expect(app.state('count')).toEqual(1);
-    app.find('.up').simulate('click');
-    expect(app.state('count')).toEqual(2);
-  });
+  <Form
+    schema={this.state.schema}
+    uiSchema={uiSchema}
+    formData={this.state.data}
+    onSubmit={this.handleSubmit}
+  />
 
-  it('can count down', () => {
-    let app = mount(<Counter />);
-    app.find('.down').simulate('click');
-    expect(app.state('count')).toEqual(-1);
-    app.find('.down').simulate('click');
-    expect(app.state('count')).toEqual(-2);
-  });
-
-  it('visually displays proper polarity and value on the count element', () => {
-    let app = mount(<Counter />);
-    expect(app.find('.count.negative').exists()).toBeFalsy();
-    expect(app.find('.count.positive').exists()).toBeFalsy();
-    // Go to 1
-    app.find('.up').simulate('click');
-    expect(app.find('.count.positive').exists()).toBeTruthy();
-    expect(app.find('.count').text()).toBe('1');
-
-    // Down to zero
-    app.find('.down').simulate('click');
-    expect(app.find('.count').text()).toBe('0');
-    expect(app.find('.count.negative').exists()).toBeFalsy();
-    expect(app.find('.count.positive').exists()).toBeFalsy();
-
-    // Down to -1
-    app.find('.down').simulate('click');
-    expect(app.find('.count.negative').exists()).toBeTruthy();
-    expect(app.find('.count').text()).toBe('-1');
-  });
-});
-
-describe('<Counter/> Core Component (Snapshot Test)', () => {
-  it('renders right', () => {
-    const component = renderer.create(<Counter />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
 ```
 
+### Redux Form
+Is not dynamically generated, you'll need to put in some work in architecture and wiring.
+
+Puts you more in control over each facet of the form (elements, input types, workflow, etc)
+
+**Store**
+```javascript
+import { reducer as formReducer } from 'redux-form'
+
+const reducers = combineReducers({
+  // you are required to pass formReducer under 'form' key,
+  form: formReducer
+})
+
+const store = createStore(reducers)
+```
+
+**Form Component**
+
+Note the use of the `<Field />` component and the declaration of `type`...
+
+```javascript
+import { Field, reduxForm } from 'redux-form'
+
+MyForm = props => {
+  const { handleSubmit } = props
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="firstName">First Name</label>
+        <Field name="firstName" component="input" type="text" />
+      </div>
+      <div>
+        <label htmlFor="lastName">Last Name</label>
+        <Field name="lastName" component="input" type="text" />
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <Field name="email" component="input" type="email" />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
+
+export default reduxForm({
+  form: 'myform'
+})(MyForm)
+
+```
+
+**Handling Submit**
+
+So long as you pass an onSubmit to the Form component, you can use your own handler, which will receive the filled in values.
+
+```javascript
+class ContactPage extends React.Component {
+  submit = values => {
+    // print the form values to the console
+    console.log(values)
+  }
+  render() {
+    return <ContactForm onSubmit={this.submit} />
+  }
+}
+// normal redux connectons and exports down here ...
+```

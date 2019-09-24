@@ -1,48 +1,71 @@
-# Socket.io 
+# Class 18 - Component Based UI
 
 ## Learning Objectives
 
-* Implement a standalone Socket.io server for handling events and real time messaging.
-* Use events to properly route incoming messages and payload
+* Desribe in general terms "Component Architecture"
+* Describe in general terms application and component "State"
+* Begin a React project locally with `create-react-app`
+* Use codesandbox.io to work live on a React application
+* Create and render `Class` and `Functional` React components to the DOM
+* Add event listeners to React components
+* Update React component state
+* Style React applications/components
 
 ## Outline
 * :05 **Housekeeping/Recap**
 * :30 **Whiteboard/DSA Review**
 * :15 **Lightning Talk**
 * Break
-* :20 **Code Review**
 * :30 **CS/UI Concepts** -
+* :20 **Code Review**
 * Break
 * :60 **Main Topic**
 
-## Computer Science Concept:
-* Web Sockets
-
 ## UI Concept:
-* SASS Mixins
+* SASS
+  * Nesting of selectors
+  * Variables
 
 ## Main Topic:
-Socket.io is a "mash-up" of sorts between Events and TCP or UDP. It bridges both concepts to allow for event-driven "real time" communication between disconnected applications.
+Component based UI systems like `React`, `Angular`, `Vue` and the like all operate on similar architectural principles.
 
-### Connections
-With TCP, you connect directly to a server with a keep-alive type of connection.
+* Rather than view an application as an enourmous interconnected codebase, the application is a **composition** of `components` that work together to make the application work.
+* The secret sauce is how they work together.
+* We use Classes and Functions to classify functionality
+* We require what we need
+* We render it where we want
+* We pay attention to `state` and react as it changes.
 
-With Socket.io, you connect to a server over HTTP. The session is "kept alive" through a series of pings and acks, with session information being preserved.
+#### COMPONENTS!
+<img src="components.png" width="400">
 
-### Messaging
-Standard node events are sent with `emit()` and received with `on()` ... Socket.io uses the same methodology/terminology.
+#### STATE!
+<img src="state.jpg" width="400">
 
-In an event driven node app, the entire app is in memory, and (through a common event pool), all parts of your application can emit and hear events, communicating with each other.  However, no outside application can participate in these events natively.
 
-With Socket.io, the entire purpose is to have events shared between 'disconnected' participants.  Through a mediator (server), clients connect, emit events, and respond to events from the server.  A typical flow works like this:
+### React
+**We will be using React in this course to learn these basic principles**
 
-* Client Applications 1, 2, 3, x ... connect to a running Socket.io server
-* Client Application 1 emits an event called 'speak' to the server, with the data 'Hello World'
-* Server has an `on('speak', (data) => {})` which "hears" that event
-* Upon processing the event, the server may elect to `emit()` an event of it's own.
-  * i.e. `socket.emit('incoming-message', data)`
-* Other client applications that have connected into the server that have a listener on that event type, can then "hear" it as well... 
-  * i.e. `socket.on('incoming-message', text => console.log(text)`
-  * Not every client will have a listener for every event.
-  * The server may not have a listener for every event a client sends
+As a component based system, React does an awful lot for us, principally, it gets out out of the way and makes it EASY to implement your application the way you see it, using familiar tools.
+
+* JSX looks like markup, but it's actually Javascript. If you had to code it out, you wouldn't...
+
+JSX
+```
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
+Behind the scenes...
+```
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+
 

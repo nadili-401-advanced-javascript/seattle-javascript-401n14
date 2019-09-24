@@ -1,4 +1,4 @@
-# Data Modeling
+# Class 04 - Data Modeling
 
 ## Learning Objectives
 * Model real world data

@@ -1,4 +1,4 @@
-# HTTP and REST
+# Class 06 - HTTP and REST
 
 ## Learning Objectives
 
