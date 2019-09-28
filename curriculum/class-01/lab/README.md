@@ -41,6 +41,6 @@ Things we want to be able to validate
 * `console.log()` the return values
 
 
-### Assignemnt Submission Instructions
+### Assignment Submission Instructions
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
 
