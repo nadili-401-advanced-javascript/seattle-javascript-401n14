@@ -1,13 +1,14 @@
 # Class 01 - Node Ecosystem
 
 ## Learning Objectives
-* setup a NodeJS Package using npm
-* create commonjs modules
-* to create unit tests for synchronous Javascript code
-* use to test driven development methodologies
-* connect their github repository to travis-ci for hot build testing
-* describe and define continuous integration and continuous delivery
-* configure TravisCI to run their tests on all pushes to GitHub
+* Learn what Node is
+* Learn what a CommonJS Module is and how you make one
+* Setup a NodeJS Package using npm
+* Create Unit tests
+* Use and define Test Driven Development
+* Define Continuous Integration
+* Connect git repo to TravisCI for hot build testing 
+* Configure TravisCI to run tests on all pushes to git
 
 ## Outline
 
