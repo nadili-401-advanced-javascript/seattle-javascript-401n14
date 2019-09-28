@@ -1,28 +1,23 @@
-'use strict';
+"use strict";
 
-/**
- *
- * @module Hello
- */
-
-// Prep our interface mechanism (module.exports)
+// module Hello
 module.exports = exports = {};
 
-/**
- * Interface Method: sayHello(name)
- * @param {string} name
- * @returns {string}
- */
+// Exported function: sayHello(name)
+// // param string name
+// // returns string
 exports.sayHello = (...args) => {
-  if(args.length !== 1) { return null; }
-  if( typeof args[0] !== 'string' ) { return null; }
-  return `Hello, ${args[0]}`;
+	if (args.length !== 1) {
+		return null;
+	}
+	if (typeof args[0] !== "string") {
+		return null;
+	}
+	return `Hello, ${args[0]}`;
 };
 
-/**
- * sayGoodbye()
- * @returns {string}
- */
+// Exported function: sayGoodbye()
+// // returns string
 exports.sayGoodbye = () => {
-  return 'Goodbye';
+	return "Goodbye";
 };
