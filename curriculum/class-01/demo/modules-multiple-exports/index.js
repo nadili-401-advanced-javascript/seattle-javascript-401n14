@@ -1,21 +1,30 @@
-'use strict';
+"use strict";
 
-// Pull in our 'hello' module
-const hello = require('./lib/hello.js');
+// Here we import a module located in the
+// file ./lib/hello.js, and we name it "hello"
+const hello = require("./lib/hello.js");
 
-// What is 'hello?'  As you'll see from this console.log, it's an object with 2 methods and one property
-// The 2 methods are the ones that are attached to the "exports" object in the module we required in.
+// Let's try to print out what the variable
+// "hello" actually stored. We should see
+// from our console that it's a module object
+// with multiple functions
 console.log(hello);
 
-// sayHello() returns a value to us, so we'll capture that
-let greeting = hello.sayHello('john');
+// We see from ./lib/hello.js that one of the
+// things it exports is "myModuleName". Lets
+// see if we can access that export
+console.log(hello.myModuleName);
 
-// ... and print it out
+// After looking at ./lib/hello.js, we know
+// there's an exported function called "sayHello".
+// We'll try to use that here:
+let greeting = hello.sayHello("Sonia");
 console.log(greeting);
 
-// We can call sayGoodbye() because it was exported from the module.
-console.log( hello.sayGoodbye() );
+// We also know ./lib/hello.js exports a function
+// called "sayGoodbye". Lets try that as well:
+console.log(hello.sayGoodbye());
 
-// sayHey() was not imported, so technically it doesn't exist to the outside world.
-// We should get a "function does not exist" error here
-console.log( hello.sayHey() );
+// What about the "getMessage" function? We see
+// it in ./lib/hello.js, so can we use it?
+// console.log(hello.getMessage("Sonia"));

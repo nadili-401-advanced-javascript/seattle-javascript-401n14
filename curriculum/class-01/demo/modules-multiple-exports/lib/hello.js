@@ -1,29 +1,33 @@
-'use strict';
+"use strict";
 
-// Rather than return a function, this time, we are exposing an object through module.exports
+// We want to export multiple things this time.
+// Lets say that this module returns an OBJECT
+// instead of a function this time
 module.exports = exports = {};
 
-exports.myModuleName = '401js Hello World Module';
+// We want to add some data to this exported object.
+// Lets start simple with a name for the module!
+exports.myModuleName = "401js Hello World Module";
 
-// Here, we're exporting a method called "sayHello".
-// Notice that it calls an internal helper function to do it's job
-// That function is not part of our interface, as it is not exported
-exports.sayHello = (name) => {
-  return getMessage(name);
+// We'll also export a function that takes a
+// name as a parameter and calls another function
+// within this same file.
+// "getMessage" is defined on line 27
+exports.sayHello = name => {
+	return getMessage(name);
 };
 
-// Export another function
+// We're exporting another function, which simply
+// returns a string
 exports.sayGoodbye = () => {
-  return 'Goodbye';
+	return "Goodbye";
 };
 
-// Internal Helper Function -- because this is not hung on the module.exports object, this is not
-// exported as a part of our interface
-const getMessage = (name) => {
-  return `Hello, ${name}`;
-};
-
-// Another internal function.  This is not callable by our clients, because it's not exported
-const sayHey = () => {
-  return 'Yo, dude....';
+// Remember how "sayHello" called "getMessage"?
+// Here's the definition for that. Notice that
+// this function IS NOT added to the exports
+// object. Does this mean it's not accessible
+// to other files?
+const getMessage = name => {
+	return `Hello, ${name}`;
 };
