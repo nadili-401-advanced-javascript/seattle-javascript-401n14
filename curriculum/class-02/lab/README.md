@@ -14,7 +14,7 @@ Refer to *Getting Started*  in the [lab submission instructions](../../../refere
 * The tests are pre-configured to run only the constructor variety, but will need to be altered to also test your `Classes`
   * Try and find a way to keep this DRY
 
- **Software Engineering Note!** *This is the heart of a refactor -- re-implement the same functionality, the same signature, and the same I/O while completely rewriting the underlying implementation*
+ >**Software Engineering Note!** *This is the heart of a refactor -- re-implement the same functionality, the same signature, and the same I/O while completely rewriting the underlying implementation*
 
 ---
 
