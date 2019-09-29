@@ -1,8 +1,8 @@
 # Class 01 - Node Ecosystem
 
-[Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e8678bdb995374c44c7f0)
 
-[Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e8678bdb995374c44c7f0)
+| [Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e8678bdb995374c44c7f0) | [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e8678bdb995374c44c7f0) |
+| ----------- | ----------- |
 
 ## Learning Objectives
 * Learn what Node is
