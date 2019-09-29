@@ -10,23 +10,23 @@ Wiki Entry Ideas:
 * Notes in outline form
 
 ## Read
-* [inheritance](https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9)
-* [ydkjs - objects](https://github.com/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes)
-* [eloquent js - functional programming](https://eloquentjavascript.net/1st_edition/chapter6.html)
-* [functional programming in js - fcc](https://medium.freecodecamp.org/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276)
+* [Inheritance](https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9)
+* [YouDontKnowJS - Chapter 3: Objects](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/this-object-prototypes/ch3.md)
+* [Eloquent JS - Functional Programming](https://eloquentjavascript.net/1st_edition/chapter6.html)
+* [Free Code Camp - Functional Programming in JS](https://medium.freecodecamp.org/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276)
 
 ## Skim
-* [mdn new](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
-* [mdn inheritance and prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
-* [mdn this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+* [MDN `new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+* [MDN Inheritance and Prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [MDN `this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
 ## Watch
-* [javascript context tutorial](https://www.youtube.com/watch?v=fjJoX9F_F5g)
+* [Javascript Context Tutorial](https://www.youtube.com/watch?v=fjJoX9F_F5g)
 
 ## Bookmark
-* [node error docs](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html)
-* [mdn object prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype)
-* [mdn class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+* [Node Error Docs](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html)
+* [MDN Object Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype)
+* [MDN `class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
 
 
