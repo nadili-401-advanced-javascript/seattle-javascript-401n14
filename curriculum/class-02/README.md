@@ -1,13 +1,15 @@
 # Class 02 - Classes, Inheritance and Functional Programming
 
 ## Learning Objectives
-* create npm scripts for automating command line tasks
-* nd function context with `call`, `apply`, and `bind`
-* handle thrown errors through the use of `try` and `catch`
-* interpret the different types of errors in Javascript
-* describe the difference between a constructor function and a factory function
-* identify and explain the qualities of imperative and functional code
-* implement a functional, array-like, list with `map`, `filter`, `reduce`, and `forEach` methods
+* Create `npm` scripts for automating command line tasks
+    - `npm start`
+    - `npm test`
+* Function context with `call`, `apply`, and `bind`
+* Handle thrown errors through the use of `try` and `catch`
+* Interpret the different types of errors in Javascript
+* Describe the difference between a constructor function and a factory function
+* Identify and explain the qualities of imperative and functional code
+* Implement a functional, array-like list with `map`, `filter`, `reduce`, and `forEach` methods
 
 
 ### Functional Programming
