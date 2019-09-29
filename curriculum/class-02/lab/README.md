@@ -14,15 +14,11 @@ Refer to *Getting Started*  in the [lab submission instructions](../../../refere
 * The tests are pre-configured to run only the constructor variety, but will need to be altered to also test your `Classes`
   * Try and find a way to keep this DRY
 
- **Software Engineering Note!** *This is the heart of a refactor -- re-implement the same functionality, the same signature, and the same I/O while completely rewriting the underlying implementation*
-
----
+ >**Software Engineering Note!** *This is the heart of a refactor -- re-implement the same functionality, the same signature, and the same I/O while completely rewriting the underlying implementation*
 
 ### Part 2: Draw UML and write docs for the List Module
 **Starter Code:** `starter-code/list`
  
----
-
 ### Part 3: Validator
 **Starter Code:** `starter-code/validator`
 
@@ -44,8 +40,6 @@ Question: Do you want to export the class and have to make a new instance after 
 * Test each method for proper/improper use (required params)
 * Validate that validation is reliable
 * Validate proper error conditions/returns
-
----
 
 ## Assignment Submission Instructions
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
