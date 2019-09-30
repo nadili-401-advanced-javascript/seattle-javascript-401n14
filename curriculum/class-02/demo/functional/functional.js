@@ -1,59 +1,34 @@
-'use strict';
+"use strict";
 
-// Functional
+// Functional Programming Demo
 
-let numbers = [1,2,3];
+let numbers = [1, 2, 3, 4, 5, 6];
 
-const functionalSquares = ([...list]) => {
-  for( let i = 0; i < list.length; i++ ) {
-    list[i] = list[i] * list[i];
-  }
-  return list;
-};
+// We want to do a bunch of different operations on
+// this array
 
-let newNumbersFunctional = functionalSquares(numbers);
-console.log(newNumbersFunctional);
-console.log(numbers);
+// -------------------------------------------
+// First operation:
+// Square (a * a) each item in the array
 
+let numbersSquared = numbers;
 
-// Non-Functional Examples
-// What are the non-functional issues here?
-
-numbers = [1,2,3];
-
-const squares = (list) => {
-  for( let i = 0; i < list.length; i++ ) {
-    list[i] = list[i] * list[i];
-  }
-
-  return list;
-};
-
-let newNumbers = squares(numbers);
-console.log(newNumbers);
-console.log(numbers);
-
-
-// Get Data
-function getData(url) {
-  // return superagent.get(url).then( data => data.body );
+for (let i = 0; i < numbersSquared.length; i++) {
+  let val = numbersSquared[i];
+  numbersSquared[i] = val * val;
 }
 
-// Non-Functional --- using data
-function sayHello(name) {
-  console.log( `Hi, ${name}` );
-}
+console.log("Squared Array: ", numbersSquared);
+console.log("Original Array (again): ", numbers);
 
-function sayHi(name) {
-  sayHello(name);
-}
+// -------------------------------------------
 
+// Second operation:
+// Remove odd numbers in the array
 
-function greet(person) {
-  return function(greeting) {
-    console.log(`${greeting}, ${person}`);
-  };
-}
+// -------------------------------------------
 
-var hello = greet('john');
-console.log( hello('shut up') );
+// Third operation:
+// Remove odd numbers in the array
+
+// -------------------------------------------

@@ -1,30 +1,29 @@
-'use strict';
+"use strict";
 
-/**
- * Demonstrate the differences between the various ways
- * to create instances.  This should lead us from what
- * we have been using in 301 (constructor functions) and
- * into where we are headed in 401 (classes)
- *
- * This also introduces factory functions as another means
- * of comparison.
- */
+//const Animal = require("./animal.js");
+//const dog = require('./dog.js');
+//const cat = require('./cat.js');
 
-// const dogClass = require('./class.js');
-const dogFactory = require('./factory.js');
-// const dogConstructor = require('./constructor.js');
+//const cow = new Animal("Bessie", "cow");
 
-// const rosieViaConstructor = new dogConstructor("Rosie");
-// console.log(rosieViaConstructor);
-// rosieViaConstructor.walk();
-// rosieViaConstructor.speak();
+const cow = {
+	name: "Bessie",
+	species: "cow",
+	info() {
+		console.log(`${this.name} is a ${this.species}.`);
+	},
+	eat() {
+		console.log(`${this.name} eats food.`);
+	},
+	walk() {
+		console.log(`${this.name} walks around.`);
+	},
+	pet() {
+		console.log(`You pet ${this.name}.`);
+	}
+};
 
-const rosieViaFactory = dogFactory("Rosie");
-console.log(rosieViaFactory);
-rosieViaFactory.walk();
-rosieViaFactory.speak();
-
-// const rosieViaClass = new dogClass("Rosie");
-// console.log(rosieViaClass);
-// rosieViaClass.walk();
-// rosieViaClass.speak();
+cow.info();
+cow.eat();
+cow.walk();
+cow.pet();
