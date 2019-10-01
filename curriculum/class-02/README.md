@@ -4,23 +4,23 @@
 * Create `npm` scripts for automating command line tasks
     - `npm start`
     - `npm test`
-* Function context with `call`, `apply`, and `bind`
-* Handle thrown errors through the use of `try` and `catch`
-* Interpret the different types of errors in Javascript
-* Describe the difference between a constructor function and a factory function
-* Identify and explain the qualities of imperative and functional code
-* Implement a functional, array-like list with `map`, `filter`, `reduce`, and `forEach` methods
-
-
-### Functional Programming
-- (No) Side Effects
-- Single Purpose
-- Examples: map, filter, reduce
-
-### Objects and Inheritance
-- Constructor functions with Prototypal Inheritance
-- Factory Functions (object composition)
-- Classes - syntactic sugar
+* Object Oriented Programming
+    - Define what that means
+    - Write classes in JavaScript
+    - Class inheritance with `extends` and `super()`
+* Context
+    - Understand the keyword `this`
+    - Changing context using `call`, `apply` and `bind`
+* Error handling
+    - The Error class
+    - Using `try` and `catch` to handle thrown errors
+* How to make a UML Diagram
+* Define functional programming and its benefits
+* Array method functions: 
+    - `map`
+    - `filter`
+    - `reduce`
+    - `forEach`
 
 ### Errors
 Error messages are super important tools for debugging broken code. Javascript has many built in error messages, but you can also define your own errors in your programs. It is important to not forget that errors will happen in production. Error logs are kept in order to fix bugs in productions. Writing good error messages is critical for finding and fixing bugs in deployed applications.
