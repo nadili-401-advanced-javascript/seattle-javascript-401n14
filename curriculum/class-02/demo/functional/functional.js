@@ -4,6 +4,7 @@
 
 let numbers = [1, 2, 3, 4, 5, 6];
 console.log("Orginal array: ", numbers);
+
 // We want to do a bunch of different operations on
 // this array
 
@@ -11,9 +12,8 @@ console.log("Orginal array: ", numbers);
 // First operation:
 // Square (a * a) each item in the array
 
-// Pure function
-// don't change the parameters
-// immutable
+// Pure function:
+// Don't change the parameters (immutable), instead
 // return a new item
 
 let squared = numbers.map(val => val * val);

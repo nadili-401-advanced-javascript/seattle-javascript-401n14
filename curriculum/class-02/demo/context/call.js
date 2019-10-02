@@ -1,32 +1,16 @@
-'use strict';
+"use strict";
 
-let john = {name:"John", age:49};
-let cathy = {name:"Cathy", age: NaN};
+let john = { name: "John", age: 49 };
+let cathy = { name: "Cathy", age: 21 };
 
-function sayHello(day) {
-  return `${this.name} is ${this.age} old on ${day}`;
+function printAge(day, time) {
+	return `${this.name} is ${this.age} years old on ${day} at ${time}`;
 }
 
-console.log( sayHello.call(john, "Tuesday") );
-console.log( sayHello.call(cathy, "Tuesday") );
+// call is a function that lets us run
+// a function and provide it a context
+// that the keyword `this` will use
 
-let nums = [1,2,3,4];
-let nums2 = new Array(1,2,3,4);
-console.log( nums.map( (i) => i*2 ) );
-console.log( Array.prototype.map.call(nums, n=>n*2) );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// function.call(thisObject, param1, param2, param3 ...);
+console.log(printAge.call(john, "Tuesday", "2:00pm"));
+console.log(printAge.call(cathy, "Tuesday", "11:15am"));

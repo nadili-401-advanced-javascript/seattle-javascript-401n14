@@ -9,10 +9,6 @@ class Animal {
     this.species = species;
   }
 
-  setName(newName) {
-    this.name = newName;
-  }
-
   info() {
     console.log(`${this.name} is a ${this.species}.`);
   }

@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
 // Bring in some module (perhaps one that you've written) that is
 // designed to deal with specifially formatted errors
-const errorHandler = require('errorhandler');
+const errorHandler = require("errorhandler");
 
 let person = {
-  firstName: 'John',
+  firstName: "John",
   phone: {
     homex: {
-      color: 'red',
-    },
-  },
+      color: "red"
+    }
+  }
 };
 
 // This will bomb your entire app with a catastrophic
@@ -20,7 +20,7 @@ let person = {
 // trying to use deeply nested object properties that
 // may not exist...
 
-let color = person.phone.home.color || 'green';
+let color = person.phone.home.color || "green";
 
 // One way to look deep into an object is to "build up"
 // the property chain member by member.  You will end with
@@ -39,35 +39,32 @@ console.log(color);
 let thing = {};
 try {
   thing = person.phone.home.color;
+} catch (e) {
+  console.log("Property not defined, reverting");
 }
-catch(e) { console.log('Property not defined, reverting'); }
 console.log(thing);
 
 // Know that you can always throw your own errors ...
-throw new Error('You really messed up!');
+throw new Error("You really messed up!");
 
 // but better would be to implement an error handling module
 // and use that within all of your code.  This would allow you
 // control how it logs, looks, and functions.  For example...
 
-
-
 try {
   /// something that could fail
-}
-catch(e) {
-
+} catch (e) {
   // create an error object designed for that custom
   // errorHandler
 
   let error = {
     severity: 3,
-    reason: 'Something went wrong',
+    reason: "Something went wrong",
     timestamp: new Date(),
     message: e.message,
     file: e.file,
     position: e.column,
-    stack: e.stack,
+    stack: e.stack
   };
 
   // Delegate the handling of this error to that module.
