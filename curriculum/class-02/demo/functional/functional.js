@@ -16,6 +16,7 @@ console.log("Orginal array: ", numbers);
 // immutable
 // return a new item
 
+let squared = numbers.map(val => val * val);
 
 console.log("Squared Array: ", squared);
 console.log("Original Array (again): ", numbers);
