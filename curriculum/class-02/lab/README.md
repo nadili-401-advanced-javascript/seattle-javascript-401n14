@@ -1,6 +1,6 @@
 # LAB: Classes, Inheritance, Functional Programming
 
-In this lab, you will be doing your first "refactoring", which is the process of rewriting working code to use new frameworks or structures. You'll refactor an exported constructor function exported into a Class, keeping the functionality (and the interface) exactly the same.
+In this lab, you will be doing your first "refactoring", which is the process of rewriting working code to use new frameworks or structures. You'll refactor a constructor function into a Class, keeping the functionality (and the interface) exactly the same.
 
 ## Requirements
 
