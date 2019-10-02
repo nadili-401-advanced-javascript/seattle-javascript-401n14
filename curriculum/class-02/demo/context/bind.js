@@ -12,33 +12,35 @@
  * making your code much more readable.
  */
 let myObject = {
-
-  foo:function() {
-    console.log('foo');
+  foo: function() {
+    console.log("foo");
   },
 
   bar: function() {
-    console.log('bar');
+    console.log("bar");
   },
 
-  baz: function(fn) {
+  callback: function(fn) {
     fn.call();
   },
 
   runBadly: function() {
-    let my = this;
-    this.baz(function() {
-      my.bar();
-      my.foo();
+    this.callback(function() {
+      console.log("I'm running badly!");
+      this.bar();
+      this.foo();
     });
   },
 
   runGoodly: function() {
-    this.baz( function() {
-      this.bar();
-      this.foo();
-    }.bind(this));
-  },
+    this.callback(
+      function() {
+        console.log("I'm running good!");
+        this.bar();
+        this.foo();
+      }.bind(this)
+    );
+  }
 };
 
 // the output of both is the same

@@ -11,6 +11,9 @@ aws.yml
 !**/docs/config/
 !**/docs/swagger.json
 
+*_sol
+*_sol/*
+
 # ignore the webstorm ide dir
 .idea/
 
