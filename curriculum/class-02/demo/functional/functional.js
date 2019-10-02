@@ -29,6 +29,12 @@ console.log("Original Array (again): ", numbers);
 // -------------------------------------------
 
 // Third operation:
-// Remove odd numbers in the array
+// Sum all the items in an array
 
 // -------------------------------------------
+
+// Forth operation:
+// Sum all the items in an array
+
+// -------------------------------------------
+
