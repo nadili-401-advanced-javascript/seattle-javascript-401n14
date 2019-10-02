@@ -31,7 +31,7 @@ In this lab, you will be doing your first "refactoring", which is the process of
 
 This is a repeat of Lab 01, but using a class instead of functions. This is essentially going to be a refactor. You will have a codebase from which to start, with the goal being to keep the functionality the same, while improving the implementation.
 
-* Write a "Validator" class that will check if input is valid 
+* Write a `Validator` class that will check if input is valid 
     - Things we want to validate:
         + Is the input of the right type? (array, object, function, etc.)
         + If there is a schema present: 
