@@ -1,5 +1,8 @@
 # Class 02 - Classes, Inheritance and Functional Programming
 
+|[Lecture Video](https://frontrowviews.com/Home/Event/Play/5d8e9098bdb995374c46749c) | [Lab Video](https://frontrowviews.com/Home/Event/Play/5d8e9098bdb995374c4674ba) |
+|----|----|
+
 ## Learning Objectives
 * Create `npm` scripts for automating command line tasks
     - `npm start`
