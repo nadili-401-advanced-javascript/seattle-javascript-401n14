@@ -23,6 +23,7 @@ Wiki Entry Ideas:
 * [What the Heck is the Event Loop Anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
 ## Bookmark
+* [Loupe](http://latentflip.com/loupe)
 * [Mock Functions](https://jestjs.io/docs/en/mock-functions)
 * [Manual Mocking](https://jestjs.io/docs/en/manual-mocks)
 
