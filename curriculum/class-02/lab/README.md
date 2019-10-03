@@ -5,7 +5,7 @@ In this lab, you will be doing your first "refactoring", which is the process of
 ## Requirements
 
 ### Part 1: Vehicles
-**Starter Code:** `starter-code/classes`
+**Starter Code:** `starter-code/vehicles`
 
 * In `vehicle-constructor.js`, you'll find constructor definitions for `Vehicle`, `Car` and `Motorcycle`. Convert `Car` and `Motorcycle` into JavaScript Classes and place that code in the `vehicle-class.js` file
     - Think about: 
