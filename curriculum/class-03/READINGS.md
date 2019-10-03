@@ -16,11 +16,11 @@ Wiki Entry Ideas:
 * [You Don't Know JS - Async](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch1.md)
 * [You Don't Know JS - Callbacks](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch2.md)
 * [You Don't Know JS - Promises](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md)
-* [mdn - async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-* [understanding jest mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
+* [MDN - `async`/`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+* [Understanding Jest Mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
 
 ## Watch
-* [what the heck is the event loop anyway](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+* [What the Heck is the Event Loop Anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
 ## Bookmark
 * [Mock Functions](https://jestjs.io/docs/en/mock-functions)
