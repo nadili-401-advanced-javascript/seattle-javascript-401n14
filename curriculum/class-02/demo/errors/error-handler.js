@@ -14,7 +14,11 @@ class Bug extends Error {
 		this.cause = cause;
 		this.level = level;
 		this.timestamp = timestamp;
-		console.log(this);
+		// console.log(this);
+	}
+
+	dealWithBug() {
+		console.log("I'm dealing with it!");
 	}
 }
 
