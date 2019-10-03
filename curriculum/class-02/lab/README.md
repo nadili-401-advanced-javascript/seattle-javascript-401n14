@@ -51,7 +51,7 @@ This is a repeat of Lab 01, but using a class instead of functions. This is esse
 ## Before you begin
 
 ### Visualize the Application
-Evaluate the lab requirements and begin with drawing a [UML diagram](https://github.com/codefellows/seattle-javascript-401n14/tree/master/reference/submission-instructions/labs#compose-a-uml-or-processdata-flow-diagram-for-every-application). Having a solid visual understanding of the code you have/need and how it connects is critical to properly approaching the assignment.
+Evaluate the lab requirements and draw [UML diagrams](https://github.com/codefellows/seattle-javascript-401n14/tree/master/reference/submission-instructions/labs#compose-a-uml-or-processdata-flow-diagram-for-every-application) where necessary. Having a solid visual understanding of the code you have/need and how it connects is helpful to properly approaching assignments.
 
 ### Break Down the Assignment 
 Once you have a good visual and mental model of how the application works, break down the requirements. For each requirement, ask yourself the following questions:
@@ -94,7 +94,7 @@ For each part of this lab, configure your folder with the following files and di
     - Your module names for each lab project 
     - Instructions for how to run each lab project
     - Instructions for how to test each lab project
-    - Embedded UML diagram images (double check this works!)
+    - Embedded UML diagram image for Part 2 of Lab (double check this image shows up correctly!)
 
 Be sure to delete any placeholder content if you use `README-template.md`. Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
 
