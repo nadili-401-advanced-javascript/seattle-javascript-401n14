@@ -10,9 +10,9 @@ Wiki Entry Ideas:
 * Notes in outline form
 
 ## Read
-* [fs module docs](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html)
-* [understanding error first callbacks](http://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/)
-* [eloquent javascript - Async (Chapter 11)](https://eloquentjavascript.net/Eloquent_JavaScript.pdf)
+* [`fs` Module Docs](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html)
+* [Understanding Error-First Callbacks](http://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/)
+* [Eloquent JavaScript - Async (Chapter 11)](https://eloquentjavascript.net/11_async.html)
 * [ydkjs - Async](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch1.md)
 * [ydkjs - Callbacks](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch2.md)
 * [ydkjs - Promises](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md)
