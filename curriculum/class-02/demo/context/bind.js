@@ -21,13 +21,17 @@ let myObject = {
   // it takes in another function as a
   // parameter, and calls it
   callback: function(fn) {
-    fn.call();
+    console.log("Callback this:", this);
+    fn.bind(this).call(); // doesn't apply any context
   },
 
   // here, we're gonna have a hard time knowing
   // what this is!
   runBadly: function() {
     // we hit issues with this when we do callbacks
+
+    // myObj.runBadly >> fn >> myObj.callback(fn) >> run fn
+
     this.callback(function() {
       console.log("I'm running badly!");
       this.hello();
@@ -40,16 +44,14 @@ let myObject = {
   // Now, when we enter the callback function, we
   // are also given a `this` we can use
   runGoodly: function() {
-    this.callback(
-      function() {
-        console.log("I'm running good!");
-        this.hello();
-        this.goodbye();
-      }.bind(this)
-    );
+    console.log(this);
+    this.callback(function() {
+      console.log("I'm running good!");
+      this.hello();
+      this.goodbye();
+    });
   }
 };
 
-// the output of both is the same
 myObject.runBadly();
 myObject.runGoodly();

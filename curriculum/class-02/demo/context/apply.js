@@ -7,13 +7,15 @@ let person = { name: "John" };
 // How can we change what `this` is?
 function printInfo(city, state) {
 	console.log("This is: ", this);
-	// console.log(`${this.name} lives in ${city}, ${state}.`);
+	console.log(`${this.name} lives in ${city}, ${state}.`);
 }
 
+// This line should break the code, because
+// the functions doesn't know what `this` is!
 printInfo();
 
 // The apply function will let you apply a context!
-// A context defintes what `this` is.
+// A context defines what `this` is.
 
 // function.apply(thisObject, [params])
 printInfo.apply(person, ["Seattle", "WA"]);

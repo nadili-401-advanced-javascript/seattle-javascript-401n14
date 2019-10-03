@@ -16,21 +16,28 @@ let person = {
 console.log(person.pets.kitto.name);
 // But what if you try to access something that
 // doesn't exist?
-// console.log(person.pets.molly.name);
 
-// console.log(pet);
+console.log("Made it past that!");
+//console.log(pet);
 
 let petName = "";
 
 try {
+  // any code here!
   petName = person.pets.molly.name;
 } catch (e) {
+  //console.log(e);
   console.log("That pet doesn't exist!");
 }
 
+console.log("Made it here!");
+
 // Know that you can always throw your own errors ...
-throw new Bug("You really messed up!");
-throw new Error("You really messed up again!");
+if (person.pets.kitto) {
+  //throw new Bug("You really messed up!");
+
+  throw new Error("You really messed up again!");
+}
 
 // but better would be to implement an error handling module
 // and use that within all of your code.  This would allow you
