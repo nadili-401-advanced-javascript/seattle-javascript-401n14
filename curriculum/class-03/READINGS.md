@@ -13,9 +13,9 @@ Wiki Entry Ideas:
 * [`fs` Module Docs](https://nodejs.org/dist/latest-v6.x/docs/api/fs.html)
 * [Understanding Error-First Callbacks](http://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/)
 * [Eloquent JavaScript - Async (Chapter 11)](https://eloquentjavascript.net/11_async.html)
-* [ydkjs - Async](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch1.md)
-* [ydkjs - Callbacks](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch2.md)
-* [ydkjs - Promises](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md)
+* [You Don't Know JS - Async](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch1.md)
+* [You Don't Know JS - Callbacks](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch2.md)
+* [You Don't Know JS - Promises](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md)
 * [mdn - async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 * [understanding jest mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
 
