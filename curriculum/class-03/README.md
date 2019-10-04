@@ -129,7 +129,7 @@ fs.readFile(inputFile, (err, buffer) => {
 ### Buffer
 Buffers are NodeJS built-in constructors for working with binary data, also called raw data. Buffer is a global constructor in NodeJs. When reading from the filesystem, network, or elsewhere, data is usually presented to the developer in the form of a buffer. Buffers are an array of bytes, with many useful methods for reading and writing data. The data in buffers can be decoded as integers, floating point numbers, and strings.
 
- ```
+ ``` javascript
    var data = Buffer.from('welcome to bufferville') // create a buffer using a string
    console.log(data) // looks like a hex when console logged, but it's a buffer, not a string!!!!
 
