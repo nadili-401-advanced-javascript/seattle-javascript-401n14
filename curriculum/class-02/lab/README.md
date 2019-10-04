@@ -95,9 +95,10 @@ For each part of this lab, configure your folder with the following files and di
 
 Be sure to delete any placeholder content if you use `README-template.md`. Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
 
-### Resubmits
+### Resubmitting
 * Your open pull request will be your gateway to resubmitting
 * Commit and push your changes in your lab branch, and they should be updated on the pull request
+* Only one resubmit allowed
 
 ## Grading Rubric
 
