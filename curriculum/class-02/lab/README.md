@@ -84,11 +84,10 @@ For each part of this lab, configure your folder with the following files and di
         + Edit this for each lab if your folder structure is different
 
 ### Submit to Canvas
-* Ensure that your `README.md` exists and has links to: 
+* Ensure that your `README.md` exists and has: 
     - A link to your TravisCI 
     - A link to pull request from your lab branch to your master branch in your forked repository
         + Keep this pull request open (**don't merge to master**) in case you need to resubmit your lab
-* Your `README` should include: 
     - Your module names for each lab project 
     - Instructions for how to run each lab project
     - Instructions for how to test each lab project
