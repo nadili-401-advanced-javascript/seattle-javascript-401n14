@@ -3,7 +3,7 @@
 The javascript V8 engine is great at doing things "asynchronously" ... as a coder, you'll need to work in this lab to step out of the iterative coding mindset and use promises and `async`/`await` to read a file. You'll also need to convert buffers into text into objects and back again.
 
 ## Requirements
-**Starter Code: `starter-code/files`**
+**Starter Code: `starter-code/`**
 
 In this lab, you will be writing an application which will modify a file on your computer. In `data/person.json`, you can find a sample file which should serve as a template for the kind of files your application will be using. Use the Node `fs` package/module to get file read/write functionality within your application. 
 
