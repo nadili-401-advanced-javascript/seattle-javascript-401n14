@@ -82,8 +82,6 @@ For each part of this lab, configure your folder with the following files and di
     - `/docs/config/jsdoc.config.json`
         + JSDOC Config File
         + Edit this for each lab if your folder structure is different
-    - `/docs/config/styleguidist.json`
-        + Contains settings for styleguide docs (For React Only)
 
 ### Submit to Canvas
 * Ensure that your `README.md` exists and has links to: 
