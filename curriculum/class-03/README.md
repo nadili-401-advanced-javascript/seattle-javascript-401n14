@@ -175,5 +175,6 @@ When testing outside functionality (such as a server, database, or a filesystem)
 * So ... you typically "mock" the remote resource and get yourself some fake data to test with.
 
 [Mock Functions](https://jestjs.io/docs/en/mock-functions)
+
 [Manual Mocking](https://jestjs.io/docs/en/manual-mocks)
 
