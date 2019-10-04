@@ -93,7 +93,7 @@ That function is the callback, and it operates on a nicely standardized signatur
 
  **A promise says, "Hey, JavaScript, you go ahead and do some work.  I don't care how long it takes and I'm going to go ahead and keep working ... but let me know when you're done `.then()` give me the data and let me deal with it myself"**
 
-```
+``` javascript
 console.log('Start');
 goAndGetSomeData(params)
   .then( someData => {
