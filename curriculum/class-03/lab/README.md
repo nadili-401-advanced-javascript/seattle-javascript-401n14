@@ -7,7 +7,7 @@ The javascript V8 engine is great at doing things "asynchronously". As a coder, 
 
 In this lab, you will be writing an application which will modify a file on your computer. In `data/person.json`, you can find a sample file which should serve as a template for the kind of files your application will be using. Use the Node `fs` package/module to get file read/write functionality within your application. 
 
-### Application Execution Steps
+### Application Execution
 * When starting your application from command line, your application should take in a file name as a command line parameter
     - `node index.js <my-file>` or `npm start <my-file>`
 * Based on the provided file, your application should read in the file contents
@@ -23,7 +23,7 @@ In this lab, you will be writing an application which will modify a file on your
 ### Execution Notes
 
 * Perform the above operations with standard Node `fs` module callbacks
-* Implement one version of the Application Execution Steps using promises, and another version using `async`/`await`. Split up these implementations into separate module files which your `index.js` will `require`
+* Implement one version of the Application Execution using promises, and another version using `async`/`await`. Split up these implementations into separate module files which your `index.js` will `require`
 
 ### Testing
 * Test your modules, not your `index.js`
