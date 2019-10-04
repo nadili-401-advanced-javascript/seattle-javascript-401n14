@@ -82,15 +82,12 @@ For each part of this lab, configure your folder with the following files and di
     - `/docs/config/jsdoc.config.json`
         + JSDOC Config File
         + Edit this for each lab if your folder structure is different
-    - `/docs/config/styleguidist.json`
-        + Contains settings for styleguide docs (For React Only)
 
 ### Submit to Canvas
-* Ensure that your `README.md` exists and has links to: 
+* Ensure that your `README.md` exists and has: 
     - A link to your TravisCI 
     - A link to pull request from your lab branch to your master branch in your forked repository
         + Keep this pull request open (**don't merge to master**) in case you need to resubmit your lab
-* Your `README` should include: 
     - Your module names for each lab project 
     - Instructions for how to run each lab project
     - Instructions for how to test each lab project
@@ -98,9 +95,10 @@ For each part of this lab, configure your folder with the following files and di
 
 Be sure to delete any placeholder content if you use `README-template.md`. Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
 
-### Resubmits
+### Resubmitting
 * Your open pull request will be your gateway to resubmitting
 * Commit and push your changes in your lab branch, and they should be updated on the pull request
+* Only one resubmit allowed
 
 ## Grading Rubric
 
