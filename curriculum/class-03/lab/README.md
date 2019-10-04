@@ -1,6 +1,6 @@
 # LAB: Async
 
-The javascript V8 engine is great at doing things "asynchronously" ... as a coder, you'll need to work in this lab to step out of the iterative coding mindset and use promises and `async`/`await` to read a file. You'll also need to convert buffers into text into objects and back again.
+The javascript V8 engine is great at doing things "asynchronously". As a coder, you'll need to work in this lab to step out of the iterative coding mindset and use promises and `async`/`await` to read a file. You'll also need to convert buffers into text into objects and back again.
 
 ## Requirements
 **Starter Code: `starter-code/`**
