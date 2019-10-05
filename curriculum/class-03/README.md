@@ -1,5 +1,8 @@
 # Class 03 - Async
 
+|[Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e8678bdb995374c44c806) | [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e8551bdb995374c4335fe) |
+|----|----|
+
 ## Learning Objectives
 * Understand how synchronous and asynchronous code runs in the JavaScript runtime
 * Manage asynchronous data flow using error-first callbacks
