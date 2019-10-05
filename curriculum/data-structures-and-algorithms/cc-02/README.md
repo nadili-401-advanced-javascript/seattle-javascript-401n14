@@ -32,6 +32,6 @@ Once you've achieved a working solution, write a second function that removes an
 ## Requirements
 Ensure your complete solution follows the standard requirements. 
 
-1. Write [unit tests](../../Challenge_Testing){:target="_blank"}
-1. Follow the [template for a well-formatted README](../../Challenge_Documentation){:target="_blank"}
-1. Submit the assignment following [these instructions](../SUBMISSIONS.md){:target="_blank"}
+1. Write [unit tests](../../Challenge_Testing)
+1. Follow the [template for a well-formatted README](../../Challenge_Documentation)
+1. Submit the assignment following [these instructions](../SUBMISSIONS.md)
