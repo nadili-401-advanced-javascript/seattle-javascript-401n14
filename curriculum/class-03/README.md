@@ -146,7 +146,7 @@ Testing frameworks like **Jest** support testing asynchronous code by giving us 
 ``` javascript
 // example using done in "it" tests
 it('true should be true', (done) => {
-  setTimeount(() => {
+  setTimeout(() => {
     expect(true).toBe(true)
     done()
     // done('any value`) // passing a value into done makes the test fail
