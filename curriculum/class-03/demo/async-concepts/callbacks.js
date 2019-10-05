@@ -7,6 +7,27 @@
 // We'll simulate an async function that calls an api
 // Behind the scenes it's just setTimeout
 
+function apiCall(str, onDone) {
+	let random = Math.floor((Math.random() + 1) * 1000);
+
+	setTimeout(() => {
+		console.log(str);
+		onDone();
+	}, random);
+}
+
+apiCall("X", () => {});
+apiCall("Y", () => {});
+apiCall("Z", () => {});
+
+apiCall("A - callbacks!", () => {
+	apiCall("B - callbacks!", () => {
+		apiCall("C - callbacks!", () => {
+			console.log("Done!");
+		});
+	});
+});
+
 // We use a random number for setTimeout to simulate that
 // the response time for an api can be variable
 

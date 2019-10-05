@@ -7,6 +7,43 @@
 // a value or an error. A promise holds three
 // states: pending, fulfilled/resolved or rejected
 
+function apiCall(str) {
+	let random = Math.floor((Math.random() + 1) * 1000);
+
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log(str);
+			resolve({ data: str });
+			// after resolve do .then()
+			// error checking
+			/* if (payload is an error)
+				reject(); 
+			if (payload is success)
+				resolve(payload.data); 
+			*/
+		}, random);
+	});
+}
+
+apiCall("X");
+apiCall("Y");
+apiCall("Z");
+
+let promise = apiCall("A - promises!");
+
+promise
+	.then(data => {
+		console.log(data);
+		return apiCall(notAVariable);
+	})
+	.then(data => {
+		console.log(data);
+		return apiCall("C - promises!");
+	})
+	.catch(err => {
+		console.error("Error!");
+	});
+
 // We use a random number for setTimeout to simulate that
 // the response time for an api can be variable
 
