@@ -10,7 +10,6 @@ For each method that you define, write test assertions for the following conditi
 Unit tests *must be passing* before you submit your final solution code.
 
 # Testing Workflow
-
 ## Writing Unit Tests
 ### Questions Unit Test Should Answer
 1. What are you testing?
