@@ -20,10 +20,10 @@ Each student can max do 2 lightning talks.
 | Observer Pattern | [Link](https://www.dofactory.com/javascript/observer-design-pattern) | Nov 16, 2019 | --- | 
 | Memento Pattern | [Link](https://www.dofactory.com/javascript/memento-design-pattern) | Nov 23, 2019 | --- | 
 | Facade Pattern | [Link](https://www.dofactory.com/javascript/facade-design-pattern) | Dec 14, 2019 | --- | 
-| Singleton Pattern | [Link](https://www.dofactory.com/javascript/singleton-design-pattern) | Dec 21, 2019 | --- | 
+| Singleton Pattern | [Link](https://www.dofactory.com/javascript/singleton-design-pattern) | Dec 21, 2019 | Anna Li | 
 | Proxy Pattern | [Link](https://www.dofactory.com/javascript/proxy-design-pattern) | Jan 04, 2020 | --- | 
 | State Pattern | [Link](https://www.dofactory.com/javascript/state-design-pattern) | Jan 11, 2020 | --- | 
 | Behavior Driven Development | [Link](https://en.wikipedia.org/wiki/Behavior-driven_development) | Jan 18, 2020 | --- | 
 | Acceptance Test Driven Development | [Link](https://en.wikipedia.org/wiki/Acceptance_test%E2%80%93driven_development)| Jan 25, 2020 | --- | 
-| SCRUM/Agile/Waterfall | [Link](https://www.visual-paradigm.com/scrum/scrum-vs-waterfall-vs-agile-vs-lean-vs-kanban/) | Feb 01, 2020 | --- | 
+| SCRUM/Agile/Waterfall | [Link](https://www.visual-paradigm.com/scrum/scrum-vs-waterfall-vs-agile-vs-lean-vs-kanban/) | Feb 01, 2020 | Nadya Ilinskaya | 
 
