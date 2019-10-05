@@ -1,4 +1,4 @@
-# Code Challenge
+# Code Challenge 03
 
 Binary search in a sorted 1D array
 
