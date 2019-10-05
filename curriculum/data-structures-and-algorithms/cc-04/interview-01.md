@@ -2,11 +2,11 @@
 
 Given a matrix, find the sum of each row.
 
-## Specifications
+## Interviewer Specifications
 
 - Read all of the following instructions carefully. 
-- Act as an interviewer, giving a candidate a code challenge
-- Score the candidate according to the [Whiteboard Rubric](https://docs.google.com/spreadsheets/d/1scthkmARfzAFZrSYAp6LA2coOaoWUWbSzMbtIU4jcHw){:target="_blank"}
+- Act as an interviewer giving a candidate a code challenge
+- Score the candidate according to the [Whiteboard Rubric](https://docs.google.com/spreadsheets/d/1scthkmARfzAFZrSYAp6LA2coOaoWUWbSzMbtIU4jcHw)
 - You are free to offer suggestions or guidance (and see how they respond),  but don't solve it for the candidate
 
 ## Feature Tasks
