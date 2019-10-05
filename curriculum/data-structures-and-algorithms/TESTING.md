@@ -99,7 +99,7 @@ def test_should_accept_only_numbers():
     with pytest.raises(TypeError):
         sum('1',3)
 ```
-### References
+## References
 
 - [What Exactly is a Unit in Unit Testing?](https://www.blinkingcaret.com/2016/04/27/what-exactly-is-a-unit-in-unit-testing/)
 - [10 Tips](https://dzone.com/articles/10-tips-to-writing-good-unit-tests)
