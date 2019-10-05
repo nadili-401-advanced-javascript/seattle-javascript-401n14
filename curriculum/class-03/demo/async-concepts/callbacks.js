@@ -12,7 +12,7 @@ function apiCall(str, onDone) {
 
 	setTimeout(() => {
 		console.log(str);
-		onDone();
+		onDone(undefined, { data: str });
 	}, random);
 }
 

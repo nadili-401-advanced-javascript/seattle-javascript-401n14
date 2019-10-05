@@ -24,13 +24,22 @@ describe("File Reader Module", () => {
   });
 
   it("when given a real file, returns the contents", done => {
-    let file = `${__dirname}/../../data/file1.txt`;
+    let file = `${__dirname}/../../data/file.txt`;
     reader(file, (err, data) => {
       expect(err).toBeUndefined();
       // We don't need to care what the text is, only that we got back a string
       // That's the interface of our reader module: Give a file+cb, get back stringified  contents
-      expect(typeof data).toBe("string");
+      expect(data).toBeDefined();
       done();
     });
   });
 });
+
+
+
+
+
+
+
+
+

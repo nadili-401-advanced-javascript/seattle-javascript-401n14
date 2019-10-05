@@ -10,8 +10,8 @@ function read(file, onDone) {
 	// do some error-first handling of the response
 
 	fs.readFile(file, (err, data) => {
-		if (err) onDone(err);
-		else onDone(undefined, data.toString().trim());
+		if (err) onDone(err, data);
+		else onDone(err, data);
 	});
 }
 
