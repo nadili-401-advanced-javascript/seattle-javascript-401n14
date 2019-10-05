@@ -23,7 +23,7 @@ In this lab, you will be writing an application which will modify a file on your
 ### Execution Notes
 
 * Perform the above operations with standard Node `fs` module callbacks
-* Implement one version of the Application Execution using promises, and another version using `async`/`await`. Split up these implementations into separate module files which your `index.js` will `require`
+* Implement one version of the Application Execution using callbacks, one using promises, and another version using `async`/`await`. Split up these implementations into separate module files which your `index.js` will `require`
 
 ### Testing
 * Test your modules, not your `index.js`
