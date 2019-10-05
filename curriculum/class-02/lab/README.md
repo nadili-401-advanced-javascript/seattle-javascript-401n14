@@ -75,13 +75,18 @@ For each part of this lab, configure your folder with the following files and di
     - Add your name in the `author` field (you can do this easily using `npm init`)
     - Create a `lint` script for running eslint (`eslint **/*.js`)
     - Create a `test` script for running tests
-    - If you have an `index.js`, create a `start` script to run that file
-* `/__tests__/` - contains unit tests
-* `/docs` - Where your documentation will reside
-    - `/docs/config`
-    - `/docs/config/jsdoc.config.json`
-        + JSDOC Config File
-        + Edit this for each lab if your folder structure is different
+    - You do not need a `start` script at the root directory
+* `/vehicles/` - contains the application code for vehicles
+    - `package.json` - contains npm package config and scripts
+        + Add your name in the  `author` field 
+        + Create a `test`, `lint` and `start` script
+* `/list/` - contains the application code for list
+    - You do not have to add `package.json` or any other files to this directory from the starter code
+    - Just add JSDoc comments to the functions present in this code
+* `/validation/` - contains the application code for validation
+    - `package.json` - contains npm package config and scripts
+        + Add your name in the  `author` field 
+        + Create a `test`, `lint` and `start` script
 
 ### Submit to Canvas
 * Ensure that your `README.md` exists and has: 
