@@ -4,7 +4,7 @@ Lightning Talks are a great way for you to practice your presentation and speaki
 
 Also, if you sign up for a lightning talk, you can recieve up to 10 extra credit points. That's a whole lab grade! 
 
-Take a look at the possible lightning talk topics below, as well as the associated date for presentation. Sign up for a slot by slack messaging your instructor with the name of the topic you would like to present. On the day of that lightning talk, you will have 15 minutes to teach that topic to the class in any way you like. Use presentations, white boarding, or some other method to help the class understand. After your talk, your classmates will fill out a feedback form letting you know how you did, so that you can improve in the future! 
+Take a look at the possible lightning talk topics below, as well as the associated date for presentation. Sign up for a slot by slack messaging your instructor with the name of the topic you would like to present. On the day of that lightning talk, you will have 15 minutes to teach that topic to the class in any way you like. Use presentations, code samples, white-boarding, or some other method to help the class understand. After your talk, your classmates will fill out a feedback form letting you know how you did, so that you can improve in the future! 
 
 Each student can max do 2 lightning talks. 
 
