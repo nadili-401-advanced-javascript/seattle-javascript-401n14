@@ -8,17 +8,11 @@ Binary search in a sorted 1D array
 - Create a new branch in your repo called `array-binary-search`.
 - Your top-level readme should contain a "Table of Contents" navigation to all of your challenges and implementations so far. (Don't forget to update it!)
 - This assignment should be completed within the `challenges` subdirectory of the repository.
-- On your branch, create...
-    - _C#_: a new .NET Core console project named `BinarySearch`. Within your `Program.cs` create a new static method outside of `Main()` following the naming conventions below. Call your newly created method in `Main()` once complete.
-    - _JavaScript_: a folder named `arrayBinarySearch` which contains a file called `array-binary-search.js`
-    - _Python_: a folder named `array_binary_search` which contains a file called `array_binary_search.py`
-    - _Java_: a file called `BinarySearch.java`
+- On your branch, create a folder named `arrayBinarySearch` which contains a file called `array-binary-search.js`
 - Include any language-specific configuration files required for this challenge to become an individual component, module, library, etc.
-    - _NOTE: You can find an example of this configuration for your course in your class lecture repository._
 
 ## Feature Tasks
-- Write a function called `BinarySearch` which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language,
-return the index of the array's element that is equal to the search key, or -1 if the element does not exist.
+Write a function called `BinarySearch` which takes in 2 parameters: a sorted array and the search key. *Without utilizing any of the built-in methods* available in JavaScript, return the index of the array element that is equal to the search key, or -1 if the element does not exist.
 
 ## Example
 
@@ -34,11 +28,11 @@ return the index of the array's element that is equal to the search key, or -1 i
 
 ## Stretch Goal
 
-Once you've achieved a working solution, benchmark with varying array sizes (100, 10000, 100000 elements)
+Once you've achieved a working solution, test with varying array sizes (100, 10000, 100000 elements). You can use a [random number generator](https://onlinerandomtools.com/generate-random-numbers) to get a list of comma-separated numbers of this quantity.
 
 ## Requirements
 Ensure your complete solution follows the standard requirements. 
 
-1. Write [unit tests](../../Challenge_Testing)
-1. Follow the [template for a well-formatted README](../../Challenge_Documentation)
+1. Write [unit tests](../TESTING.md)
+1. Follow the [template for a well-formatted README](../DOCUMENTATION.md)
 1. Submit the assignment following [these instructions](../SUBMISSIONS.md)

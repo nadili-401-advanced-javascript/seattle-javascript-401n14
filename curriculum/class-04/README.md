@@ -1,15 +1,15 @@
 # Class 04 - Data Modeling
 
 ## Learning Objectives
-* Model real world data
-* Create models with constraints, type checking, validity
+* Define data modeling 
+* Model real-world data
+* Create models with constraints, type checking and validity
 * Create an extensible interface and an implementation for a data model
-
 
 ## Outline
 
-### Javascript Data Modeling
-Javascript has a limited number of built-in data types.  This includes objects, arrays, strings, numbers, and booleans. Data modeling in Javascript is the process of taking a real world or conceptual idea and encoding it into Javascript's built in data types. Technically, there isn't a right or wrong way to model data in software development because it has been proven that any idea can be represented using any data structure. However, it is important to follow several practices to boost software readability and maintainability. Boolean values should be used when the data can have only two states. Numbers should be used when the data could support arithmetic operations. Strings should be used when the data is representing a natural language. Arrays should be used to bundle multiple pieces of like data. Objects should be used to bundle multiple pieces of different data.
+### JavaScript Data Modeling
+JavaScript has a limited number of built-in data types.  This includes objects, arrays, strings, numbers, and booleans. Data modeling in JavaScript is the process of taking a real-world or conceptual idea and encoding it into JavaScript's built in data types. Technically, there isn't a right or wrong way to model data in software development because it has been proven that any idea can be represented using any data structure. However, it is important to follow several practices to boost software readability and maintainability. Boolean values should be used when the data can have only two states. Numbers should be used when the data could support arithmetic operations. Strings should be used when the data is representing a natural language. Arrays should be used to bundle multiple pieces of like data. Objects should be used to bundle multiple pieces of different data.
 
 ### Modeling behaviors
 
@@ -33,10 +33,10 @@ Sanity checking data to ensure that it conforms to the modeling rules, integrity
 ### Data Types and Storage
 
 #### Binary
-You probably know that everything in the computer is stored in 0s and 1s. As web developers, we don't often have to work with data at such a low level, instead we get to work with Strings, Numbers, Arrays, Objects, and so on. Though most of the time we are lucky enough to work with such abstracted data types, sometimes we are required to understand how data is stored in binary. There are predefined specifications for how to decode number and strings from binary. The majority of the data we work with is made up of numbers and strings. For example, Numbers and Strings are used to make more complex things like JSON, XML, HTML, JPEG, GIF, MP3, MP4, and even Javascript. Understanding how to manipulate binary data on a more fundamental level can open up doors for having much more control over the data in our applications.
+You probably know that everything in the computer is stored in 0s and 1s. As web developers, we don't often have to work with data at such a low level, instead we get to work with Strings, Numbers, Arrays, Objects, and so on. Though most of the time we are lucky enough to work with such abstracted data types, sometimes we are required to understand how data is stored in binary. There are predefined specifications for how to decode number and strings from binary. The majority of the data we work with is made up of numbers and strings. For example, Numbers and Strings are used to make more complex things like JSON, XML, HTML, JPEG, GIF, MP3, MP4, and even JavaScript. Understanding how to manipulate binary data on a more fundamental level can open up doors for having much more control over the data in our applications.
 
 #### Bytes
-A byte is 8 zeros and ones `00101101`. Bytes are one of the fundamental units that programmers use to work with binary data. A byte can hold one ascii character, a number between 0 and 255, a number between -128 and 127, along with anything else that has up to 256 units.
+A byte is 8 zeros and ones `00101101`. Bytes are one of the fundamental units that programmers use to work with binary data. A byte can hold one ASCII character, a number between 0 and 255, a number between -128 and 127, along with anything else that has up to 256 units.
 
 #### Strings
 Strings are made from an array of characters. Every byte in a binary file can be decoded as a character using the `ascii` or `utf8` character specifications. The ASCII standard has been around since the early sixties, and was used to encode characters of a single locale (language). It is literally a map between numbers 0 to 127 and specific characters. Meaning that when you find the number 97 in a byte, that byte can also be decoded as the letter 'a'. This only works by making computers and programers conform to the specification. As computers gained more memory and found reasons to support more character sets, the `utf8` specification was created. UTF8 is a variable length byte encoding that allows bytes to be chained together to form a character set large enough to support every locale, symbols, and emoji at once. UTF8 was designed as a superset of ASCII in order keep backwards compatibility.

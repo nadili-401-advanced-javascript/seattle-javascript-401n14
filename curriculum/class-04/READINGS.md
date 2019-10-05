@@ -10,12 +10,7 @@ Wiki Entry Ideas:
 * Notes in outline form
 
 ## Read
-[data modeling](https://www.guru99.com/data-modelling-conceptual-logical.html)
-[what is data modeling](https://www.dataversity.net/what-is-data-modeling/)
-
-## Skim
-
-## Watch
-
-## Bookmark
+* [Data Modeling](https://www.guru99.com/data-modelling-conceptual-logical.html)
+* [What is Data Modeling](https://www.dataversity.net/what-is-data-modeling/)
+* [Data Modeling Explained in 10 Minutes or Less](https://www.credera.com/blog/technology-solutions/data-modeling-explained-in-10-minutes-or-less/)
 
