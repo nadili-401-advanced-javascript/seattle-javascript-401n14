@@ -106,7 +106,7 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 ### Tests: 
 * Must use the mocked `fs` to test
 * Modules should be tested fully
-* `index.js` need not be tetsed 
+* `index.js` need not be tested 
 
 
 | Criteria | Points |
