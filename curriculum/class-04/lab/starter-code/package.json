@@ -1,5 +1,5 @@
 {
-  "name": "starter-code",
+  "name": "demo",
   "version": "1.0.0",
   "description": "",
   "main": "players-schema.js",
@@ -14,7 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "faker": "^4.1.0",
     "jest": "^24.8.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "uuid-validate": "0.0.3"
   }
 }
