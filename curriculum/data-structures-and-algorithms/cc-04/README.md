@@ -11,15 +11,14 @@
 
 ## Interview questions
 
-Don't look at the interview questions until you decide who will be the first interviewer. 
+Don't look at the interview questions until you decide who will be the first interviewer.
 
 1. The first interviewer will ask [this question](interview-01.md)
 1. The second interviewer will ask [this question](interview-02.md)
 
-
 ## Structure
 
-Utilize your whiteboard skills to solve the problem according to the steps in the rubric, and use the example whiteboard layout below to learn about how to whiteboard well. 
+Utilize your whiteboard skills to solve the problem according to the steps in the rubric, and use the example whiteboard layout below to learn about how to whiteboard well.
 
 ## Example Whiteboard Layout
 
@@ -29,11 +28,11 @@ By the end of the interview, your whiteboard should resemble the example whitebo
 
 ## Documentation
 
-The interviewer should take detailed notes on the rubric form. Points should be assessed for every item on the rubric. The total points should be summed and recorded on the form. 
+The interviewer should take detailed notes on the rubric form. Points should be assessed for every item on the rubric. The total points should be summed and recorded on the form.
 
 ## Submission Instructions
 
-1. Review the notes your interviewer recorded for you on the rubric. 
+1. Review the notes your interviewer recorded for you on the rubric.
 1. Submit the final result of your interview as a candidate to Canvas:
-    1. Paste a link to the rubric that evaluated you as a candidate (either a google doc, or a photo of a printout)
-    1. Comment on your submission with summary of how it went for you, what went well, and what you'd like to improve
+   1. Paste a link to the rubric that evaluated you as a candidate (either a google doc, or a photo of a printout)
+   1. Comment on your submission with summary of how it went for you, what went well, and what you'd like to improve
