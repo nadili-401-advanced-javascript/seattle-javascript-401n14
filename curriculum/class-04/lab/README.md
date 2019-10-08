@@ -49,13 +49,13 @@ Once you have written your functions, it's time to call them! In `index.js` call
 - Load all the data from the data files
 - After the data is loaded, call `createPerson` using the following sample data:
 
-  ````{
+  ```javascript
+  {
     firstName: "Sarah",
     lastName: "Smalls",
     team: "Yellow Rhino"
-  }```
-
-  ````
+  }
+  ```
 
 - After you've created a person, use `readPerson` to verify that "Sarah Smalls" exists in the database and belongs to team "Yellow Rhino"
 - After that, use the function `updatePerson` to set the person "Rene Lefridge" to the team "Yellow Rhino"
