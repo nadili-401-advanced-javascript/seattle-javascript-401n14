@@ -18,7 +18,7 @@ Re-Use your `Validator` class from Lab 02 to provide sanity checking to a real d
     - Think about:
       - How will this change your schemas?
       - How will you use this class in your CRUD methods?
-  - Generalize the model test to run the same tess on any model
+  - Generalize to run the same test on any model
 
 ### Part 2: Create Another Model
 
