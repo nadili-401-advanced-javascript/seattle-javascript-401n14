@@ -1,5 +1,8 @@
 # Class 04 - Data Modeling
 
+| [Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e9098bdb995374c4674dc) | [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e9099bdb995374c4674fd) |
+| ---- | ---- | 
+
 ## Learning Objectives
 
 -   Define data modeling
