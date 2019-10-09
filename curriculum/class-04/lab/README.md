@@ -91,11 +91,11 @@ For each part of this lab, configure your folder with the following files and di
   - Add your name in the `author` field (you can do this easily using `npm init`)
   - Create a `lint` script for running eslint (`eslint **/*.js`)
   - Create a `test` script for running tests
-  - If you have an `index.js`, create a `start` script to run that file
+  - Create `start` script to run `index.js`
 - `/__tests__/` - contains unit tests
 - `/__mocks__/` - contains mock files
-- `/__data__/` - contains sample data file
-- `/docs/` - Where your documentation will reside
+- `/__data__/` - contains sample data files
+- `/docs/` - Where your documentation will reside (no generation needed)
   - `/docs/config`
   - `/docs/config/jsdoc.config.json`
     - JSDOC Config File
