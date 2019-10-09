@@ -55,7 +55,7 @@ class Model {
     return 'Invalid schema';
   }
 
-  // CRUD: read
+  // CRUD: read / search - we don't know if it exists
   async read(key, val) {
     // go through this.database array
     // if the object at this.database[indx] has a key
@@ -76,11 +76,22 @@ class Model {
     return found;
   }
 
-  // CRUD: update
-  async update(id, item) {}
+  // CRUD: update - you usually only update something that exists
+  // if something exists, it has an id
+  async update(id, item) {
+    // change a piece of the data
+    // change data where data.id === id
+    // [async] write data to file
+    // make sure your change is in this.database
+    // write this.database to file
+  }
 
   // CRUD: delete
-  async delete(id) {}
+  async delete(id) {
+    // find this.database object where object.id === id (forEach??)
+    // remove that object (map??)
+    // [async] write the new (smaller) this.database to the file
+  }
 
   // Validation
   sanitize(item) {
