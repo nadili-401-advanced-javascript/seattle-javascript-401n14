@@ -2,7 +2,7 @@
 
 const Teams = require('./models/teams.js');
 const People = require('./models/people.js');
-const Validator = require('./validator.js');
+const Validator = require('./lib/validator.js');
 // const uuidValidate = require('uuid-validate');
 
 //.  0.    1.      2.     3
