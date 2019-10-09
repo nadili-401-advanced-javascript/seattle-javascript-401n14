@@ -1,0 +1,14 @@
+{
+  "name": "class-01",
+  "version": "1.0.0",
+  "description": "## Learning Objectives * setup a NodeJS Package using npm * create commonjs modules * to create unit tests for synchronous Javascript code * use to test driven development methodologies * connect their github repository to travis-ci for hot build testing * describe and define continuous integration and continuous delivery * configure TravisCI to run their tests on all pushes to GitHub",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}
