@@ -61,7 +61,21 @@ Once you have written your functions, it's time to call them! In `index.js` call
 - After that, use the function `updatePerson` to set the person "Rene Lefridge" to the team "Yellow Rhino"
 - After that, use the function `deletePerson` to delete "Suzanne Render"
   - Hint: Suzanne is the only member of team "Orange Rabbit". Should "Orange Rabbit" exist once Suzanne is deleted?
-- Finally, use `printTeams` to print your list of teams
+- Finally, use `printTeams` to print your list of teams and the members in each team. Sample output could look like:
+
+  ```
+  ==============================
+  Team Name: Yellow Rhino
+  Members:
+  Sarah Smalls
+  Rene Lefridge
+  ==============================
+  ==============================
+  Team Name: Red Heron
+
+  // and so forth
+  ```
+
 - Run this program again:
   - Did the data persist?
 
