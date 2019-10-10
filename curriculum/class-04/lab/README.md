@@ -39,6 +39,8 @@ Have your code do the following:
 - Write a function `updatePerson` which will update the data of a person:
   - If that person changes their team, check if the new team exists
     - If it does not, create that team
+  - Think about:
+    - What if someone changes their team, and their last team is empty?
 - Write a function `deletePerson` which will delete a person:
   - First, check if that person exists so that you may delete them
   - If deleting this person will result in an empty team, also delete the team
