@@ -38,9 +38,6 @@ We will be using [Mongo](https://www.mongodb.com) in this course to dive into No
 
 When modeling data for a Document, it's best to start with considering the data you NEED, not the data that's available. In other words, work backwards. You can create many different documents to shape the data you need for different purposes. You do pay a price to write to multiple documents when related information changes, but the look up speed is worth it.
 
-![structured data model](assets/rdb.png)
-![nosql data model](assets/nosql.png)
-
 ### ORMs (Mongoose)
 
 Using raw JSON is flexible, but problematic. Programmers don't like surprises. Enter "Mongoose", and "ORM" for the Mongo database.
