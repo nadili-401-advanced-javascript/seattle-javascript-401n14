@@ -21,7 +21,7 @@
 -   Create a class named `LinkedList`. This class should contain:
     -   A variable named `head` which holds the `Node` object that starts the list
     -   A constructor that instantiates `head` as an empty linked list
-    -   A function called `insert` which takes in a value. This function will then create a new `Node` object, sets the object's `data` property equal to the value. The function then appends this new `Node` object to the beginning of the linked list (i.e. it creates a new `head`)
+    -   A function called `insert` which takes in a value. This function will then create a new `Node` object, sets the object's `data` property equal to the value. The function then appends this new `Node` object to the beginning of the linked list (i.e. it sets a new `head`)
     -   A function called `includes` which takes in a value and returns a boolean if that value exists in the linked list
     -   A function called `toString` whcih takes in no arguments and returns a string representing all the values in the linked list
 -   Implement good error checking throughout your code. Create custom errors that describe what went wrong.
