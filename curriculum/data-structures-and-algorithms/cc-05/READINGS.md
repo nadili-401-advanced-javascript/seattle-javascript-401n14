@@ -8,6 +8,8 @@ Wiki Entry Ideas:
 -   Dictionary / Flash Cards
 -   Notes in outline form
 
-*   Read: [Linked Lists](resources/singly_linked_list.md)
-*   Read: [What's a Linked List, Anyway pt1](https://medium.com/basecs/whats-a-linked-list-anyway-part-1-d8b7e6508b9d)
-*   Read: [What's a Linked List, Anyway pt2](https://medium.com/basecs/whats-a-linked-list-anyway-part-2-131d96f71996)
+## Read:
+
+-   [Linked Lists](resources/singly_linked_list.md)
+-   [What's a Linked List, Anyway pt1](https://medium.com/basecs/whats-a-linked-list-anyway-part-1-d8b7e6508b9d)
+-   [What's a Linked List, Anyway pt2](https://medium.com/basecs/whats-a-linked-list-anyway-part-2-131d96f71996)
