@@ -209,4 +209,4 @@ When constructing your code, a few things to keep in mind.
 
 1. When making your `Node` class, consider requiring a value to be passed in so that each node has a value.
 
-2. When making a linked list, you may want to require that at least one node gets passed in upon instantiation. This first node is what your `Head` and `Current` will point too.
+2. When making a linked list, you may want to require that at least one node gets passed in upon instantiation. This first node is what your `head` and `current` will point too.
