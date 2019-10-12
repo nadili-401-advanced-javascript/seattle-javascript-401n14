@@ -4,7 +4,8 @@ const Node = require('./node.js');
 
 class LinkedList {
   constructor() {
-    this.head = null;
+    this.head = null; // what is head??
+    this.tail = null;
   }
 
   // insert = add to beginning
@@ -16,9 +17,11 @@ class LinkedList {
     // node equal to the head
 
     if (!this.head) {
+      // if head = null
       console.log('Head: ', this.head);
 
       this.head = node;
+      this.tail = node;
 
       console.log('New Head: ', this.head.value, '->', this.head.next);
       console.log('Done Appending');
@@ -31,7 +34,7 @@ class LinkedList {
     // list until you get to a node that has no
     // next set. We then set that next equal to our
     // new node
-    let current = this.head;
+    let current = this.head; // Apple to start!
 
     console.log(
       'Head/Current: ',
@@ -40,17 +43,24 @@ class LinkedList {
       this.head.next ? this.head.next.value : this.head.next
     );
 
+    // Apple -> null
+
     while (current.next) {
       current = current.next;
       console.log(
         'Current: ',
+        current.prev ? current.prev.value : current.prev,
+        '<-',
         current.value,
         '->',
         current.next ? current.next.value : current.next
       );
     }
 
+    node.prev = current;
     current.next = node;
+    this.tail = node;
+
     console.log('Setting current.next: ', current.next.value);
     console.log('Done Appending');
     console.log('=======================');
