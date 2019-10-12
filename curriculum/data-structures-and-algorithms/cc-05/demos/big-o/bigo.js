@@ -90,7 +90,8 @@ for(let i=0; i<matrix.length; i++ ) {
 
 /**
  * O(log(n))
- * A binary search, which continually cuts the array in half as it goes has a log(n)
+ * A binary search, which continually cuts the
+ * array in half as it goes has a log(n)
  * complexity as it whittles down the iterations.
  */
 /*
@@ -128,18 +129,17 @@ console.log(binarySearch([1,2,3,4,5,6,7,8,9],6));
 /**
  * O(2^n)
  * Fibonacci
- * Because we're diving in 3x per number and recursively gets to the leaves this ends up being of exponential complexity
+ * Because we're diving in 3x per number and recursively
+ * gets to the leaves this ends up being of exponential
+ * complexity
  * For a great explanation as to why ...
  * https://stackoverflow.com/questions/360748/computational-complexity-of-fibonacci-sequence/360773#360773
  */
 /*
-function fibonacci(n){
-  if(n<=1) { return n; }
-  else {
-    return fibonacci(n - 1) + fibonacci(n - 2);
-  }
+function fibonacci(n) {
+  if (n <= 1) return n;
+  else return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 console.log(fibonacci(12));
-
 */
