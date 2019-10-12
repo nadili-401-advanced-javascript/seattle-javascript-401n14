@@ -1,16 +1,19 @@
 const Model = require('../models/model.js');
 const Teams = require('../models/teams.js');
 const People = require('../models/people.js');
+const supertester = require('./supertester.js');
+
+let people = new People();
 
 describe('Model', () => {
-  // How might we repeat this to check on types?
-  it('sanitize() returns undefined with missing requirements', () => {});
+  test('can create', () => {
+    let person = people.create({ firstName: 'Test', lastName: 'Test' });
+    expect(person).toBeDefined();
+  });
 
-  it('can create', () => {});
+  xit('can read', () => {});
 
-  it('can read', () => {});
+  xit('can update', () => {});
 
-  it('can update', () => {});
-
-  it('can delete', () => {});
+  xit('can delete', () => {});
 });
