@@ -3,10 +3,13 @@
  * This loop runs a known number of times, so without a variable, it's
  * considered to be "constant"
  */
-for( let i=0; i< 9; i++) {
-  console.log(i);
+function bigo1() {
+  for (let i = 0; i < 9; i++) {
+    console.log(i);
+  }
 }
 
+bigo1();
 
 /**
  * O(n)
@@ -14,38 +17,59 @@ for( let i=0; i< 9; i++) {
  * Because thats a single variable, we are going to execute only
  * "that" number of times
  */
-function doTheThing(n) {
+/*
+function bigoN(n) {
   for(let i=1; i<=n; i++ ) {
     console.log(i);
   }
 }
-doTheThing(10);
+bigoN(10);
+*/
 
 /**
  * O(n^2)
  * Here we go through the same array in nested loops
  * Each element `
  */
-let list = [1,2,3,4,5];
-for(let i=0; i<list.length; i++ ) {
-  for(let j=0; j< list.length; j++) {
-    console.log(`${list[i]} * ${list[j]} = ${list[i]*list[j]}`);
+
+/*
+function bigoNSquared(arr) {
+  let n = arr.length;
+  for (let indx = 0; indx < n; i++) {
+    for (let jindx = 0; jindx < n; jindx++) {
+      console.log(`${arr[indx]} * ${arr[jindx]} = ${arr[indx] * arr[jindx]}`);
+    }
   }
 }
+
+bigoNSquared([1, 2, 3, 4, 5]);
+*/
 
 /**
  * O(n^3)
  * Here we go through the same array in 3 nested loops
  * Each element `
  */
-let numbers = [1,2,3,4,5];
-for(let i=0; i<numbers.length; i++ ) {
-  for(let j=0; j<numbers.length; j++) {
-    for(let x=0; x<numbers.length; x++) {
-      console.log(`${numbers[i]} * ${numbers[j]} * ${numbers[x]} = ${numbers[i]*numbers[j]*numbers[x]}`);
+
+/*
+function bigoNCubed(arr) {
+  let n = arr.length;
+
+  for (let indx = 0; indx < n; indx++) {
+    for (let jindx = 0; jindx < n; jindx++) {
+      for (let xindx = 0; xindx < n; xindx++) {
+        console.log(
+          `${arr[indx]} * ${arr[jindx]} * ${arr[xindx]} = ${arr[indx] *
+            arr[jindx] *
+            arr[xindx]}`
+        );
+      }
     }
   }
 }
+
+bigoNCubed([1, 2, 3, 4, 5]);
+*/
 
 /**
  * O(n)
@@ -54,40 +78,22 @@ for(let i=0; i<numbers.length; i++ ) {
  * each of the inner loops is also O(n), so there is no "dominant"
  * to make this overly complex, so we simplify to O(n)
  */
+
+/*
 let matrix = [ [1,2,3],[4,5,6],[7,8,9] ];
 for(let i=0; i<matrix.length; i++ ) {
   for(let j=0; j< matrix[i].length; j++) {
     console.log(matrix[i][j]);
   }
 }
-
-
-/**
- * O(b) / O(b)
- * Here's a ridiculous example of recursion.
- * This function adds 2 numbers by constantly calling itself with
- * variations of the initial values until it's time to be done.
- * Here, we have:
- *  Time Complexity of O(b) (we loop based on "b")
- *  Space complexity of O(2b)
- *    because we're building up and not releasing new a and b variables on each iteration.
- * @param a
- * @param b
- * @returns {*}
- */
-function add(a,b) {
-  if( b===1 ) {
-    return a+b;
-  }
-  return add(a+1, b-1);  // O(b) for both time and space
-}
-console.log(add(5,5));
+*/
 
 /**
  * O(log(n))
  * A binary search, which continually cuts the array in half as it goes has a log(n)
  * complexity as it whittles down the iterations.
  */
+/*
 let binarySearch = (arr, value) => {
 
   let iterations = 0;
@@ -117,6 +123,7 @@ let binarySearch = (arr, value) => {
   return [false,iterations];
 };
 console.log(binarySearch([1,2,3,4,5,6,7,8,9],6));
+*/
 
 /**
  * O(2^n)
@@ -125,6 +132,7 @@ console.log(binarySearch([1,2,3,4,5,6,7,8,9],6));
  * For a great explanation as to why ...
  * https://stackoverflow.com/questions/360748/computational-complexity-of-fibonacci-sequence/360773#360773
  */
+/*
 function fibonacci(n){
   if(n<=1) { return n; }
   else {
@@ -133,3 +141,5 @@ function fibonacci(n){
 }
 
 console.log(fibonacci(12));
+
+*/
