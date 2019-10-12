@@ -181,23 +181,30 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 - Program takes a name as a command line argument
 - `model.js`
   - Implement all CRUD operations for MongoDB
-  - All CRUD operations should be asynchronous
-  - `sanitize` should check required schema items as well as the types for all schema fields -`index.js`
-  - Implement `createPerson`, `readPerson`, `updatePerson`, `deletePerson` and `printTeams`
-  - Load the data asynchronously, and afterwards (using `.then()` or `await`) call the created functions in the specified order
-  - Changes to the database should be persisted by the files being written correctly
+  - Implement `getFromField`
+  - Implement `count`
+- `people.js` and `people-schema.js` / `teams.js` and `teams-schema.js`
+  - Should extend Model
+  - Implement all the features of the schema
+- `index.js`
+  - Handle command line arguments for:
+    - People
+    - Teams
+    - No input
+- MongoDB
+  - Have entries in your database that match:
+    - 7 people
+    - 3 teams
 
 ### Code Quality:
 
 - Properly modularized
-- Clean use of conditionals for the sanitizer
 - Functional programming where it makes sense
 
 ### Tests:
 
 - Test all CRUD operations
-- Test your `sanitize()` function
-- Test your data operation functions
+- Test your index.js output
 
 | Criteria                                                                                                       | Points |
 | -------------------------------------------------------------------------------------------------------------- | ------ |
