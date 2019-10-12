@@ -3,8 +3,13 @@
  * This loop runs a known number of times, so without a variable, it's
  * considered to be "constant"
  */
+
+// n = input - here there's no input!
+// So we don't care about n, and we reduce
+// ALL CONSTANTS to 1
+
 function bigo1() {
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < arr.length; i++) {
     console.log(i);
   }
 }
@@ -17,14 +22,13 @@ bigo1();
  * Because thats a single variable, we are going to execute only
  * "that" number of times
  */
-/*
+
 function bigoN(n) {
-  for(let i=1; i<=n; i++ ) {
+  for (let i = 1; i <= n; i++) {
     console.log(i);
   }
 }
-bigoN(10);
-*/
+// bigoN(100);
 
 /**
  * O(n^2)
@@ -32,18 +36,15 @@ bigoN(10);
  * Each element `
  */
 
-/*
-function bigoNSquared(arr) {
-  let n = arr.length;
-  for (let indx = 0; indx < n; i++) {
+function bigoNSquared(n) {
+  for (let indx = 0; indx < n; indx++) {
     for (let jindx = 0; jindx < n; jindx++) {
-      console.log(`${arr[indx]} * ${arr[jindx]} = ${arr[indx] * arr[jindx]}`);
+      console.log(indx, jindx);
     }
   }
 }
 
-bigoNSquared([1, 2, 3, 4, 5]);
-*/
+// bigoNSquared(100);
 
 /**
  * O(n^3)
@@ -51,7 +52,6 @@ bigoNSquared([1, 2, 3, 4, 5]);
  * Each element `
  */
 
-/*
 function bigoNCubed(arr) {
   let n = arr.length;
 
@@ -68,25 +68,27 @@ function bigoNCubed(arr) {
   }
 }
 
-bigoNCubed([1, 2, 3, 4, 5]);
-*/
+// bigoNCubed([1, 2, 3, 4, 5]);
 
 /**
  * O(n)
  * Even though we have nested for loops, we are not squared because they
- * both have separate variables. In effect, the parent loop is O(n) and
- * each of the inner loops is also O(n), so there is no "dominant"
- * to make this overly complex, so we simplify to O(n)
+ * both have separate variables. Instead, the outer loop is O(n) and the
+ * inner loop is O(m), where m is the length of the nested arrays.
+ * As m approaches n, we get to O(n^2). Otherwise, if m is a constant or
+ * less than n, we generalize this to O(n).
  */
 
-/*
-let matrix = [ [1,2,3],[4,5,6],[7,8,9] ];
-for(let i=0; i<matrix.length; i++ ) {
-  for(let j=0; j< matrix[i].length; j++) {
-    console.log(matrix[i][j]);
+function bigoNM(matx) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      console.log(matrix[i][j]);
+    }
   }
 }
-*/
+
+let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+// bigoNM(matrix)
 
 /**
  * O(log(n))
@@ -94,37 +96,32 @@ for(let i=0; i<matrix.length; i++ ) {
  * array in half as it goes has a log(n)
  * complexity as it whittles down the iterations.
  */
-/*
-let binarySearch = (arr, value) => {
 
+let binarySearch = (arr, value) => {
   let iterations = 0;
   let start = 0;
   let end = arr.length - 1;
   let middle = 0;
 
-  while( start <= end ) {
-
+  while (start <= end) {
     iterations++;
 
-    middle = Math.floor( (start+end) / 2);
+    //console.log(iterations);
 
-    if ( value === arr[middle] ) {
+    middle = Math.floor((start + end) / 2);
+
+    if (value === arr[middle]) {
       return [true, iterations];
-    }
-
-    else if ( value > arr[middle] ) {
+    } else if (value > arr[middle]) {
       start = middle + 1;
-    }
-
-    else {
+    } else {
       end = middle - 1;
     }
-
   }
-  return [false,iterations];
+  return [false, iterations];
 };
-console.log(binarySearch([1,2,3,4,5,6,7,8,9],6));
-*/
+
+// console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 5));
 
 /**
  * O(2^n)
@@ -135,11 +132,11 @@ console.log(binarySearch([1,2,3,4,5,6,7,8,9],6));
  * For a great explanation as to why ...
  * https://stackoverflow.com/questions/360748/computational-complexity-of-fibonacci-sequence/360773#360773
  */
-/*
+
 function fibonacci(n) {
   if (n <= 1) return n;
   else return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 console.log(fibonacci(12));
-*/
+
