@@ -1,5 +1,9 @@
 # Class 05 - Data Modeling With NoSQL Databases
 
+| [Lecture Video](https://frontrowviews.com/Home/Event/Play/5d8e8551bdb995374c43360a) | [Lab Video](https://frontrowviews.com/Home/Event/Play/5d8e8551bdb995374c43360a) |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+
+
 ## Learning Objectives
 
 - Understand the differences between SQL and noSQL Databases
