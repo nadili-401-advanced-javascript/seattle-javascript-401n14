@@ -1,10 +1,42 @@
 'use strict';
 
-const Teams = require('./models/teams.js');
+const mongoose = require('mongoose');
+const db = 'mongodb://127.0.0.1:27017/app';
+
+const configs = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+};
+
+mongoose.connect(db, configs);
+
+//const Teams = require('./models/teams.js');
 const People = require('./models/people.js');
-const Validator = require('./lib/validator.js');
+
+let people = new People();
+
+async function makePerson(person) {
+  //let made = await people.create(person);
+
+  let found = await people.getByQuery(person);
+  console.log(found);
+  return found;
+}
+
+makePerson({
+  firstName: 'Sarah',
+  lastName: 'Smalls'
+}).then(() => {
+  console.log("i'm here!");
+  mongoose.connection.close();
+});
+
+// mongoose.connection.close();
+
+//const Validator = require('./lib/validator.js');
 // const uuidValidate = require('uuid-validate');
 
+/*
 //.  0.    1.      2.     3
 // node index.js.  ??    ??
 let people = new People(process.argv.slice(2)[0]);
@@ -89,4 +121,4 @@ async function runOperations() {
   });
 }
 
-runOperations();
+runOperations(); */
