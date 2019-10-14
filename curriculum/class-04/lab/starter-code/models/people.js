@@ -1,8 +1,8 @@
 'use strict';
 
-const DataModel = require('./model.js');
+const Model = require('./model.js');
 
-class People extends DataModel {
+class People extends Model {
   constructor(file) {
     super(
       {
@@ -14,6 +14,8 @@ class People extends DataModel {
       file
     );
   }
+
+  // nothing
 }
 
 module.exports = People;

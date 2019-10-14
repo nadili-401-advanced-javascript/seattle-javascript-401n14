@@ -61,7 +61,21 @@ Once you have written your functions, it's time to call them! In `index.js` call
 - After that, use the function `updatePerson` to set the person "Rene Lefridge" to the team "Yellow Rhino"
 - After that, use the function `deletePerson` to delete "Suzanne Render"
   - Hint: Suzanne is the only member of team "Orange Rabbit". Should "Orange Rabbit" exist once Suzanne is deleted?
-- Finally, use `printTeams` to print your list of teams
+- Finally, use `printTeams` to print your list of teams and the members in each team. Sample output could look like:
+
+  ```
+  ==============================
+  Team Name: Yellow Rhino
+  Members:
+  Sarah Smalls
+  Rene Lefridge
+  ==============================
+  ==============================
+  Team Name: Red Heron
+
+  // and so forth
+  ```
+
 - Run this program again:
   - Did the data persist?
 
@@ -91,11 +105,11 @@ For each part of this lab, configure your folder with the following files and di
   - Add your name in the `author` field (you can do this easily using `npm init`)
   - Create a `lint` script for running eslint (`eslint **/*.js`)
   - Create a `test` script for running tests
-  - If you have an `index.js`, create a `start` script to run that file
+  - Create `start` script to run `index.js`
 - `/__tests__/` - contains unit tests
 - `/__mocks__/` - contains mock files
-- `/__data__/` - contains sample data file
-- `/docs/` - Where your documentation will reside
+- `/__data__/` - contains sample data files
+- `/docs/` - Where your documentation will reside (no generation needed)
   - `/docs/config`
   - `/docs/config/jsdoc.config.json`
     - JSDOC Config File
