@@ -137,7 +137,6 @@ No record found
 For each part of this lab, configure your folder with the following files and directories.
 
 - `README.md` - contains your lab documentation ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/reference/submission-instructions/labs/README-template.md))
-- `.env` - If you deploy your app to Heroku, this file should exist and contain important environment variables for Heroku
 - `.gitignore` - contains a robust .gitignore file ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.gitignore))
 - `.eslintrc.json` - contains the course linter configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.eslintrc.json))
 - `.eslintignore` - contains the course linter ignore configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.eslintignore))
@@ -155,22 +154,6 @@ For each part of this lab, configure your folder with the following files and di
   - `/docs/config/jsdoc.config.json`
     - JSDOC Config File
     - Edit this for each lab if your folder structure is different
-
-### Heroku
-
-Typically, when we have a lab that includes a database using MongoDB, we want to deploy our app to Heroku so that we don't use a localhost url when attempting to access our database.
-
-Because this is the first app where you'll be working with a database, deployment to Heroku is **optional but recommended**. We will be going over this process in a little more depth during Lab 06.
-
-Check out [these instructions](https://medium.com/make-school/how-to-deploy-your-node-js-mongodb-app-to-the-web-using-heroku-63d4bccf2675) about how to deploy to Heroku, so that you can experiment with the process for this lab.
-
-If you do deploy to Heroku, most likely you will want an `.env` file with some variables that are specific to Heroky (such as url to your database, port number, etc).
-
-**Whether you use Heroku or not**, you will need to have detailed instructions in your `README` for how to run your application and how to access the application data.
-
-If you do not deploy to Heroku, describe where your database data is stored (most likely in the `/data` folder of your project). Be sure to list out any other steps, such as how to start the MongoDB database from the terminal.
-
-If you deploy to Heroku, make sure to include a URL to your running Heroku server.
 
 ### Submit to Canvas
 
