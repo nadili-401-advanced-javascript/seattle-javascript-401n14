@@ -1,12 +1,12 @@
 # LAB: Data Modeling With NoSQL Databases
 
-In this lab, we're going to re-work our Lab 04 to use MongoDB and Mongoose.
+In this lab, we're going to re-work our Lab 04 to use MongoDB and Mongoose. We'll be using the starter code in the `/starter-code/` folder.
 
 ## Requirements
 
 You will be required to populate an empty MongoDB database with `people` and `team` entries, similar to Lab 04.
 
-You can choose to do this lab in one of two ways (or some combination):
+You can choose to do this portion of the lab in one of two ways (or some combination):
 
 - Do most of the actions through the terminal connection to mongo
 - Do the actions through running a program like `index.js`
