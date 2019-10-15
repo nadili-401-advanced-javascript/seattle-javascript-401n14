@@ -135,11 +135,14 @@ No record found
 
 ## Assignment Submission Instructions
 
+You will be required to host your data on Heroku. You can find instructions for that [here](https://github.com/jesperorb/json-server-heroku).
+
 ### Configure your repository
 
 For each part of this lab, configure your folder with the following files and directories.
 
 - `README.md` - contains your lab documentation ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/reference/submission-instructions/labs/README-template.md))
+- `.env` - contains important environment variables for Heroku
 - `.gitignore` - contains a robust .gitignore file ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.gitignore))
 - `.eslintrc.json` - contains the course linter configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.eslintrc.json))
 - `.eslintignore` - contains the course linter ignore configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.eslintignore))
@@ -162,6 +165,7 @@ For each part of this lab, configure your folder with the following files and di
 
 - Ensure that your `README.md` exists and has:
   - A link to your TravisCI
+  - A link to your running Heroku server
   - A link to pull request from your lab branch to your master branch in your forked repository
     - Keep this pull request open (**don't merge to master**) in case you need to resubmit your lab
   - Your module names for the application
