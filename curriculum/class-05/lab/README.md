@@ -114,6 +114,7 @@ Likes: Cats and Dogs
 >> node index.js Yellow Rhino
 
 Team Name: Yellow Rhino
+Color: yellow
 Members:
 - Sonia Kandah
 - Erin Trainor
