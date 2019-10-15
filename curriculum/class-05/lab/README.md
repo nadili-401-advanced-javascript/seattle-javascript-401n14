@@ -196,7 +196,8 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 
 ### Requirements:
 
-- Program takes a name as a command line argument
+- Program runs with no command line arguments, printing out number of teams and people
+- Program takes a name as a command line argument and returns the stored information about that item in the database, or "No record found" if it doesn't exist
 - `model.js`
   - Implement all CRUD operations for MongoDB
   - Implement `getFromField`
