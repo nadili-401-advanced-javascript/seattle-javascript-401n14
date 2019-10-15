@@ -128,7 +128,7 @@ No record found
 
   - Think about:
     - When you test you shouldn't actually alter your database
-    - Similar to when you tested fs.writeFile; you didn't actually want to write to a file during a test. You avoided doing so by using **mocks**
+    - Similar to when you tested `fs.writeFile`; you didn't actually want to write to a file during a test. You avoided doing so by using **mocks**
     - What external module is used in all of the CRUD operations? This is the one you should mock up
 
 - Test out any additional functions used in `index.js` to get the code coverage you want
@@ -213,7 +213,7 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 ### Tests:
 
 - Test all CRUD operations
-- Test your index.js output
+- Test your `index.js` output
 
 | Criteria                                                                                                       | Points |
 | -------------------------------------------------------------------------------------------------------------- | ------ |
