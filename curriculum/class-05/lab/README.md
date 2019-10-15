@@ -1,12 +1,12 @@
 # LAB: Data Modeling With NoSQL Databases
 
-In this lab, we're going to re-work our Lab 04 to use MongoDB and Mongoose.
+In this lab, we're going to re-work our Lab 04 to use MongoDB and Mongoose. We'll be using the starter code in the `/starter-code/` folder.
 
 ## Requirements
 
 You will be required to populate an empty MongoDB database with `people` and `team` entries, similar to Lab 04.
 
-You can choose to do this lab in one of two ways (or some combination):
+You can choose to do this portion of the lab in one of two ways (or some combination):
 
 - Do most of the actions through the terminal connection to mongo
 - Do the actions through running a program like `index.js`
@@ -48,11 +48,11 @@ For your final submission, we require that you have an `index.js` which console 
 
 ```javascript
 {
-  firstName: {required: true, type: "string"},
-  lastName: {required: true, type: "string"},
-  team: {required: false, type: "uuid"},
-  birthday: {required: true, type: "date"},
-  likes: {required: true, type: "string", lowercase: "true", enum: ["cats", "dogs", "none", "both"]}
+  firstName: {required: true, type: 'string'},
+  lastName: {required: true, type: 'string'},
+  team: {required: false, type: 'id'},
+  birthday: {required: true, type: 'date'},
+  likes: {required: true, type: 'string', lowercase: true, enum: ['cats', 'dogs', 'none', 'both']}
 }
 ```
 
@@ -62,12 +62,12 @@ For your final submission, we require that you have an `index.js` which console 
   - Hint: We did this in the demo [`/demo/mongo`]
 - Move your schema definition into a new file called `teams-schema.js`, and use Mongoose to properly define your schema
   - Hint: We did this in the demo [`/demo/mongo`]
-- Add to your scheam so that it matches the following rough outline (note: you will need to convert this to match [Mongoose types](https://mongoosejs.com/docs/schematypes.html))
+- Add to your schema so that it matches the following rough outline (note: you will need to convert this to match [Mongoose types](https://mongoosejs.com/docs/schematypes.html))
 
 ```javascript
 {
-  name: {required: true, type: "string"},
-  color: {required: true, type: "string", lowercase: "true", enum: ["red", "blue", "yellow"]}
+  name: {required: true, type: 'string'},
+  color: {required: true, type: 'string', lowercase: true, enum: ['red', 'blue', 'yellow']}
 }
 ```
 
@@ -78,16 +78,16 @@ For your final submission, we require that you have an `index.js` which console 
 
 ```javascript
 {
-  name: "Red Heron",
-  color: "red"
+  name: 'Red Heron',
+  color: 'red'
 }
 {
-  name: "Blue Otter",
-  color: "blue"
+  name: 'Blue Otter',
+  color: 'blue'
 }
 {
-  name: "Yellow Rhino",
-  color: "yellow"
+  name: 'Yellow Rhino',
+  color: 'yellow'
 }
 ```
 
@@ -114,6 +114,7 @@ Likes: Cats and Dogs
 >> node index.js Yellow Rhino
 
 Team Name: Yellow Rhino
+Color: Yellow
 Members:
 - Sonia Kandah
 - Erin Trainor
@@ -195,7 +196,8 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 
 ### Requirements:
 
-- Program takes a name as a command line argument
+- Program runs with no command line arguments, printing out number of teams and people
+- Program takes a name as a command line argument and returns the stored information about that item in the database, or "No record found" if it doesn't exist
 - `model.js`
   - Implement all CRUD operations for MongoDB
   - Implement `getFromField`
