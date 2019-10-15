@@ -4,7 +4,7 @@ In Lab 05, we used MongoDB as our database. This time, we'll be creating an HTTP
 
 ## Requirements
 
-You will be required to populate an HTTP database with `people` and `team` entries, similar to Lab 05.
+You will be required to populate an HTTP database with two new `people` entries and one new `team` entry, similar to Lab 05.
 
 You can choose to do this portion of the lab in one of three ways (or some combination):
 
