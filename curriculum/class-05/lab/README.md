@@ -48,11 +48,11 @@ For your final submission, we require that you have an `index.js` which console 
 
 ```javascript
 {
-  firstName: {required: true, type: "string"},
-  lastName: {required: true, type: "string"},
-  team: {required: false, type: "uuid"},
-  birthday: {required: true, type: "date"},
-  likes: {required: true, type: "string", lowercase: true, enum: ["cats", "dogs", "none", "both"]}
+  firstName: {required: true, type: 'string'},
+  lastName: {required: true, type: 'string'},
+  team: {required: false, type: 'id'},
+  birthday: {required: true, type: 'date'},
+  likes: {required: true, type: 'string', lowercase: true, enum: ['cats', 'dogs', 'none', 'both']}
 }
 ```
 
@@ -66,8 +66,8 @@ For your final submission, we require that you have an `index.js` which console 
 
 ```javascript
 {
-  name: {required: true, type: "string"},
-  color: {required: true, type: "string", lowercase: true, enum: ["red", "blue", "yellow"]}
+  name: {required: true, type: 'string'},
+  color: {required: true, type: 'string', lowercase: true, enum: ['red', 'blue', 'yellow']}
 }
 ```
 
@@ -78,16 +78,16 @@ For your final submission, we require that you have an `index.js` which console 
 
 ```javascript
 {
-  name: "Red Heron",
-  color: "red"
+  name: 'Red Heron',
+  color: 'red'
 }
 {
-  name: "Blue Otter",
-  color: "blue"
+  name: 'Blue Otter',
+  color: 'blue'
 }
 {
-  name: "Yellow Rhino",
-  color: "yellow"
+  name: 'Yellow Rhino',
+  color: 'yellow'
 }
 ```
 
