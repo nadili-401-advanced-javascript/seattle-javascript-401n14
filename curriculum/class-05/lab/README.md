@@ -52,7 +52,7 @@ For your final submission, we require that you have an `index.js` which console 
   lastName: {required: true, type: "string"},
   team: {required: false, type: "uuid"},
   birthday: {required: true, type: "date"},
-  likes: {required: true, type: "string", lowercase: "true", enum: ["cats", "dogs", "none", "both"]}
+  likes: {required: true, type: "string", lowercase: true, enum: ["cats", "dogs", "none", "both"]}
 }
 ```
 
@@ -67,7 +67,7 @@ For your final submission, we require that you have an `index.js` which console 
 ```javascript
 {
   name: {required: true, type: "string"},
-  color: {required: true, type: "string", lowercase: "true", enum: ["red", "blue", "yellow"]}
+  color: {required: true, type: "string", lowercase: true, enum: ["red", "blue", "yellow"]}
 }
 ```
 
