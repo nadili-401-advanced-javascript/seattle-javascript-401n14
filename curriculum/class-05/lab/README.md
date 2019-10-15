@@ -62,7 +62,7 @@ For your final submission, we require that you have an `index.js` which console 
   - Hint: We did this in the demo [`/demo/mongo`]
 - Move your schema definition into a new file called `teams-schema.js`, and use Mongoose to properly define your schema
   - Hint: We did this in the demo [`/demo/mongo`]
-- Add to your scheam so that it matches the following rough outline (note: you will need to convert this to match [Mongoose types](https://mongoosejs.com/docs/schematypes.html))
+- Add to your schema so that it matches the following rough outline (note: you will need to convert this to match [Mongoose types](https://mongoosejs.com/docs/schematypes.html))
 
 ```javascript
 {
