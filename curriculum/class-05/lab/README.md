@@ -29,7 +29,7 @@ For your final submission, we require that you have an `index.js` which console 
 - Convert `model.js` into using the MongoDB CRUD system
   - Hint: We did this a lot of this in the demo [`/demo/mongo`]
   - Hint: We should no longer need a `load()` operation
-- In your `model.js`, add a method called `getByField`, which takes in an object parameter and returns the search result for objects that match the fields in the object parameter
+- In your `model.js`, add a method called `getFromField`, which takes in an object parameter and returns the search result for objects that match the fields in the object parameter
   - Hint: You probably want to use the `find()` method
   - Think about:
     - Should you do any validation here?
@@ -200,7 +200,7 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 - Program takes a name as a command line argument and returns the stored information about that item in the database, or "No record found" if it doesn't exist
 - `model.js`
   - Implement all CRUD operations for MongoDB
-  - Implement `getByField`
+  - Implement `getFromField`
   - Implement `count`
 - `people.js` and `people-schema.js` / `teams.js` and `teams-schema.js`
   - Should extend Model
