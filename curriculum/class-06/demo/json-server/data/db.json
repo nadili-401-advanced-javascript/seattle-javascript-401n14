@@ -1,0 +1,33 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "firstName": "Sonia",
+      "lastName": "Kandah",
+      "pets": [
+        {
+          "name": "Kitto"
+        },
+        {
+          "name": "Bernie"
+        }
+      ]
+    },
+    {
+      "id": 2
+    },
+    {
+      "firstName": "Sarah",
+      "lastName": "Smalls",
+      "pets": [
+        {
+          "name": "Rex"
+        },
+        {
+          "name": "Tbone"
+        }
+      ],
+      "id": 3
+    }
+  ]
+}
