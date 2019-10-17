@@ -13,7 +13,7 @@ Each student can max do 2 lightning talks.
 | Topic                              | Topic Links                                                                                  | Date             | Assigned Student |
 | ---------------------------------- | -------------------------------------------------------------------------------------------- | ---------------- | ---------------- |
 | ~~Open/Closed Principle~~          | [~~Link~~](https://deviq.com/open-closed-principle/)                                         | ~~Oct 12, 2019~~ | ---              |
-| Liskov Substitution Principle      | [Link](https://deviq.com/liskov-substitution-principle/)                                     | Oct 19, 2019     | ---              |
+| Liskov Substitution Principle      | [Link](https://deviq.com/liskov-substitution-principle/)                                     | Oct 19, 2019     | Morgan T Shaw              |
 | Interface Segregation Principle    | [Link](https://deviq.com/interface-segregation-principle/)                                   | Oct 26, 2019     | ---              |
 | Dependency Inversion Principle     | [Link](https://deviq.com/dependency-inversion-principle/)                                    | Nov 02, 2019     | Jessica Elliott  |
 | Strategy Pattern                   | [Link](https://www.dofactory.com/javascript/strategy-design-pattern)                         | Nov 09, 2019     | ---              |
