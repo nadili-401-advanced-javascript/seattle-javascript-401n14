@@ -14,6 +14,9 @@ aws.yml
 *_sol
 *_sol/*
 
+*_fac
+*_fac/*
+
 # ignore the webstorm ide dir
 .idea/
 
