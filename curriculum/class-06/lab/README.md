@@ -167,6 +167,7 @@ For each part of this lab, configure your folder with the following files and di
 - Ensure that your `README.md` exists and has:
   - A link to your TravisCI
   - A link to your running Heroku server
+  - A link to your SwaggerHub API Documentation
   - A link to pull request from your lab branch to your master branch in your forked repository
     - Keep this pull request open (**don't merge to master**) in case you need to resubmit your lab
   - Your module names for the application

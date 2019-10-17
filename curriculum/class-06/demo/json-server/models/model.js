@@ -32,6 +32,12 @@ class Model {
       headers: { 'Content-Type': 'application/json' }
     });
 
+    // if url is good
+    // return
+    // res = { ok: true, statusText: '',  json => async() {
+    // something > returns a object {}
+    // }}
+
     if (res.ok) {
       let json = await res.json();
       console.log('Data:', json);
