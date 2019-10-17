@@ -155,7 +155,7 @@ For each part of this lab, configure your folder with the following files and di
 - `/__tests__/` - contains unit tests
 - `/__mocks__/` - contains mock files
 - `/__data__/` - contains your MongoDB database information
-- `/docs/` - Where your documentation will reside (Swagger AND JSDocs generation)
+- `/docs/` - Where your documentation will reside (Swagger generation, no JSDocs generation needed)
   - `swagger.json`
   - `/docs/config`
   - `/docs/config/jsdoc.config.json`
