@@ -18,7 +18,7 @@ async function startDB() {
 
   const mongooseOptions = {
     useNewUrlParser: true,
-    useCreateIndex: true,
+    useCreateIndex: true
   };
 
   await mongoose.connect(mongoUri, mongooseOptions);
@@ -26,7 +26,7 @@ async function startDB() {
 
 async function stopDB() {
   await mongoose.disconnect();
-  mongoServer && await mongoServer.stop();
+  mongoServer && (await mongoServer.stop());
 }
 
 beforeAll(startDB);
