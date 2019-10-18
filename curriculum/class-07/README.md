@@ -55,12 +55,12 @@ In class 06, we explored a different process to get data; not from a database di
 
 - The CRUD operations get transformed into HTTP operations:
 
-| CRUD Operation | HTTP Operation |
-| -------------- | -------------- |
-| Create         | POST           |
-| Read           | GET            |
-| Update         | PUT or PATCH   |
-| Delete         | DELETE         |
+  | CRUD Operation | HTTP Operation |
+  | -------------- | -------------- |
+  | Create         | POST           |
+  | Read           | GET            |
+  | Update         | PUT or PATCH   |
+  | Delete         | DELETE         |
 
 - Our server `json-server` needs to expose some _endpoints_ that other applications can hook into. This is required for our server to be a REST API. Luckily, we saw that `json-server` does that automatically after reading from the "database" located in `/data/db.json`, so we quickly got our `/people` and `/teams` endpoints.
 
