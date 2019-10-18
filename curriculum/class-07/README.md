@@ -2,8 +2,6 @@
 
 ## Key Terms
 
-Students should be able to define:
-
 | Term                                  | Definition                                                                                                                                                                                                                                                                                                                                                                          | Supporting Links                                                                                                                                                                                           |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Web Application Framework             | A web application framework (WAF) is something that supports the development of web applications by providing easy ways to setup web services, resources and APIs. WAFs give you a standard way to build and deploy web applications online. Many WAFs provide easy ways to access an external database (such as MongoDB) and to set up REST API endpoints on your own application. | [1](https://www.scnsoft.com/blog/web-application-framework)                                                                                                                                                |
@@ -17,8 +15,6 @@ Students should be able to define:
 | Web Request Response Cycle            | ====                                                                                                                                                                                                                                                                                                                                                                                | ====                                                                                                                                                                                                       |
 
 ## Key Packages
-
-Students should have familiarity with using the following packages and libraries:
 
 | Package                   | Description              | Download Link |
 | ------------------------- | ------------------------ | ------------- |
