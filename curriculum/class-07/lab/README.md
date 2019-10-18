@@ -60,7 +60,7 @@ Provide full swagger documentation for your server.
 
 ## Assignment Submission Instructions
 
-For this lab, you will be required to deploy it to Heroku.
+For this lab, you will be required to deploy your app to Heroku.
 
 ### Configure your repository
 
