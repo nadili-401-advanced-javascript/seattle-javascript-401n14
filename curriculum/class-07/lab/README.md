@@ -4,21 +4,18 @@ In this lab, you'll be adding routes, documentation and tests to a functional ex
 
 ## Requirements
 
+### People Model
+
+Finish the routes for the people model
+
+- Add the contents of the `PUT` operation for the people route
+- Add the contents of the `DELETE` operation for the people route
+
 ### Teams Model
 
-Create the teams model and add routes to edit teams data
+Add `GET`, `POST`, `PUT` and `DELETE` routes for teams and fill in the contents of these functions.
 
-- Create a new data model that uses the following schema:
-
-```javascript
-{
-  id: {type: Number, required: true}
-  name: {type: String, required: true}
-  color: {type: String, required: false, enum: ['red', 'blue', 'yellow']}
-}
-```
-
-- Add `GET`, `POST`, `PUT` and `DELETE` routes for teams
+- Hint: This should be very similar to the people model routes!
 
 ### Middleware
 
