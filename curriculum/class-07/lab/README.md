@@ -25,12 +25,13 @@ Add the following middleware to your `server.js`:
   - For all routes, add middleware that puts a current [timestamp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) on the `request` object in a property called `requestTime`
   - Create logging middleware that accepts a parameter called `message`. The middleware should `console.log()` the `path`, `method`, and `requestTime` properties for every request, as well as whatever `message` is passed to the middleware
     - Alter the `get` and `posts` routes to call your logging middleware with a custom message
-  - Add 404 and 500 error handling middleware to the server
 - Route Level:
   - Create middleware for the people `post` route that puts a [randomly generated `true` or `false` value](https://stackoverflow.com/questions/36756331/js-generate-random-boolean) on a property on the request object called `valid`
     - In that post route, only create a new record if `request.valid` is `true`. Otherwise, force a 500 error
     - Because you can no longer ensure that given a hard coded input this route will succeed, you can also no longer test this route
     - Even though you can't test this route, you now have a better understanding of how to simulate database failure and ensure that your application doesn't crash when there is a bad request.
+- Error Handling
+  - Add 404 and 500 error handling middleware to the server
 
 ### Modularize
 
@@ -49,9 +50,9 @@ Provide full swagger documentation for your server.
 
 ### Testing
 
-- Server tests have been partially provided, but they will not work until the modularization steps are completed
+- Server tests have been partially provided, but you'll need to add new tests for new routes
   - Complete the tests to cover all of your routes
-  - Use `supertester.js` to wire up a mock server
+  - Use `supertester.js` to wire up a mock server as in the provided tests
 - Write unit tests for your middleware
 - Write unit tests for your data models
 
@@ -116,6 +117,7 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
   - Logging
   - Valid
     - Implement Valid on POST
+  - Error Handling
 - Modularity
   - `people-routes.js`
   - `teams-routes.js`
