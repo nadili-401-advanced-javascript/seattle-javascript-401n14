@@ -44,7 +44,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/bark', (req, res, next) => {
   res.status(200);
-  res.send("It looks like I'm at /meow, but really I'm at /dogs/bark");
+  res.send("It looks like I'm at /bark, but really I'm at /dogs/bark");
 });
 
 app.use('/dogs', router);

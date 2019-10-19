@@ -28,23 +28,3 @@ module.exports = {
   server: app,
   start: start
 };
-
-/*
-
-require('../docs/config/swagger.js');
-const schema = ['id', 'name', 'title', 'author', 'article'];
-let db = [];
-
-app.use(express.json());
-
-app.use( express.static('./public') );
-
-app.use( (req,res,next) => {
-  console.log('LOG:', req.method, req.path);
-  next();
-});
-
-let messager = (req,res,next) => {
-  console.log('send this to the queue!');
-  next();
-}; */
