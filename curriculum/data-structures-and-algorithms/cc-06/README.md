@@ -108,4 +108,4 @@ Ensure your tests are passing before you submit your solution.
     1. Copy the link to your open pull request and paste it into the corresponding Canvas assignment
     1. Leave a description of how long this assignment took you in the comments box
     1. Add any additional comments you like about your process or any difficulties you may have had with the assignment
-1. **Do NOT merge your branch into `master` - your open pull request will be your primary way to resubmit if needed. Only merge to master once you have recieved a grade and do not wish to resubmit.**
+1. **Do NOT merge your branch into `master` - your open pull request will be your primary way to resubmit if needed. Only merge to master once you have received a grade and do not wish to resubmit.**
