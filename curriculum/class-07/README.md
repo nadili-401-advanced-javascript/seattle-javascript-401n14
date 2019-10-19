@@ -355,11 +355,13 @@ Here's an example of an existing public API documented through Swagger: [Star Wa
 - On the left, you'll see the source code for the documentation.
 - On the right is the generated "Swagger" or "Open API" documentation for the [Star Wars API](https://swapi.co/api/people)
 
-#### Serving your own Swagger Documentation
+### Building Swagger Documentation
 
-Use the node `express-swagger-generator` utility to create an endpoint that will render the Open API documentation for your API simply by putting properly formmated JSDoc-like comments in your API.
+We can use the node module `express-swagger-generator` to create an endpoint on our server that will render your API's live documentation. All you have to do to make this work is to add properly formatted JSDoc-like comments in your API.
 
-Create and import a file called `swagger.js` into your API server, which uses a configuration object that you can use to customize according to your API's file and URL structure.
+> These comments will _replace_ JSDoc comments in your server.
+
+Create a file called `swagger.js`, and build a new server that will host it (your live documentation should not be on the same port as your main application). For example, if your application is running on port 3000, you can set your live documentation to run on port 3100. This file should contain some configuration rules in a JavaScript object, which will then be used to generate your live documentation. Here's an example of a full `swagger.js` file:
 
 ```javascript
 const express = require('express');
@@ -373,7 +375,7 @@ let options = {
       title: 'Swaggertastic Docs!',
       version: '1.0.1'
     },
-    host: 'localhost:3300',
+    host: 'localhost:3000',
     basePath: '',
     produces: ['application/json'],
     schemes: ['http'],
@@ -388,10 +390,10 @@ let options = {
 };
 expressSwagger(options);
 // start up a specific standalone swagger server on a specific port
-app.listen(3000);
+app.listen(3100);
 ```
 
-Within your API file, document your routes, with properly formatted comments like this:
+Within your actual server (`server.js`), document your routes, with properly formatted comments like this:
 
 ```javascript
 /**
