@@ -26,6 +26,7 @@
 | express-swagger-generator | ====                     | ====          |
 | nodemon                   | ====                     | ====          |
 | node-fetch                | ====                     | ====          |
+| superagent                | ====                     | ====          |
 
 ## Where We're Coming From
 
@@ -314,39 +315,42 @@ app.use((err, req, res, next) => {
 
 Note that in error handling middleware, you should not call `next()` because it doesn't make sense to continue going through the middleware or request if there is an error. Instead, you can call `res.end()` to end the request flow.
 
-### Server Testing
+## Testing Your Express Server
 
-- Generally, avoid starting the actual server for testing
-- Instead, export your server as a module in a library
-- Then, you can use `supertest` to run your tests.
-  - This will hit your routes as though your server was running, without actually starting it.
-  - That's one less thing to go wrong (eliminate variables when testing!)
-- Additionally, you can wrap `superagent` in a module (the demo code created an `agent.js` module that does this)
-  - Doing this, allows you set up a "mock" of this new agent module
-  - Create a folder called `__mocks__` where the `agent.js` file is with an agent.js file in it.
-  - When you invoke `jest.mock()` on the agent file in your test, jest is smart enough to use that mocks version instead of the real one.
-  - Why is this cool? We can 100% fake every call to the API. Again -- you don't want your tests of the web server to be dependant on the API running, so mock (fake) it, so that you are testing only the interface to the API, not the actual data.
-  - You test the data/veracity of the API when you write your API tests, not web server tests...
+Generally, when we want to test connections to our server and databases, we don't actually want to run the server/database or interfere with any of our data. So, we use a helper module `supertest` to hit our server routes as if our server was running, without actually starting our server!
 
-#### Test Pyramid
+If you look in the `/__test__` directory of your lab's starter code, you should see that there is a file called `supertester.js`. Hopefully you've seen this before in previous labs; it does a lot of work for use behind-the-scenes so that we can focus on the body of our tests. Be sure to require this exported module (and your actual server.js file) at the start of all of your test files that are testing server code:
 
-- Server Testing crosses boundaries
+```javascript
+const server = require('../lib/server.js');
+const supertester = require('./supertester.js');
+```
 
-  - Units: Server Internal Functions
-    - Mock any integrations (like data fetching)
-  - Integration: How it connects to other services
-    - Really connect to other services (hard dependencies)
-  - Acceptance
+Next, we need to actually create our "fake server" that we will attempt to use in our tests:
 
-    - The server might be a dependency of some other test
+```javascript
+const mockRequest = supertester(server);
+```
 
-### REST Documentation (Swagger)
+Now, we're ready to actually test a route in our server! Let's try that with a simple get request:
 
-The standard for documenting REST APIs is with a "live" documentation system: Open API (formerly "Swagger")
+```javascript
+it('should successfully GET', () => {
+  mockRequest.get('/my-route').then(res => {
+    expect(res.status).toBe(200);
+  });
+});
+```
 
-Once generated, Swagger Docs present developers a way not only see how to use an API, but to actually use it. Yes, this is documentation that allows for live requests from with it.
+And thus we have successfully created a simple mock server request! One thing to note is that the `supertester` package uses another package, [`superagent`](https://visionmedia.github.io/superagent/), to actually carry out the requests. In our previous lab, we used `node-fetch` to carry out requests. While the syntax between `node-fetch` and `superagent` is a bit different, the end result is the same; requesting returns a Promise which can be asynchronously handled.
 
-Here's an example: [Star Wars API Docs](https://app.swaggerhub.com/apis/ahardia/swapi/1.0.0#/)
+## REST Documentation (Swagger)
+
+The standard for documenting REST APIs is with a "live" documentation system. We saw this in our last lab with the Swagger tool.
+
+Once generated, Swagger Docs present developers a way not only see how to use an API, but to actually use it. This documentation allows for live requests from with it, which is immensely powerful and helpful in learning how an API works.
+
+Here's an example of an existing public API documented through Swagger: [Star Wars API Docs](https://app.swaggerhub.com/apis/ahardia/swapi/1.0.0#/)
 
 - On the left, you'll see the source code for the documentation.
 - On the right is the generated "Swagger" or "Open API" documentation for the [Star Wars API](https://swapi.co/api/people)

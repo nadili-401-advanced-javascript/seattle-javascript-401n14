@@ -6,7 +6,7 @@ const mockRequest = supertester(server);
 
 describe('web server', () => {
   it('should respond properly on request to /people', () => {
-    return mockRequest
+    mockRequest
       .get('/people')
       .then(results => {
         expect(results.status).toBe(200);
@@ -16,7 +16,7 @@ describe('web server', () => {
   });
 
   it('should respond properly on post to /people', () => {
-    return mockRequest
+    mockRequest
       .post('/people')
       .send({ firstName: 'Test', lastName: 'Person' })
       .then(results => {
