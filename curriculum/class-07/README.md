@@ -183,17 +183,19 @@ It does! So now we see that editing our `server.js` doesn't _rebuild_ our server
 npm install -g nodemon
 ```
 
-The package `nodemon` will restart our server automatically anytime we make changes to it! We want to install it **globally** because it's not really essential for our application to run, it's just a tool we're using as developers to make our lives easier. In order to use `nodemon` after installing, we should now launch our application using `nodemon --exec` as a prefix:
+The package `nodemon` will restart our server automatically anytime we make changes to it! We want to install it **globally** because it's not really essential for our application to run, it's just a tool we're using as developers to make our lives easier. In order to use `nodemon` after installing, we should now launch our application using `nodemon` as a prefix:
 
 ```
-nodemon --exec npm start
+nodemon index.js
 ```
 
 or
 
 ```
-nodemon --exec node index.js
+nodemon start
 ```
+
+> NOTE: Don't put `nodemon` in your `start` script within `package.json`
 
 Once your application is running again, try to add another route via our server:
 
