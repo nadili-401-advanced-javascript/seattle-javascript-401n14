@@ -24,5 +24,5 @@ Each student can max do 2 lightning talks.
 | Proxy Pattern                      | [Link](https://www.dofactory.com/javascript/proxy-design-pattern)                            | Jan 04, 2020     | Meron Sibani              |
 | State Pattern                      | [Link](https://www.dofactory.com/javascript/state-design-pattern)                            | Jan 11, 2020     | ---              |
 | Behavior Driven Development        | [Link](https://en.wikipedia.org/wiki/Behavior-driven_development)                            | Jan 18, 2020     | Jessica Elliott  |
-| Acceptance Test Driven Development | [Link](https://en.wikipedia.org/wiki/Acceptance_test%E2%80%93driven_development)             | Jan 25, 2020     | ---              |
+| Acceptance Test Driven Development | [Link](https://en.wikipedia.org/wiki/Acceptance_test%E2%80%93driven_development)             | Jan 25, 2020     | Meron Sibani              |
 | SCRUM/Agile/Waterfall              | [Link](https://www.visual-paradigm.com/scrum/scrum-vs-waterfall-vs-agile-vs-lean-vs-kanban/) | Feb 01, 2020     | Nadya Ilinskaya  |
