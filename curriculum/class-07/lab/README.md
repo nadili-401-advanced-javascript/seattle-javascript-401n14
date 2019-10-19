@@ -54,7 +54,6 @@ Provide full swagger documentation for your server.
   - Complete the tests to cover all of your routes
   - Use `supertester.js` to wire up a mock server as in the provided tests
 - Write unit tests for your middleware
-- Write unit tests for your data models
 
 ## Assignment Submission Instructions
 
@@ -131,8 +130,8 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 
 ### Tests:
 
-- Test all CRUD operations
-- Test your `index.js` output
+- Test all routes
+- Test middleware
 
 | Criteria                                                                                                       | Points |
 | -------------------------------------------------------------------------------------------------------------- | ------ |
