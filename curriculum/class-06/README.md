@@ -1,5 +1,9 @@
 # Class 06 - HTTP and REST
 
+| [Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e9099bdb995374c467512) | [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e9099bdb995374c46752e) |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+
+
 ## Learning Objectives
 
 -   Describe the full WRRC
