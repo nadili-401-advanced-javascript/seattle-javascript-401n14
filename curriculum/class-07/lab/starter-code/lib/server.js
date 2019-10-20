@@ -16,11 +16,13 @@ app.get('/', (req, res, next) => {
 app.get('/people', (req, res, next) => {
   let count = db.people.length;
   let results = db.people;
-  res.json({ count, results });
+  res.json({ count, results }); // res.send + convert the contents of send to json
 });
 
 // Route to Get a person
 app.get('/people/:id', (req, res, next) => {
+  // the colon (:key) is what tells us to store this key in
+  // req.params.key
   let id = req.params.id;
   let record = db.people.filter(record => record.id === parseInt(id));
   res.json(record[0]);
@@ -29,6 +31,8 @@ app.get('/people/:id', (req, res, next) => {
 // Route to Create a person
 app.post('/people', (req, res, next) => {
   let record = req.body;
+  // what can you do to ensure there are no
+  // duplicate ids?
   record.id = Math.random();
   db.people.push(record);
   res.json(record);
