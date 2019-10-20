@@ -16,17 +16,15 @@
 
 ## Key Packages
 
-| Package                   | Description              | Download Link |
-| ------------------------- | ------------------------ | ------------- |
-| json-server               | Creates a web API server | ====          |
-| supertest                 | ====                     | ====          |
-| express                   | ====                     | ====          |
-| ejs                       | ====                     | ====          |
-| method-override           | ====                     | ====          |
-| express-swagger-generator | ====                     | ====          |
-| nodemon                   | ====                     | ====          |
-| node-fetch                | ====                     | ====          |
-| superagent                | ====                     | ====          |
+| Package                   | Description                                                                                                           | Link                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| json-server               | Creates a web API server                                                                                              | [npm](https://www.npmjs.com/package/json-server)               |
+| supertest                 | Helps us mock up a fake server for testing, based on the routes and content defined in our actual server              | [npm](https://www.npmjs.com/package/supertest)                 |
+| express                   | A package (actually, _middleware_) that makes it much easier and faster for us to create a server                     | [npm](https://www.npmjs.com/package/express)                   |
+| express-swagger-generator | Creates a swagger documention hub for our server, using a simple config object and JSDoc-like comments from your code | [npm](https://www.npmjs.com/package/express-swagger-generator) |
+| nodemon                   | Lets us rebuild and watch for changes in our server, so that we don't have to continually restart our server manually | [npm](https://www.npmjs.com/package/nodemon)                   |
+| node-fetch                | A Promise-based wrapper for HTML requests, so that we can easily write those requests in our JavaScript code          | [npm](https://www.npmjs.com/package/node-fetch)                |
+| superagent                | A Promise-based wrapper for HTML requests, so that we can easily write those requests in our JavaScript               | [npm](https://www.npmjs.com/package/superagent)                |
 
 ## Where We're Coming From
 
