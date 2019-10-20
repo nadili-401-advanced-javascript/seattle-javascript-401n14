@@ -359,7 +359,9 @@ We can use the node module `express-swagger-generator` to create an endpoint on 
 
 > These comments will _replace_ JSDoc comments in your server.
 
-Create a file called `swagger.js`, and build a new server that will host it (your live documentation should not be on the same port as your main application). For example, if your application is running on port 3000, you can set your live documentation to run on port 3100. This file should contain some configuration rules in a JavaScript object, which will then be used to generate your live documentation. Here's an example of a full `swagger.js` file:
+Create a file called `swagger.js`, and build a new server that will host it (your live documentation should not be on the same port as your main application). For example, if your application is running on port 3000, you can set your live documentation to run on port 3100. This file should contain some configuration rules in a JavaScript object, which will then be used to generate your live documentation.
+
+Here's an example of a full `swagger.js` file:
 
 ```javascript
 const express = require('express');
@@ -391,6 +393,19 @@ expressSwagger(options);
 app.listen(3100);
 ```
 
+Here's a description of the major items in this configuration that you might want to modify:
+
+| Key                | Description                                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| `info.description` | A description for your server API                                                                        |
+| `info.title`       | The title for your server API                                                                            |
+| `host`             | Where your main server (from `server.js`) is running                                                     |
+| `basePath`         | If the main page of your server is something other than `\`, you can specify a unique starting path here |
+| `produces`         | What kinds of data this API returns (json, img, html, etc)                                               |
+| `schemes`          | The kinds of protocols this API supports (http, https, ftp, etc)                                         |
+| `basedir`          | The base directory for your server files                                                                 |
+| `files`            | The path to your server files (for example `../../lib/`)                                                 |
+
 Within your actual server (`server.js`), document your routes, with properly formatted comments like this:
 
 ```javascript
@@ -415,7 +430,7 @@ router.get('/api/v1/:model', auth('read'), handleGetAll);
 router.post('/api/v1/:model', auth('create'), handlePost);
 ```
 
-Once done, navigating to your running server at `/api-docs/` on the port specified in your swagger.js configuration file will reveal your live running Open API documentation.
+Once done, navigating to your running server at `/api-docs/` on the port specified in your swagger.js configuration file will reveal your live running Open API documentation. You will only generate Swagger API endpoints in your documentation if you add JSDoc-like comments to each route in your `server.js` AND if you update the configuration `files` key-value.
 
 **This is required for every API server that you create**
 
