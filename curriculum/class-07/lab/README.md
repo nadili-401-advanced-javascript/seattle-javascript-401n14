@@ -6,7 +6,7 @@ In this lab, you'll be adding routes, documentation and tests to a functional ex
 
 ### People Model
 
-Finish the routes for the people model
+Finish the routes for the people model. Schema validation is not required.
 
 - Add the contents of the `PUT` operation for the people route
 - Add the contents of the `DELETE` operation for the people route
