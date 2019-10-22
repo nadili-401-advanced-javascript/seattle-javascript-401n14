@@ -23,7 +23,7 @@ In order to ensure that our application is unchanged even when we deploy to Hero
 - Prioritize using a `.env` environment variable for the database URL instead of a hard-coded string
   - Hint: Heroku calls its environment variable for MongoDB `MONGODB_URI`
 - When we finish working on our app and deploy it to Heroku, we'll need to copy our local data over to our hosted database
-  - TODO: You can find a guide on how to do that [here]()
+  - You can find a guide on how to do that [here](https://github.com/codefellows/seattle-javascript-401n14/blob/master/curriculum/class-08/README.md#deployment)
 
 Finally, ensure that your connection to MongoDB happens in `server.js`: your client-side of your application should not need to know anything about MongoDB.
 
