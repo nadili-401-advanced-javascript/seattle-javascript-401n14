@@ -1,6 +1,6 @@
 # Code Challenge 07
 
-In this code challenge, you will writing a function which finds a node that is `k` spaces away from the end (or tail) of a linked list.
+In this code challenge, you will be writing a function which finds a node that is `k` spaces away from the end (or tail) of a linked list.
 
 ## Specifications
 
