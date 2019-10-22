@@ -174,7 +174,7 @@ So, instead of having a hard-coded URL in `index.js`, typically we want to store
 const start = port => {
     app.listen(port);
 
-    const db = process.env.MONGODB_URI;
+    const db = process.env.MONGODB_URI + '/app';
     const config = {
         useUnifiedTopology: true,
         useNewUrlParser: true
