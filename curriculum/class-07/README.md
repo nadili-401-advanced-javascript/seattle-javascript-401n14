@@ -291,7 +291,7 @@ Both of these methods result in the same paths, however by using `Router()` we'r
 
 #### Error Handling Middleware
 
-While most middleware has parameters in the format `(req, res, next)`, error middleware has parameter in the format `(err, req, res, next)`. Error middleware is called automatically whenever our server `throw`s an error, or whenever we call `next()` with something in the parens: `next('this causes an error')`
+While most middleware has parameters in the format `(req, res, next)`, error middleware has parameter in the format `(err, req, res, next)`. Error middleware is called automatically whenever our server `throw`s an error, or whenever we call `next('failed')`.
 
 ```javascript
 app.get('/err-throw', (req, res, next) => {
