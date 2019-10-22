@@ -74,7 +74,6 @@ For each part of this lab, configure your folder with the following files and di
   - Create a `test` script for running tests
   - Create `start` script to run `index.js`
 - `/__tests__/` - contains unit tests
-- `/__data__/` - contains your MongoDB database information
 - `/docs/` - Where your documentation will reside (Swagger generation, no JSDocs generation needed)
   - `/docs/config/swagger.js`
   - `/docs/config/jsdoc.config.json`
