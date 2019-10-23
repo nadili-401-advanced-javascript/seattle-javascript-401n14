@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const peopleRoutes = require('./routes/people-routes.js');
 
 const start = port => {
   app.listen(port, () => {
@@ -23,6 +24,7 @@ const start = port => {
 // App Level MW
 app.use(express.json());
 
+app.use('/people', peopleRoutes);
 // Routes
 app.get('/', (req, res, next) => {
   res.send('Homepage');

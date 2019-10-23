@@ -31,6 +31,40 @@ Finally, ensure that your connection to MongoDB happens in `server.js`: your cli
 
 Import your MongoDB data models (people and teams) into your `server.js` and wire them to each route so that our `get` requests are reading from our MongoDB database, and our `post`, `put`, and `delete` requests are editing our database.
 
+In your starter code, you should see the `/models/` folder, which has some of the files you'll need, though they might not all be complete. You will need to either replace the contents of this folder with your completed model files from lab 05, or you'll need to work on finishing the existing starter code files and adding to them. In order for this lab to be complete, you'll need the following files in your `/models/` folder:
+
+- `model.js`: This should be a class that defines the major functionality of your data models. It should have the following functions defined:
+  - `get(_id)`
+  - `getFromField(query)`
+  - `create(record)`
+  - `update(_id, record)`
+  - `delete(_id)`
+  - `count(query)`
+- `people.js`: Defines your People model
+- `people-schema.js`: Defines your People schema
+- `teams.js`: Defines your Teams model
+- `teams-schema.js`: Defines your Teams schema
+
+### Create Routes in Your Server
+
+Within your server, create routes that will display or modify data. The following routes should be operational:
+
+- `/`: prints out a simple "Homepage" message
+- `GET /people`: prints out all the data from the People model
+- `POST /people`: allows you to create a new person
+- `PUT /people`: allows you to edit a person
+- `DELETE /people`: allows you to delete a person
+- `GET /people/:id`: prints out the found person from the given id
+- `GET /people/:firstName-:lastName`: prints out the found person from the given first name and last name
+- `GET /people/count`: prints out the number of people (records) in the Peoples model
+- `GET /teams`: prints out all the data from the Teams model
+- `POST /teams`: allows you to create a new team
+- `PUT /teams`: allows you to edit a team
+- `DELETE /teams`: allows you to delete a team
+- `GET /teams/:id`: prints out the found team from the given id
+- `GET /teams/:name`: prints out the found team from the given name
+- `GET /people/count`: prints out the number of teams (records) in the Teams model
+
 Just like in lab 07, modularize your people and teams routes so that they are in separate server files called `people-routes.js` and `teams-routes.js`.
 
 ### Middleware
