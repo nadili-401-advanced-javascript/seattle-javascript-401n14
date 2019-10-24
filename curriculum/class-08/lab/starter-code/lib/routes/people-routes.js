@@ -14,10 +14,10 @@ router.get('/', (req, res, next) => {
 });
 
 // GET :id with Async/Await
+// people/Sarah
 router.get('/:id', async (req, res, next) => {
   let data = await people.get(req.params.id);
-
-  if (data) res.send(data);
+  if (data && data.length >= 1) res.send(data);
   else next('route');
 });
 

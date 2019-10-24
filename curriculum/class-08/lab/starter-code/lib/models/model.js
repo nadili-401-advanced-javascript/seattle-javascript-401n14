@@ -8,10 +8,9 @@ class Model {
   }
 
   get(_id) {
-    console.log('ID?', mongoose.Types.ObjectId.isValid(_id));
-
-    if (_id) return this.schema.findOne({ _id });
-    else return this.schema.find({});
+    if (mongoose.Types.ObjectId.isValid(_id))
+      return this.schema.findOne({ _id });
+    else return null;
   }
 
   getFromField(query) {
