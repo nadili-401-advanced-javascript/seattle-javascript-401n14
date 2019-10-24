@@ -6,6 +6,7 @@ const app = express();
 const peopleRoutes = require('./routes/people-routes.js');
 
 const start = port => {
+  let port = port || process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`Listening on Port ${port}`);
   });
@@ -16,7 +17,7 @@ const start = port => {
     useUnifiedTopology: true
   };
 
-  mongoose.connect(process.env.MONGODB_URI + '/app', config);
+  mongoose.connect(process.env.MONGODB_URI, config);
 };
 
 // Models
