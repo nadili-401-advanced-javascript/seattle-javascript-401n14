@@ -17,9 +17,9 @@
 
 ## Key Packages
 
-| Package  | Description | Link |
-| -------- | ----------- | ---- |
-| `dotenv` | ===         | ===  |
+| Package  | Description                                                                                                     | Link                                        |
+| -------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `dotenv` | This package allows us to load in environment variables from our `.env` file within our application's directory | [npm](https://www.npmjs.com/package/dotenv) |
 
 ## Where We're Coming From
 
