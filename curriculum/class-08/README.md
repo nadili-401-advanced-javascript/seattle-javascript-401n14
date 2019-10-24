@@ -1,7 +1,5 @@
 # Class 08 - Express Routing & Connected API
 
-## Outline
-
 ## Key Terms
 
 | Term                    | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Supporting Links                                                                                                                                                                               |
