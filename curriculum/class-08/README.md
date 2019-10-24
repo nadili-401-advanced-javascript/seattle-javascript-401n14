@@ -17,9 +17,10 @@
 
 ## Key Packages
 
-| Package  | Description                                                                                                     | Link                                        |
-| -------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `dotenv` | This package allows us to load in environment variables from our `.env` file within our application's directory | [npm](https://www.npmjs.com/package/dotenv) |
+| Package      | Description                                                                                                                                                                          | Link                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| `dotenv`     | This package allows us to load in environment variables from our `.env` file within our application's directory                                                                      | [npm](https://www.npmjs.com/package/dotenv)        |
+| `mongo-sync` | This package is not for your application, but rather for your development workflow. Mongo sync is a tool that makes pushing your local database to your heroku remote database easy! | [github](https://github.com/sheharyarn/mongo-sync) |
 
 ## Where We're Coming From
 
