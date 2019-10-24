@@ -192,8 +192,18 @@ Now that we know more about creating an application with a server and a live dat
 
 Hopefully, you should have some experience with deploying a simple application to Heroku. It usually is as simple as going to https://dashboard.heroku.com/apps and clicking "New" in the top right. Once you connect to GitHub and choose a repository to deploy (and set up auto-deploy and CI integration) you should see your deployed application on your account.
 
+> Note: Remember that in order for your application to run correctly on Heroku, it needs a start script in its `package.json`. This script should be something akin to `node index.js`, and should not use dependencies like `nodemon`.
+
+> Tip: If your application is not running, check out the logs by clicking the `More` button next to `Open App`, and using the `View Logs` link.
+
 Navigate to the "Resources" tab on your application, and scroll down to the "Add-ons" section. In the provided form field, enter in "mlab MongoDB" and you should see a single result. Click on that result, and in the pop-up, click "Provision". That should create a MongoDB for your application, and it will automatically add the `.env` variable `MONGODB_URI` with the connection URL to your application. You can see this variable if you go to the "Settings" tab on your application in Heroku. There, you should see a button in the "Config Vars" section that says "Reveal Config Vars". Click on it, and see your `.env` variables and their values (you can also add your own new ones).
 
-However, even though your application is now hooked up to a new production database, it doesn't have any of your existing deployment database data!
+However, even though your application is now hooked up to a new production database, it doesn't have any of your existing deployment database data! In order to get our data pushed through, we can either run some commands manually, or use a tool that makes things easier.
+
+### Manual Migration
+
+### Using a Tool
+
+https://sheharyar.me/blog/sync-mongodb-local-and-production-heroku/
 
 ## Summary

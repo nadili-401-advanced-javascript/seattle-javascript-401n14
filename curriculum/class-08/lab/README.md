@@ -106,7 +106,7 @@ As in the previous lab, provide full swagger documentation for your server.
 
 ## Assignment Submission Instructions
 
-For this lab, you will be required to deploy your app to Heroku.
+For this lab, you will be required to deploy your app to Heroku. You will NOT need to generate any Swagger documentation, though Swagger and JSDoc comments within your code are still required.
 
 ### Configure your repository
 
@@ -123,10 +123,6 @@ For each part of this lab, configure your folder with the following files and di
   - Create a `test` script for running tests
   - Create `start` script to run `index.js`
 - `/__tests__/` - contains unit tests
-- `/docs/` - Where your documentation will reside (Swagger generation, no JSDocs generation needed)
-  - `/docs/config/swagger.js`
-  - `/docs/config/jsdoc.config.json`
-  - Edit these for each lab if your folder structure is different
 
 ### Submit to Canvas
 
@@ -135,7 +131,6 @@ For each part of this lab, configure your folder with the following files and di
   - A link to your deployed Heroku app
   - A link to pull request from your lab branch to your master branch in your forked repository
     - Keep this pull request open (**don't merge to master**) in case you need to resubmit your lab
-  - Your module names for the application
   - Instructions for how to run your application
   - Instructions for how to test your application
   - Embedded UML diagram image
