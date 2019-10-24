@@ -174,7 +174,7 @@ So, instead of having a hard-coded URL in `index.js`, typically we want to store
 const start = port => {
     app.listen(port);
 
-    const db = process.env.MONGODB_URI + '/app';
+    const db = process.env.MONGODB_URI;
     const config = {
         useUnifiedTopology: true,
         useNewUrlParser: true
@@ -182,6 +182,12 @@ const start = port => {
 
     mongoose.connect(db, config);
 };
+```
+
+In our `.env` file, we have `MONGODB_URI` defined as:
+
+```
+MONGODB_URI = mongodb://127.0.0.1:27017/app
 ```
 
 And that's it! We don't need to manage the closing of our connection because conceptually there's not really a point in time in our code where we want to "close" our server or our database. Remember, we're now running a website, and websites are not supposed to terminate themselves at a certain point in time. So from now one, our server and our database connections will remain open until we manually kill our web application from our terminal.
@@ -200,7 +206,87 @@ Navigate to the "Resources" tab on your application, and scroll down to the "Add
 
 However, even though your application is now hooked up to a new production database, it doesn't have any of your existing deployment database data! In order to get our data pushed through, we can either run some commands manually, or use a tool that makes things easier.
 
+### Interpreting Your Development and Production MongoDB URL
+
+When we run Heroku locally, we usually always have the following URL saved in our `.env` file:
+
+```
+MONGODB_URI = mongodb://127.0.0.1:27017/app
+```
+
+If we break apart this URL into pieces, we might think of it like:
+
+```
+connection: mongodb://
+host: 127.0.0.1
+port: 27017
+database: app
+```
+
+When you go into Heroku, and copy your config variable for `MONGODB_URI`, the URL you get is a little more complicated, but it has some of the same standard parts. For example, your Heroku MongoDB URL might look something like:
+
+```
+MONGODB_URI = mongodb://heroku_rf7zmmfs:o9l17ktl5q3oekmn4drmjbpcc7@ds339348.mlab.com:39348/heroku_rf7zmmfs
+```
+
+Here are the parts of that URL broken up a little bit with new-lines to show the unique segments. Again, your URL might be slightly different, but it should fit the same format, with `:`, `@`, and `/` used to break apart the unique segments.
+
+```
+mongodb://
+heroku_rf7zmmfs
+:
+o9l17ktl5q3oekmn4drmjbpcc7
+@
+ds339348.mlab.com
+:
+39348
+/
+heroku_rf7zmmfs
+```
+
+Let's give these major parts names so that we can refer to them going forward:
+
+```
+connection: mongodb://
+username: heroku_rf7zmmfs
+password: o9l17ktl5q3oekmn4drmjbpcc7
+host: ds339348.mlab.com
+port: 39348
+database: heroku_rf7zmmfs
+```
+
+When you attempt to migrate your local (development) MongoDB to your production MongoDB, keep in mind how you can break apart your URL into these distinct pieces. And remember, **your MongoDB URL from Heroku will be different than the one used in the examples**.
+
 ### Manual Migration
+
+If you want to manually migrate your development version of your database to your production version, you can do so in terminal using the `mongodump` and `mongorestore` commands. Let's see how they work structurally and then use some example URLs to see it in action.
+
+Here is the order of commands you want to execute in your terminal. Anything in angle brackets `<>` will be replaced (including the brackets) with the actual value taken from the URL. The `mongodump` command will take `host`, `port`, `database` from the development MongoDB. The `mongorestore` command will take `host`, `port`, `database`, `username`, `password` from the production MongoDB.
+
+```
+mongodump -h <dev host>:<dev port> -d <dev database> -o <directoryToStoreData>
+```
+
+```
+mongorestore -h <prod host>:<prod port> -d <prod database> -u <prod username> -p <prod password> <directoryWithStoredData>/*
+```
+
+Now let's see how it would work if you had the following URLS:
+
+```
+local database = mongodb://127.0.0.1:27017/app
+heroku database = mongodb://heroku_rf7zmmfs:o9l17ktl5q3oekmn4drmjbpcc7@ds339348.mlab.com:39348/heroku_rf7zmmfs
+```
+
+```
+mongodump -h 127.0.0.1:27017 -d app -o ./mongoDump
+```
+
+```
+mongorestore -h ds339348.mlab.com:39348 -d heroku_rf7zmmfs -u heroku_rf7zmmfs -p o9l17ktl5q3oekmn4drmjbpcc7 ./mongoDump/app/*
+```
+
+And with those two commands, you should be able to manually push your local database to you production database!
 
 ### Using a Tool
 
