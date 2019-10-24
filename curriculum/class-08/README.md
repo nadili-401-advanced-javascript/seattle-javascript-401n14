@@ -58,9 +58,9 @@ Now that we have some experience with all the pieces of an application, we need 
 | Data Model  | This is a collection of schema and class blueprints. We create one blueprint per type of data, for example in our past labs we've been creating models for "People" and "Teams". In the data model, we define where and how we can create, read, update or delete records in our database, and we ensure any modified data complies with our schema. |
 | Database    | Usually external to our application, a database is where we store/persist data and change data. This way, if our application is hosted and available to many users, all users should be able to view the same data.                                                                                                                                  |
 
-Because we haven't had all the pieces fully until now, we've been hacking together applications in perhaps not the best way. Originally, we had our client-side (`index.js`) connecting directly to our model (`people.js` and `teams.js`) and calling our model's CRUD operations in order to access and change the data.
+Because we haven't had all the pieces fully until now, we've been hacking together applications in perhaps not the best way. Originally, we had our client-side (`index.js`) connecting directly to our model (`people.js` and `teams.js`) and we called our model's CRUD operations in order to access and change the data.
 
-That methodolgy makes our client-side too bulky; going forward, we want to restrict our client to only making HTTP requests to API endpoints (now defined in our `server.js`). Operationally, nothing really changes, but structurally we now have something akin to:
+That methodology makes our client-side too bulky; going forward, we want to restrict our client to only making HTTP requests to our express server's API endpoints. Operationally, nothing really changes, but structurally we now have something akin to:
 
 ```
 Client ->> Server ->> Model ->> Database
@@ -72,11 +72,11 @@ This means that our client no longer has to import our model, instead our server
 
 But what about data models that are dependent upon one another? For example, People and Teams can be related because People belong to a specific team. We store the team in each person's `_team` field, and creating, updating or deleting a person can result in a team being created, updated or deleted.
 
-To clarify the example further, if we attempt to create a person `Sarah Smalls` who belongs to team `Yellow Rhino`, we first must check if `Yellow Rhino` exists. If it does not we now have to create a team `Yellow Rhino`, save that new team id, and store that team id in `Sarah Smalls`'s `_team` field. Later on, if we delete `Sarah Smalls`, we might leave the team `Yellow Rhino` empty with no members. In that case, we should also delete `Yellow Rhino`.
+To clarify the example further, if we attempt to create a person `Sarah Smalls` who belongs to team `Yellow Rhino`, we first must check if `Yellow Rhino` exists. If it does not, we now have to create a team `Yellow Rhino`, save that new team id, and store that team id in `Sarah Smalls`'s `_team` field. Later on, if we delete `Sarah Smalls`, we might leave the team `Yellow Rhino` empty with no members. In that case, we should also delete `Yellow Rhino`.
 
-In our lab 04, that relational logic was in our `index.js`. This time, we want our client to not have to worry about the relational rules, so we'll be putting it in our `server.js` endpoints.
+In our lab 04, that relational logic was in our `index.js`. This time, we want our client to not worry about the relational rules, so we'll be putting it in our `server.js` endpoints.
 
-> Note: There's no right or wrong way to do this: sometimes you'll find relational rules on the client side as well. Generally however, if code that is directly calling upon our model should be in our server.
+> Note: There's no right or wrong way to do this: sometimes you'll find relational rules on the client side as well. Generally however, code that is directly calling upon our model should be in our server.
 
 ## How to Get There
 
@@ -92,7 +92,7 @@ In Lab 06, when we were working with `json-server`, we could be creative and use
 GET localhost:3000/people?firstName=Sarah&lastName=Smalls
 ```
 
-How would this change our request object? When we provide a request with a query within it, the request will automatically be parsed so that the query is saved as an object with keys and values. We can access these through `request.query`:
+How would this change our request object? When we provide a request with a query within it, the query will automatically be parsed so that it is saved as an object with keys and values. We can access this object through `request.query`:
 
 ```javascript
 console.log(req.query.firstName); // Sarah
@@ -108,7 +108,7 @@ app.get('/people/:firstName-:lastName', (req, res, next) => {
 });
 ```
 
-Just like we used `:id`, we can use any key name to search by that key! We can even have a path which uses two keys; as long as they are deliniated by a `-` or a `.` they should be parsed into unique keys in our `req.params` object.
+Just like we used `:id`, we can use any key name to search by that key! We can even have a path which uses two keys; as long as they are [delimited](https://en.wikipedia.org/wiki/Delimiter) by a `-` or a `.`, they should be parsed into unique keys in our `req.params` object.
 
 ### Router Param Middleware
 
@@ -116,17 +116,17 @@ Now that we know a how flexible we can make our routes using router paremeters, 
 
 ```javascript
 app.param('firstName', (req, res, next) => {
-    // Fires whenever we req.params.firstName exists in a request
+    // Fires whenever req.params.firstName exists in a request
     // Because this is middleware, it will fire before we reach
     // the path endpoint
 });
 ```
 
-In the above example, we can see how to create middleware that responds to what keys are defined in `request.params`. We used `app.param`, but just keep in mind that we can still modularize this for specific routes by using `express.Router()`.
+In the above example, we can see how to create middleware that responds to what keys are defined in `request.params`. We used `app.param` in this example, but just keep in mind that we can still modularize this for specific routes by using `express.Router()`.
 
 ```javascript
 router.param('firstName', (req, res, next) => {
-    // Fires whenever we req.params.firstName exists for a request
+    // Fires whenever req.params.firstName exists for a request
     // on a specific route that we define.
     // Because this is middleware, it will fire before we reach
     // the path endpoint
@@ -137,7 +137,7 @@ app.use('/people', router);
 
 ### Useful Server Middleware Functions
 
-So far we have a learned a lot of ways to add middleware to either our application or to our individual routes. Here's a summary of these methods of adding middleware:
+So far we have learned a lot of ways to add middleware to either our application or to our individual routes. Here's a summary of these methods of adding middleware:
 
 | Function                            | Description                                                                                                   |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -289,6 +289,72 @@ And with those two commands, you should be able to manually push your local data
 
 ### Using a Tool
 
-https://sheharyar.me/blog/sync-mongodb-local-and-production-heroku/
+The tool [mongo-sync](https://sheharyar.me/blog/sync-mongodb-local-and-production-heroku/) can be very helpful when you consistently want to push your local database to your remote database. In order to get this tool working, download the tool from its [git repository](https://github.com/sheharyarn/mongo-sync).
 
-## Summary
+Once the tool is downloaded, navigate within the downloaded directory and find the `config.yml` file. To start, it should look like this:
+
+```YAML
+# Mongo-Sync Configurations
+
+local:
+  db: 'local_db_name'
+  host:
+    port: 27017
+  access:
+    username: 'local_mongo_user'
+    password: 'local_mongo_pass'
+
+remote:
+  db: 'remote_db_name'
+  host:
+    url: 'some.remoteurl.com'
+    port: 27017
+  access:
+    username: 'remote_mongo_user'
+    password: 'remote_mongo_pass'
+
+tunnel:
+  on: false
+  access:
+    username: 'remote_ssh_user'
+    port: 22
+```
+
+Assume you had the following URLs for your local and production MongoDBs:
+
+```
+local database = mongodb://127.0.0.1:27017/app
+heroku database = mongodb://heroku_rf7zmmfs:o9l17ktl5q3oekmn4drmjbpcc7@ds339348.mlab.com:39348/heroku_rf7zmmfs
+```
+
+You would then update your `config.yml` to look something like:
+
+```YAML
+# Mongo-Sync Configurations
+
+local:
+  db: 'app'
+  host:
+    port: 27017
+
+remote:
+  db: 'heroku_rf7zmmfs'
+  host:
+    url: 'ds339348.mlab.com'
+    port: 39348
+  access:
+    username: 'heroku_rf7zmmfs'
+    password: 'o9l17ktl5q3oekmn4drmjbpcc7'
+```
+
+Once you have your configuration set up, you can navigate to your `mongo-sync` folder, and call the `mongo-sync` script within that folder:
+
+```
+./mongo-sync push
+```
+
+After a quick verification, the script should push your local database to your remote database. You can execute the opposite command (pulling your remote database into your local database) using the command:
+
+```
+./mongo-sync pull
+```
