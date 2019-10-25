@@ -141,7 +141,7 @@ Common terminology for a queue is
 
 Queues follow these concepts:
 
-### FILO
+### FIFO
 
 **F**irst
 **I**n
@@ -150,7 +150,7 @@ Queues follow these concepts:
 
 This means that the first item in the queue will be the first item out of the queue.
 
-### LIFO
+### LILO
 
 **L**ast
 **I**n
