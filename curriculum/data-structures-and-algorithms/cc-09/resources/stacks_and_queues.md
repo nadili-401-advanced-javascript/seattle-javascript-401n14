@@ -33,7 +33,7 @@ This means that the last item added to the stack will be the first item popped o
 
 This is what a stack looks like:
 
-![Stack](./images/stack1.png)
+![Stack](./images/stack1.PNG)
 
 ### Push O(1)
 
