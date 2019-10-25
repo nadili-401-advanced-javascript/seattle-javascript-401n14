@@ -137,55 +137,64 @@ Common terminology for a queue is
 2. _Dequeue_ - Nodes or items that are removed from the queue.
 3. _Front_ - This is the front/first Node of the queue.
 4. _Rear_ - This is the rear/last Node of the queue.
-5. _Peek_ - When you `Peek` you will view the `Top` Node in the stack. If the stack is empty,
-   and you don't `Peek`, you will receive a `NullReferenceException`.
+5. _Peek_ - When you `peek` you will view the `top` Node in the queue. If the queue is empty, and you don't `peek`, you will receive a `NullReferenceException`.
 
 Queues follow these concepts:
 
-1. **FIFO** - **F**irst **I**n **F**irst **O**ut - This means that the first item in the queue will be the first item out of the queue.
-2. **LILO** - **L**ast **In** **L**ast **O**ut - This means that the last item in the queue will be the last item out of the queue.
+### FILO
+
+**F**irst
+**I**n
+**F**irst
+**O**ut
+
+This means that the first item in the queue will be the first item out of the queue.
+
+### LIFO
+
+**L**ast
+**I**n
+**L**ast
+**O**ut
+
+This means that the last item in the queue will be the last item out of the queue.
+
+### Queue Visualization
 
 Here is what a `Queue` looks like:
 
-![Singly Linked List](images/Queue.PNG){:target="\_blank"}
+![Queue](images/Queue.PNG)
 
 ### Enqueue O(1)
 
-When you add an item to a queue, you use the `Enqueue` action. This is done with an O(1) operation in time because
-it does not matter how many other items live in the queue, it takes the same amount of time to perform the operation.
+When you add an item to a queue, you use the `enqueue` action. This is done with an `O(1)` operation in time because it does not matter how many other items live in the queue (`n`); it takes the same amount of time to perform the operation.
 
 Let's walk through the process of adding a Node to a queue:
 
-![Singly Linked List](images/Enqueue1.PNG){:target="\_blank"}
+![Enqueue 01](images/Enqueue1.PNG)
 
-1. First, we should change the `Next` property of `Node5` to point to the Node
-   we are adding. In our case with the visual below, we will be re-assigning `Node5.Next` to `Node6`.
+1. First, we should change the `next` property of `Node 4` to point to the Node
+   we are adding. In our case with the visual below, we will be re-assigning `Node 4`'s `.next` to `Node 5`. The only way we have access to `Node 4` is through our reference `rear`. Following the rules of reference types, this means that we must change `rear.next` to `Node 5`.
 
-The only way we have access to `Node5` is through our reference type `Rear`. Following the rules of reference types,
-this means that we must change `Rear.Next` to `Node6`.
+![Enqueue 02](images/Enqueue2.PNG)
 
-![Singly Linked List](images/Enqueue2.PNG){:target="\_blank"}
+2. After we have set the `next` property, we can re-assign the `rear` reference to point to `Node 5`. By doing this, it allows us to keep a reference of where the `rear` is, and we can continue to `enqueue` Nodes into the queue as needed.
 
-2. After we have set the `Next` property, we can re-assign the `Rear` reference to point to `Node6`.
-   By doing this, it allows us to keep a reference of where the `Rear` is, and we can continue to `Enqueue`
-   Nodes into the queue as needed.
+![Enqueue 03](images/Enqueue3.PNG)
 
-![Singly Linked List](images/Enqueue3.PNG){:target="\_blank"}
-
-3. Congratulations! You have just successfully added a Node to a queue by activating the `Enqueue` action.
+3. Congratulations! You have just successfully added a Node to a queue by activating the `enqueue` action.
 
 #### Code
 
-Here is the pseudo code for the `Enqueue` method:
+Here is the pseudo code for the `enqueue` method:
 
 ```javascript
-ALGORITHM Enqueue(Node)
+ALGORITHM enqueue(node)
 // INPUT <-- Node to add to queue
 // OUTPUT <-- none
 
-   Rear.Next <-- Node
-   Rear <-- Node
-
+   rear.next <-- Node
+   rear <-- Node
 ```
 
 ### Dequeue O(1)
