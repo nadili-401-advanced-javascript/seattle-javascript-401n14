@@ -1,5 +1,9 @@
 # Class 07 - Express
 
+| [Lecture Video](https://frontrowviews.com/Home/Event/Play/5d8e8678bdb995374c44c82b) | [Lab Video](https://frontrowviews.com/Home/Event/Play/5d8e8551bdb995374c433613) |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+
+
 ## Key Terms
 
 | Term                                  | Definition                                                                                                                                                                                                                                                                                                                                                                                 | Supporting Links                                                                                                                                                                                           |
