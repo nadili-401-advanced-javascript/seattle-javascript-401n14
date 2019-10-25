@@ -158,7 +158,7 @@ Be sure to delete any placeholder content if you use `README-template.md`. Once 
 - Modularity
   - `people-routes.js`
   - `teams-routes.js`
-- Swagger Docs Generation
+- Swagger Docs and JSDocs comments
 - Tests
 
 ### Code Quality:
