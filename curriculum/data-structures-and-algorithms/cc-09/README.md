@@ -5,41 +5,38 @@
 ## Specifications
 
 -   Read all of these instructions carefully. Name things exactly as described.
--   Do all your work in a public repository (matching the example provided by your instructor) called `data-structures-and-algorithms`, with a well-formatted, detailed top-level README.md
+-   Do all your work in a public repository called `data-structures-and-algorithms`, with a well-formatted, detailed top-level `README.md`
+    -   Your top-level README should contain a "Table of Contents" navigation to all of your challenges and implementations so far. (Don't forget to update it!)
 -   Create a branch in your repository called `stack-and-queue`
--   On your branch, create...
-    -   _C#_: Create a new console app named `StacksAndQueues`.
-    -   _JavaScript_: a folder named `stacksAndQueues` which contains a file called `stacks-and-queues.js`
-    -   _Python_: a folder named `stacks_and_queues` which contains a file called `stacks_and_queues.py`
-    -   _Java_: a package named `stacksandqueues` which contains files called `Stack.java`, `Queue.java`, and `Node.java`.
+-   On your branch, create a folder named `stacksAndQueues` which contains a file called `stacks-and-queues.js`
 -   Include any language-specific configuration files required for this challenge to become an individual component, module, library, etc.
     -   _NOTE: You can find an example of this configuration for your course in your class lecture repository._
 
 ## Features
 
--   Create a `Node` class that has properties for the value stored in the Node, and a pointer to the next node.
--   Create a `Stack` class that has a top property. It creates an empty Stack when instantiated.
+-   Create a `Node` class that has properties for the `value` stored in the Node, and a pointer to the `next` node.
+-   Create a `Stack` class that has a `top` property. It creates an empty Stack when instantiated.
 
-    -   This object should be aware of a default empty value assigned to `top` when the stack is created.
-    -   Define a method called `push` which takes any value as an argument and adds a new node with that value to the `top` of the stack with an O(1) Time performance.
-    -   Define a method called `pop` that does not take any argument, removes the node from the top of the stack, and returns the node's value.
-    -   Define a method called `peek` that does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.
+    -   This object should be aware of a default empty `value` assigned to `top` when the stack is created.
+    -   Define a method called `push` which takes any `value` as an argument and adds a new Node with that `value` to the `top` of the stack with an `O(1)` time performance.
+    -   Define a method called `pop` that does not take any arguments and removes the Node from the `top` of the stack, and returns that popped Node's `value`.
+    -   Define a method called `peek` that does not take an argument and returns the `value` of the node located on `top` of the stack, without removing it from the stack.
 
--   Create a `Queue` class that has a front property. It creates an empty Queue when instantiated.
+-   Create a `Queue` class that has a `front` property. It creates an empty Queue when instantiated.
 
-    -   This object should be aware of a default empty value assigned to `front` when the queue is created.
-    -   Define a method called `enqueue` which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
-    -   Define a method called `dequeue` that does not take any argument, removes the node from the front of the queue, and returns the node's value.
-    -   Define a method called `peek` that does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
+    -   This object should be aware of a default empty `value` assigned to `front` when the queue is created.
+    -   Define a method called `enqueue` which takes any `value` as an argument and adds a new Node with that `value` to the `rear` of the queue with an `O(1)` time performance.
+    -   Define a method called `dequeue` that does not take any arguments and removes the Node from the front of the queue, and returns the Node's `value`.
+    -   Define a method called `peek` that does not take any arguments and returns the `value` of the Node located in the `front` of the queue, without removing it from the queue.
 
--   Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+-   Any exceptions or errors that come from your code should be handled or captured errors. For example, rather than a default error thrown, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 -   Be sure to follow your languages best practices for naming conventions.
 
-You have access to the Node class and all the properties on the Linked List class.
+You have access to the `Node` class and all the properties on the `LinkedList` class.
 
 ## Structure and Testing
 
-Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.
+Utilize the [Single-Responsibility Principle](https://deviq.com/single-responsibility-principle/): any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.
 
 Write tests to prove the following functionality:
 
@@ -81,9 +78,9 @@ Ensure your tests are passing before you submit your solution.
 ## Submission Instructions
 
 1. Create a pull request from your branch to your `master` branch
-1. In your open pull request, leave as a comment [a checklist](https://github.com/blog/1825-task-lists-in-all-markdown-documents){:target="\_blank"} of the specifications and tasks above, with the actual steps that you completed checked off
+1. In your open pull request, leave as a comment [a checklist](https://github.com/blog/1825-task-lists-in-all-markdown-documents) of the specifications and tasks above, with the actual steps that you completed checked off
 1. Submitting your completed work to Canvas:
     1. Copy the link to your open pull request and paste it into the corresponding Canvas assignment
     1. Leave a description of how long this assignment took you in the comments box
     1. Add any additional comments you like about your process or any difficulties you may have had with the assignment
-1. Merge your branch into `master`, and delete your branch (don't worry, the PR link will still work)
+1. **Do NOT merge your branch into `master` - your open pull request will be your primary way to resubmit if needed. Only merge to master once you have received a grade and do not wish to resubmit.**
