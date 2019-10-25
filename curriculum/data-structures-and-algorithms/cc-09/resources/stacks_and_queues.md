@@ -199,66 +199,61 @@ ALGORITHM enqueue(node)
 
 ### Dequeue O(1)
 
-When you remove an item from a queue, you use the `Dequeue` action. This is done with an O(1) operation in time because
-it doesn't matter how many other items are in the queue, you are still always removing the `Front` Node of the queue.
+When you remove an item from a queue, you use the `dequeue` action. This is done with an `O(1)` operation in time because it doesn't matter how many other items are in the queue, you are always just removing the `front` Node of the queue.
 
 Let's walk through the process of removing a Node from a queue.
 
-1. The first thing you want to do create a temporary reference type named `Temp` and have it point to the same Node
-   that `Front` is pointing too. This means that `Temp` will point to `Node1`
+1. The first thing you want to do create a temporary reference type named `temp` and have it point to the same Node that `front` is pointing too. This means that `temp` will point to `Node 1`
 
-![Singly Linked List](images/Dequeue1.PNG){:target="\_blank"}
+![Dequeue 01](images/Dequeue1.PNG)
 
-2. Next, you want to re-assign `Front` to the `Next` value that the Node `Front` is referencing. In our visual, this would
-   be `Node2`.
+2. Next, you want to re-assign `front` to the `next` value that the Node `front` is referencing. In our visual, this would be `Node 2`.
 
-![Singly Linked List](images/Dequeue2.PNG){:target="\_blank"}
+![Dequeue 02](images/Dequeue2.PNG)
 
 3. Now that we have moved `Front` to the second Node in line, we can next re-assign the `Next` property on the `Temp` Node to null.
    We do this because we want to make sure that all the proper Nodes clear any unnecessary references for the garbage collector to come in
    later and clean up.
 
-![Singly Linked List](images/Dequeue3.PNG){:target="\_blank"}
+![Dequeue 03](images/Dequeue3.PNG)
 
-4. Congratulations! You have just successfully completed a `Dequeue` action on a queue!
-
-![Singly Linked List](images/Dequeue4.PNG){:target="\_blank"}
+4. Congratulations! You have just successfully completed a `dequeue` action on a queue!
 
 #### Code
 
-Here is the Pseudo Code for the `Dequeue` method:
+Here is the Pseudo Code for the `dequeue` method:
 
 ```javascript
-ALGORITHM Dequeue()
+ALGORITHM dequeue()
+// INPUT <-- none
+// OUTPUT <-- removed Node
 
-   Node temp <-- Front
-   Front <-- Front.Next
-   temp.Next <-- null
+   Node temp <-- front
+   front <-- front.next
+   temp.next <-- null
 
    return temp;
 ```
 
 ### Peek O(1)
 
-When conducting a `Peek`, you will only be viewing the `Front` Node of the stack.
-Traditionally, you always want to `Peek` before conducting a `Dequeue`. This will ensure
-that you do not receive a `NullExceptionError` on your `Dequeue` action.
+When conducting a `peek`, you will only be viewing the `front` Node of the queue. Traditionally, you always want to `peek` before conducting a `dequeue`. This will ensure that you do not receive a `NullExceptionError` on your `dequeue` action.
 
 #### Code
 
-Here is the pseudo code for a `Peek`
+Here is the pseudo code for a `peek`
 
 ```javascript
-ALGORITHM Peek()
+ALGORITHM peek()
+// INPUT <-- none
+// OUTPUT <-- front Node of queue
 
-   return Front
+   return front
 ```
 
-We do not re-assign the `Next` property when we `Peek` because we want to keep the reference
-to the next Node in the queue. This will allow the `Front` to stay in the front until we decide to `Dequeue`
+We do not re-assign the `next` property when we `peek` because we want to keep the reference to the next Node in the queue. This will allow the `front` to stay in the front until we decide to `dequeue`
 
 ### Prerequisites
 
 You should include a requirement in both your `Stack` and `Queue` class to
-guarantee that you have at least one Node starting out. Don't forget to assign the proper
-properties to the correct locations in both the stack and the queue.
+guarantee that you have at least one Node starting out. Don't forget to assign the proper properties to the correct locations in both the stack and the queue.
