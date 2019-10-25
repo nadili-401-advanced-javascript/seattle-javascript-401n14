@@ -1,5 +1,9 @@
 # Class 08 - Express Routing & Connected API
 
+| [Lecture Video](https://frontrowviews.com/Home/Event/Play/5d8e909abdb995374c467544) | [Lab Video](https://frontrowviews.com/Home/Event/Play/5d8e909bbdb995374c46756d) |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+
+
 ## Key Terms
 
 | Term                    | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Supporting Links                                                                                                                                                                               |
