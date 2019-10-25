@@ -112,24 +112,22 @@ ALGORITHM pop()
 
 ### Peek O(1)
 
-When conducting a `Peek`, you will only be viewing the `Top` Node of the stack.
-Traditionally, you always want to `Peek` before conducting a `Pop`. This will ensure
-that you do not receive a `NullExceptionError` on your `Pop` action.
+When conducting a `peek`, you will only be viewing the `top` Node of the stack.
+Traditionally, you always want to `peek` before conducting a `pop`. This will ensure that you do not receive a `NullExceptionError` on your `pop` action.
 
-Here is the Pseudo code for a `Peek`
+Here is the Pseudo code for a `peek`
 
 ```javascript
 
-ALGORITHM Peek()
+ALGORITHM peek()
 // INPUT <-- none
-// OUTPUT <-- Node of top of stack
+// OUTPUT <-- top Node of stack
 
-   return Top
+   return top
 
 ```
 
-We do not re-assign the `Next` property when we `Peek` because we want to keep the reference
-to the next Node in the stack. This will allow the `Top` to stay the top until we decide to `Pop`
+We do not re-assign the `next` property when we `peek` because we want to keep the reference to the next Node in the stack. This will allow the `top` to stay the top until we decide to `pop`.
 
 ## What is a Queue
 
