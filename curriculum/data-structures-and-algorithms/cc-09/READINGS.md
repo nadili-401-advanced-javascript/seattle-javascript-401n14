@@ -3,10 +3,11 @@
 **For your assignment, go through these resources, and create a wiki entry in your fork of the class repo that summarizes the principle topic as though you were presenting the material to a 301 level student.**
 
 Wiki Entry Ideas:
-* Blog Article (2-3 paragraphs with code sample)
-* Dictionary / Flash Cards
-* Notes in outline form
+
+-   Blog Article (2-3 paragraphs with code sample)
+-   Dictionary / Flash Cards
+-   Notes in outline form
 
 ## Resources
 
-- Read: [Stacks and Queues](resources/stacks_and_queues.md){:target="_blank"}
+-   Read: [Stacks and Queues](resources/stacks_and_queues.md)
