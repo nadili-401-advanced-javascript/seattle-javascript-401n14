@@ -31,28 +31,27 @@ This means that the first item added in the stack will be the last item popped o
 
 This means that the last item added to the stack will be the first item popped out of the stack.
 
-This is what a stack looks like:
+### Stack Visualization
+
+Here's an example of what a stack looks like. As you can see, the topmost item is denoted as the `top`. When you push something to the stack, it becomes the new `top`. When you pop something from the stack, you pop the current `top` and set the next `top` as `top.next`.
 
 ![Stack](./images/stack1.PNG)
 
 ### Push O(1)
 
-Pushing a node onto a stack will be an O(1) operation. This is because it takes the same
-amount of time, no matter how many nodes you have in the stack.
+Pushing a node onto a stack will always be an `O(1)` operation. This is because it takes the same amount of time no matter how many nodes (`n`) you have in the stack.
 
-When adding a node, you essentially want to `Push` it into the stack
-and then re-assign the `Top` to newly added node.
+When adding a node, you `push` it into the stack by assigning it as the new top, with it's `next` property equal to the original/old `top`.
 
 Let's walk through the steps:
 
 1. First, you should have the node that you want to add. Here is an example of a Node that we want to add to the stack.
 
-![Singly Linked List](images/pushStack1.PNG){:target="\_blank"}
+![Push to Stack 01](images/pushStack1.PNG)
 
-2. Next, you need to assign the `Next` property of `Node5` to reference the same Node
-   that `Top` is referencing. This will end up being `Node4`
+2. Next, you need to assign the `next` property of `Node 5` to reference the same Node that `top` is referencing: `Node 4`
 
-![Singly Linked List](images/pushStack2.PNG){:target="\_blank"}
+![Push to Stack 02](images/pushStack2.PNG)
 
 3. Technically at this point, your new node is added to your stack,
    but there is no indication that it is the first node in the stack.
