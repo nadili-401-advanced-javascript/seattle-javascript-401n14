@@ -6,7 +6,6 @@ const app = express();
 const peopleRoutes = require('./routes/people-routes.js');
 
 const start = port => {
-  let port = port || process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`Listening on Port ${port}`);
   });

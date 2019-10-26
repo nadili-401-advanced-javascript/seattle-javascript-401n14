@@ -18,13 +18,23 @@ class Model {
     else return this.schema.find({});
   }
 
-  create(record) {}
+  create(record) {
+    let newRecord = new this.schema(record);
+    return newRecord.save();
+  }
 
-  update(_id, record) {}
+  update(_id, record) {
+    return this.schema.findByIdAndUpdate(_id, record);
+  }
 
-  delete(_id) {}
+  delete(_id) {
+    return this.schema.findByIdAndDelete(_id);
+  }
 
-  count(query) {}
+  count(query) {
+    if (query) return this.schema.countDocuments(query);
+    else return this.schema.countDocuments({});
+  }
 }
 
 module.exports = Model;

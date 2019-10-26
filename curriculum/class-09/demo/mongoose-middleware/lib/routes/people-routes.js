@@ -17,12 +17,13 @@ router.get('/', (req, res, next) => {
 // people/Sarah
 router.get('/:id', async (req, res, next) => {
   let data = await people.get(req.params.id);
-  if (data && data._id) res.send(data);
-  else next('route');
+  if (data && data._id) {
+    res.send(data.virtuals.fullName.getters[0]());
+  } else next('route');
 });
 
 // GET :firstName with Async/Await
-router.get('/:firstName', async (req, res, next) => {
+router.get('/:firstName-:lastName', async (req, res, next) => {
   let data = await people.getFromField(req.params);
   res.send(data);
 });
