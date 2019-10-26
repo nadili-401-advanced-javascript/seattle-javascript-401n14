@@ -63,7 +63,7 @@ Within your server, create routes that will display or modify data. The followin
 - `DELETE /teams`: allows you to delete a team
 - `GET /teams/:id`: prints out the found team from the given id
 - `GET /teams/:name`: prints out the found team from the given name
-- `GET /people/count`: prints out the number of teams (records) in the Teams model
+- `GET /teams/count`: prints out the number of teams (records) in the Teams model
 
 Just like in lab 07, modularize your people and teams routes so that they are in separate server files called `people-routes.js` and `teams-routes.js`.
 
