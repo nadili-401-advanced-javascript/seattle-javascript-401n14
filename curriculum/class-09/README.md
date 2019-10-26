@@ -298,7 +298,7 @@ In your lab for this class, you'll see a new file in the `/middleware` folder, c
 In our last few labs, we made a lot of routes, some of which were pretty similar. Take a look at the below comparisons, where `model` is a stand-in for either the people or the teams model.
 
 ```
-GET /people and GET /teams both returned model.getFromField({})
+`GET` /people and GET /teams both returned model.getFromField({})
 ```
 
 `POST /people` and `POST /teams` both returned `model.create(record)`
