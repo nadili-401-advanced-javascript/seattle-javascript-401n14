@@ -298,16 +298,23 @@ In your lab for this class, you'll see a new file in the `/middleware` folder, c
 In our last few labs, we made a lot of routes, some of which were pretty similar. Take a look at the below comparisons, where `model` is a stand-in for either the people or the teams model.
 
 `GET /people` and `GET /teams` both returned `model.getFromField({})`
+
 `POST /people` and `POST /teams` both returned `model.create(record)`
+
 `PUT /people` and `PUT /teams` both returned `model.update(id, record)`
+
 `DELETE /people` and `DELETE /teams` both returned `model.delete(id)`
+
 `GET /people` and `GET /teams` both returned `model.getFromField({})`
+
 `GET /people/:id` and `GET /teams/:id` both returned `model.get(id)`
+
 `GET /people/count` and `GET /teams/count` both returned `model.count()`
 
 There's a lot of overlap here! What if you wanted to restructure your routes so that the `PUT` and `DELETE` endpoints had an `:id` in their route?
 
 `PUT /people/:id` and `PUT /teams/:id` both return `model.update(id, record)`
+
 `DELETE /people/:id` and `DELETE /teams/:id` both return `model.delete(id)`
 
 In order to do this, you would have to update two files and two endpoints, which opens the door for inconsistencies, errors, etc. Since the code between them is essentially the same (the only difference being whether to call `people` or `teams` in place of `model`), let's see if we can prevent ourselves from repeating code.
