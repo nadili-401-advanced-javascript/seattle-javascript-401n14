@@ -37,8 +37,8 @@ Each student can sign up for a max of 2 white-boarding interviews. If you would 
 
 | Date         | Assigned Student |
 | ------------ | ---------------- |
-| Nov 02, 2019 | ---              |
-| Nov 09, 2019 | ---              |
+| Nov 02, 2019 | Martin Balke     |
+| Nov 09, 2019 | Nadya Ilinskaya  |
 | Nov 16, 2019 | ---              |
 | Nov 23, 2019 | ---              |
 | Dec 14, 2019 | ---              |
