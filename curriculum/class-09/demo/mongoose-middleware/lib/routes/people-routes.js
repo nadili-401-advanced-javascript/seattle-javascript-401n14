@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   let data = await people.get(req.params.id);
   if (data && data._id) {
-    res.send(data);
+    res.send({ fullName: data.fullName, data: data });
   } else next('route');
 });
 
