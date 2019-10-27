@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const peopleRoutes = require('./routes/people-routes.js');
+const teamsRoutes = require('./routes/teams-routes.js');
 
 const start = port => {
   app.listen(port, () => {
@@ -25,6 +26,7 @@ const start = port => {
 app.use(express.json());
 
 app.use('/people', peopleRoutes);
+app.use('/teams', teamsRoutes);
 // Routes
 app.get('/', (req, res, next) => {
   res.send('Homepage');

@@ -19,12 +19,13 @@ class Model {
   }
 
   create(record) {
+    console.log('MODEL');
     let newRecord = new this.schema(record);
     return newRecord.save();
   }
 
   update(_id, record) {
-    return this.schema.findByIdAndUpdate(_id, record);
+    return this.schema.updateOne({ _id }, record);
   }
 
   delete(_id) {
