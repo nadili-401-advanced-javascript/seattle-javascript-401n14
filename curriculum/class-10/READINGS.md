@@ -14,7 +14,6 @@ Wiki Entry Ideas:
 
 ## Read
 
--   Read [Securing Passwords](http://dustwell.com/how-to-handle-passwords-bcrypt.html)
 -   Read [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication)
 -   Read [Intro to JWT](https://jwt.io/introduction/)
 -   Read [OWASP Auth CheatSheet](https://www.owasp.org/index.php/Authentication_Cheat_Sheet)
