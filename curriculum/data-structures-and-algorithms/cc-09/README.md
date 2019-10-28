@@ -22,7 +22,7 @@
     -   Define a method called `pop` that does not take any arguments and removes the Node from the `top` of the stack, and returns that popped Node's `value`.
     -   Define a method called `peek` that does not take an argument and returns the `value` of the node located on `top` of the stack, without removing it from the stack.
 
--   Create a `Queue` class that has a `front` property. It creates an empty Queue when instantiated.
+-   Create a `Queue` class that has a `front` and `rear` property. It creates an empty Queue when instantiated.
 
     -   This object should be aware of a default empty `value` assigned to `front` when the queue is created.
     -   Define a method called `enqueue` which takes any `value` as an argument and adds a new Node with that `value` to the `rear` of the queue with an `O(1)` time performance.
