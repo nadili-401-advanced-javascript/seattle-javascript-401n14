@@ -116,7 +116,7 @@ Similarly, restrict the `/books/:indx` route so that each book will only load if
 
 Because we are focusing on the server-side of our application, we haven't created a client-side that easily lets us `POST` or modify our request headers. Therefore, in order to test, you can use a tool such as [Postman](https://www.getpostman.com/) so that you can manually set headers and `POST` bodies.
 
-If you're using TDD, you can also use your test files as fake "clients", since they can make REST requests using [`SuperAgent`](https://www.npmjs.com/package/superagent). If you set up your test prior to coding your requirements, you can use your tests to verify that your newly added code is correct.
+If you're using TDD, you can also use your test files as fake "clients", since they can make REST requests using [SuperAgent](https://www.npmjs.com/package/superagent). If you set up your test prior to coding your requirements, you can use your tests to verify that your newly added code is correct.
 
 ```javascript
 mockRequest
