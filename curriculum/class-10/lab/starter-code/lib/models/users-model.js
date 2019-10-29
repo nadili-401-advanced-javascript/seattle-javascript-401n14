@@ -8,9 +8,9 @@ class Users extends Model {
     super(schema);
   }
 
-  // TODO JSDocs Comments
-  authBasic(auth) {
-    return this.schema.authenticateBasic(auth);
+  // TODO JSDocs Comment
+  authenticate(creds) {
+    return this.schema.authenticate(creds);
   }
 }
 

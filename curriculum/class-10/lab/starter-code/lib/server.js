@@ -11,7 +11,8 @@ const morgan = require('morgan');
 
 const errorHandler = require('./middleware/error.js');
 const notFound = require('./middleware/404.js');
-const authRouter = require('./auth/auth-router.js');
+const authRouter = require('./routes/auth-router.js');
+const bookRouter = require('./routes/book-router.js');
 const app = express();
 
 // == APPLICATION MIDDLEWARE ============================================
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // == ROUTES ===========================================================
 
+// TODO Swagger Comment
 app.get('/', (req, res, next) => {
   res.send('Homepage');
 });
@@ -30,7 +32,13 @@ app.get('/', (req, res, next) => {
 // TODO Comment
 app.use(authRouter);
 
+// TODO Comment
+app.use(bookRouter);
+
+// TODO Comment
 app.use(notFound);
+
+// TODO Comment
 app.use(errorHandler);
 
 // == EXPORTS ===========================================================
@@ -41,11 +49,12 @@ module.exports = {
   start: port => {
     const PORT = port || process.env.PORT || 3000;
 
+    // TODO Comment
     app.listen(PORT, () => {
       console.log(`Server Up on ${PORT}`);
     });
 
-    // Start up DB Server
+    // TODO: Comment
     const options = {
       useNewUrlParser: true,
       useCreateIndex: true,
