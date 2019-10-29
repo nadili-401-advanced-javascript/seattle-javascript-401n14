@@ -63,10 +63,21 @@ Create a UML diagram for the authentication system, describing the data flow of 
 
 Within the code, you will find many in-line comments of the format:
 
-`// TODO: Comment`
-`// TODO: JSDoc Comment`
-`// TODO: Swagger Comment`
-`// TODO: README Question`
+```
+// TODO: Comment
+```
+
+```
+// TODO: JSDoc Comment
+```
+
+```
+// TODO: Swagger Comment
+```
+
+```
+// TODO: README Question
+```
 
 You are required to replace each instance of these comments with your own comments that fit the following criteria:
 
