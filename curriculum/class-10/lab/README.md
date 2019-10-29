@@ -103,12 +103,14 @@ Using the data defined in the books object, restrict your `/books` route such th
 -   An `admin` user like `Sarah` can see all three books
 -   An `editor` user like `Bill` can see only `Hamlet` and `Alice in Wonderland`
 -   A standard `user` like `Rene` can see only `Alice in Wonderland`
+-   A user of the wrong role, or a user is not logged in, will see some error message
 
 Similarly, restrict the `/books/:indx` route so that each book will only load if a user is logged in an has the right user type to access that specific book:
 
 -   An `admin` user like `Sarah` can access `/books/0`, `/books/1` and `/books/2`
 -   An `editor` user like `Bill` can only access `/books/1` and `/books/2`
 -   A standard `user` like `Rene` can only access `/books/2`
+-   A user of the wrong role, or a user is not logged in, will see some error message
 
 ### Testing Functionality
 
