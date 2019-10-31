@@ -144,7 +144,7 @@ When a client successfully authenticates (a user successfully logs in) the serve
 
 > ##### Cookies
 >
-> A cookie is common term in web applications and web browsing. In essence, a cookie is just some data stored in a file. When a client (such as a web browser) makes a request, the server loads in data from the client's cookie. For more details about cookies and how they work, check out [this great explanatory video](https://www.youtube.com/watch?v=I01XMRo2ESg)
+> A cookie is common term in web applications and web browsing. In essence, a cookie is just some data stored in a file. When a client (such as a web browser) makes a request, the server loads in data from the client's cookie. For more details about cookies and how they work, check out [this explanatory video](https://www.youtube.com/watch?v=I01XMRo2ESg)
 
 The session id doesn't actually save any user data, it's instead something that the server can interpret to find the correctly authenticated user.
 
