@@ -25,14 +25,14 @@
 
 In our last class, we continued our learning of API servers, middleware and Mongoose. We saw how Mongoose is actually creating a data model, even though we refer to it as a schema:
 
-```
+```javascript
 const mongoose = require('mongoose');
 
 // Our actual 'schema'
 const peopleSchema = mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  _team: { type: mongoose.Schema.Types.ObjectId, required: false }
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    _team: { type: mongoose.Schema.Types.ObjectId, required: false }
 });
 
 // Converting that Mongoose schema into a full
@@ -177,8 +177,3 @@ All of these topics involve creating a secure connection between a client and se
 ## How To Get There
 
 ## Summary
-
-
-
-
-
