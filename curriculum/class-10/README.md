@@ -16,12 +16,12 @@
 
 ## Key Packages
 
-| Package        | Description | Link |
-| -------------- | ----------- | ---- |
-| `cors`         | --          | --   |
-| `morgan`       | --          | --   |
-| `jsonwebtoken` | --          | --   |
-| `bcrypt`       | --          | --   |
+| Package        | Description | Link                                              |
+| -------------- | ----------- | ------------------------------------------------- |
+| `cors`         | --          | --                                                |
+| `morgan`       | --          | --                                                |
+| `jsonwebtoken` | --          | [npm](https://www.npmjs.com/package/jsonwebtoken) |
+| `bcrypt`       | --          | [npm](https://www.npmjs.com/package/bcrypt)       |
 
 ## Where We're Coming From
 
@@ -62,6 +62,8 @@ We have also reinforced the architecture of our application, so that we can pain
 Currently, our server exposes endpoints (a.k.a. routes), and these endpoints are available to any client: we can use our `index.js`, we can use [Postman](https://www.getpostman.com/), or we can use some other website or service.
 
 What if our web application had sensitive user data? For example, imagine our `people` model from previous classes stored each person's social security number? We wouldn't want everyone to see this sensitive data just by routing to `/people/:id`.
+
+### CORS
 
 ### Authentication and Authorization
 
@@ -185,5 +187,86 @@ Here's an overview of the application data flow we'll try to achieve:
 ![App Architecture](./images/app-architecture-02.png)
 
 ## How To Get There
+
+### Creating a User
+
+First, we need to build a model that represents a valid user / client in our application. We can do that easily just as we have been doing for our `People` and `Teams` models:
+
+```javascript
+const userSchema = mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true }
+});
+
+module.exports = mongoose.model('users', userSchema);
+```
+
+Now, if we were to leave this as it is defined above, we would have a problem: when we create a user, we would be storing the plain-text password instead of the hashed password!
+
+To fix this, we want to ensure that before we save our user to the database, we take some time to hash the password, and then save the hashed value to the database instead of the original plain-text password. We can do this easily using the `pre` middleware hook for the Mongoose `save()` function:
+
+```javascript
+const userSchema = mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true }
+});
+
+userSchema.pre('save', async function() {
+    this.password = await bcrypt.hash(this.password, 10);
+});
+
+module.exports = mongoose.model('users', userSchema);
+```
+
+> Remember: any middleware we define must be written BEFORE we call `mongoose.model`.
+
+In this above example, we're using a new package, called [`bcrypt`](https://www.npmjs.com/package/bcrypt). This package makes it effortless for us to create a hashed password by using the `hash()` function:
+
+```javascript
+/*
+ * Function bcrypt.hash takes a plain-text password and turns it
+ * into a hashed string.
+ * @param password - The plain-text password that you want to hash
+ * @param saltRounds - The complexity of the salt (we usually use 10)
+ * @return Promise<string> - The hashed password
+ */
+let hashedPassword = await bcrypt.hash(originalPassword, saltRounds);
+```
+
+Once we've created a hashed password, we can actually override the existing user's password with the new hashed value! This makes us doubly sure we're not saving the plain-text password anywhere.
+
+> #### But What about the Salt?
+>
+> Interestingly, when we use `bcrypt`, we don't need to manually generate or store the salt. `bcrypt` automatically generates the salt and stores it within the hashed password. To learn more about how `bcrypt` works, check out [this link](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
+
+So now, we've collected a username and password from a client, ran some hashing middleware before saving it to the database, and then finally saved the username and hashed password as a new user in our database.
+
+### Generating a Token
+
+We're almost done with our process. Our client has signed up (and therefore authenticated), and now we want them to remain authenticated as they continue to make requests. So, we need to give them a token that they can use to auto-authenticate in future requests.
+
+We can generate tokens using another package, [`jsonwebtoken`](https://www.npmjs.com/package/jsonwebtoken). We want to generate this token after our user has been saved to the database. So, we can either do it in a `post` middleware function, or we can create a function on the user model that our server can then call:
+
+```javascript
+const jwt = require('jsonwebtoken');
+
+...
+
+userSchema.methods.generateToken = function() {
+    let tokenData = { id: this._id ;
+
+    return jwt.sign(tokenData, process.env.JWT_SECRET);
+};
+```
+
+```javascript
+app.get('/signup', async (req, res, next) => {
+    let user = userModel.create(req.body);
+    let token = user.generateToken();
+
+    res.set('token', token);
+    res.send('Successfully signed up!');
+});
+```
 
 ## Summary
