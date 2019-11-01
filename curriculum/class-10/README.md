@@ -226,9 +226,9 @@ In this above example, we're using a new package, called [`bcrypt`](https://www.
 /*
  * Function bcrypt.hash takes a plain-text password and turns it
  * into a hashed string.
- * @param password - The plain-text password that you want to hash
- * @param saltRounds - The complexity of the salt (we usually use 10)
- * @return Promise<string> - The hashed password
+ * @param {String} password - The plain-text password that you want to hash
+ * @param {Number} saltRounds - The complexity of the salt (we usually use 10)
+ * @return {Promise<string>} - The hashed password
  */
 let hashedPassword = await bcrypt.hash(originalPassword, saltRounds);
 ```
@@ -267,6 +267,24 @@ app.get('/signup', async (req, res, next) => {
     res.set('token', token);
     res.send('Successfully signed up!');
 });
+```
+
+Mongoose allows us to add functions on the record and model level using `methods` and `statics`. A function on the record level will be accessible for every record in our database, and these functions are defined using the `methods` keyword upon the schema.
+
+Similarly, a function on the model level can be used akin to functions like `.save()` or `.find()`; these functions are defined using the `statics` keyword upon the schema.
+
+The `jsonwebtoken` function `.sign()` builds a token for us using some data we want to preserve that will help us authenticate (in this case, the id of the recently created and authenticated user). The `.sign()` function also encrypts that data using a `secret` - a simple string that is unique to our application, and which is usually defined in our environment variables.
+
+```javascript
+/*
+ * Function jwt.sign takes an object with data and a secret string
+ * and generates a unique token.
+ * @param {Object} tokenData - Some data to quickly identify the user
+ * @param {String} secret - A unique string used for encryption
+ * @return {String} - The generated token with the data, a signature and
+ * some expiry time for when the token is no longer valid
+ */
+let token = jwt.sign(tokenData, secret);
 ```
 
 ## Summary
