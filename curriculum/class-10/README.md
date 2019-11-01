@@ -146,9 +146,7 @@ When a client successfully authenticates (a user successfully logs in) the serve
 >
 > A cookie is common term in web applications and web browsing. In essence, a cookie is just some data stored in a file. When a client (such as a web browser) makes a request, the server loads in data from the client's cookie. For more details about cookies and how they work, check out [this explanatory video](https://www.youtube.com/watch?v=I01XMRo2ESg)
 
-The session id doesn't actually save any user data, it's instead something that the server can interpret to find the correctly authenticated user.
-
-This means that the server needs to store some table mapping of session ids to users:
+The session id doesn't actually save any user data, it's instead something that the server can interpret to find the correctly authenticated user. This means that the server needs to store some table mapping of session ids to users:
 
 | Session Id      | User  |
 | --------------- | ----- |
@@ -181,6 +179,10 @@ So far, we've covered a wide range of topics:
 -   Sessions and Tokens: How a previously authenticated client can maintain its authentication over multiple requests
 
 All of these topics involve creating a secure connection between a client and server. Individually, these topics have a lot of complexity and are constantly evolving as hackers find new ways to steal data. In this class, we're going to learn about a few standard methods to make our application data secure, so that we can get started with managing users and user data!
+
+Here's an overview of the application data flow we'll try to achieve:
+
+![App Architecture](./images/app-architecture-02.png)
 
 ## How To Get There
 
