@@ -99,11 +99,6 @@ Using `supertester.js`, test a mocked version of your server
 - JS Docs comments on functions
 - Swagger comments on endpoints
 
-As in the previous lab, provide full swagger documentation for your server.
-
-- Wire up to a custom port using the `express-swagger-generator` module
-- Note that your routes might be different, and the response objects might be different. Update your swagger configuration accordingly
-
 ## Assignment Submission Instructions
 
 For this lab, you will be required to deploy your app to Heroku. You will NOT need to generate any Swagger documentation, though Swagger and JSDoc comments within your code are still required.
