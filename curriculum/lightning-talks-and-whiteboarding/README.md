@@ -18,7 +18,7 @@ Each student can max do 2 lightning talks.
 | ~~Liskov Substitution Principle~~   | ~~[Link](https://deviq.com/liskov-substitution-principle/)~~                                 | ~~Oct 19, 2019~~ | ~~Morgan T Shaw~~ |
 | ~~Interface Segregation Principle~~ | ~~[Link](https://deviq.com/interface-segregation-principle/)~~                               | ~~Oct 26, 2019~~ | ---               |
 | Dependency Inversion Principle      | [Link](https://deviq.com/dependency-inversion-principle/)                                    | Nov 02, 2019     | Jessica Elliott   |
-| Strategy Pattern                    | [Link](https://www.dofactory.com/javascript/strategy-design-pattern)                         | Nov 09, 2019     | ---               |
+| Strategy Pattern                    | [Link](https://www.dofactory.com/javascript/strategy-design-pattern)                         | Nov 09, 2019     | Morgan T Shaw     |
 | Observer Pattern                    | [Link](https://www.dofactory.com/javascript/observer-design-pattern)                         | Nov 16, 2019     | ---               |
 | Memento Pattern                     | [Link](https://www.dofactory.com/javascript/memento-design-pattern)                          | Nov 23, 2019     | ---               |
 | Facade Pattern                      | [Link](https://www.dofactory.com/javascript/facade-design-pattern)                           | Dec 14, 2019     | ---               |
