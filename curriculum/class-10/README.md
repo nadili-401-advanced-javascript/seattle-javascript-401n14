@@ -1,5 +1,9 @@
 # Class 10 - Authentication
 
+| [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e909bbdb995374c467585) |
+| ---------------------------------------------------------------------------------- |
+
+
 ## Key Terms
 
 | Term                          | Definition | Supporting Links |
