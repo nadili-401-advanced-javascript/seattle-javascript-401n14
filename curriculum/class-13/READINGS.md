@@ -12,13 +12,13 @@ Wiki Entry Ideas:
 
 ## Read
 
--   [5 steps to rbac](https://www.csoonline.com/article/3060780/security/5-steps-to-simple-role-based-access-control.html)
--   [rbac at Rackspace](https://support.rackspace.com/how-to/overview-role-based-access-control-rbac/)
+-   [5 steps to RBAC](https://www.csoonline.com/article/3060780/security/5-steps-to-simple-role-based-access-control.html)
+-   [RBAC at RackSpace](https://support.rackspace.com/how-to/overview-role-based-access-control-rbac/)
 
 ## Skim
 
--   [wiki - rbac](https://en.wikipedia.org/wiki/Role-based_access_control)
+-   [Wiki - RBAC](https://en.wikipedia.org/wiki/Role-based_access_control)
 
 ## Watch
 
--   [rbac tutorial](https://www.youtube.com/watch?v=C4NP8Eon3cA)
+-   [RBAC Tutorial](https://www.youtube.com/watch?v=C4NP8Eon3cA)
