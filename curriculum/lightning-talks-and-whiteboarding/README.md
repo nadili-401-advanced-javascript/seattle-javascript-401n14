@@ -20,7 +20,7 @@ Each student can max do 2 lightning talks.
 | Dependency Inversion Principle      | [Link](https://deviq.com/dependency-inversion-principle/)                                    | Nov 02, 2019     | Jessica Elliott   |
 | Strategy Pattern                    | [Link](https://www.dofactory.com/javascript/strategy-design-pattern)                         | Nov 09, 2019     | Morgan T Shaw     |
 | Observer Pattern                    | [Link](https://www.dofactory.com/javascript/observer-design-pattern)                         | Nov 16, 2019     | ---               |
-| Memento Pattern                     | [Link](https://www.dofactory.com/javascript/memento-design-pattern)                          | Nov 23, 2019     | ---               |
+| Memento Pattern                     | [Link](https://www.dofactory.com/javascript/memento-design-pattern)                          | Nov 23, 2019     | Nadya Ilinskaya               |
 | Facade Pattern                      | [Link](https://www.dofactory.com/javascript/facade-design-pattern)                           | Dec 14, 2019     | ---               |
 | Singleton Pattern                   | [Link](https://www.dofactory.com/javascript/singleton-design-pattern)                        | Dec 21, 2019     | Anna Li           |
 | Proxy Pattern                       | [Link](https://www.dofactory.com/javascript/proxy-design-pattern)                            | Jan 04, 2020     | Meron Sibani      |
@@ -40,11 +40,11 @@ Each student can sign up for a max of 2 white-boarding interviews. If you would 
 | Nov 02, 2019 | Martin Balke     |
 | Nov 09, 2019 | Nadya Ilinskaya  |
 | Nov 16, 2019 | ---              |
-| Nov 23, 2019 | ---              |
-| Dec 14, 2019 | ---              |
+| Nov 23, 2019 | Jessica Elliott              |
+| Dec 14, 2019 | Meron Sibani              |
 | Dec 21, 2019 | ---              |
-| Jan 04, 2020 | ---              |
-| Jan 11, 2020 | ---              |
+| Jan 04, 2020 | Jessica Elliott              |
+| Jan 11, 2020 | Nadya Ilinskaya              |
 | Jan 18, 2020 | ---              |
 | Jan 25, 2020 | ---              |
 | Feb 01, 2020 | ---              |
