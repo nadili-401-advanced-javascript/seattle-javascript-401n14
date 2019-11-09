@@ -11,182 +11,165 @@ In this tutorial, we'll be covering **Binary Trees** and **Binary Search Trees**
 1. _Edge_ - The edge in a tree is the link between two nodes
 1. _Leaf_ - A leaf is the node that does not contain either a left child or a right child node.
 1. _Height_ - The height of a tree is determined by the number of edges from the root to the bottommost node.
-   This is what a tree looks like:
 
-![DepthFirst Traversal](images/BinaryTree1.PNG){:target="\_blank"}
+### Sample Tree
 
-### Traversals
+![Sample Tree](images/BinaryTree1.PNG)
 
-There are two categories of traversals when it comes to trees.
+## Traversals
+
+An important aspect of tress is how to traverse them, so that we can either search for a Node we're looking for, or print out all the contents of a tree. There are two categories of traversals when it comes to trees:
 
 1. Depth First
 2. Breadth First
 
-#### Depth First
+### Depth First
 
-Depth first is a traversal that traverses the depth (height) of the tree.
+Depth first traversal is where we prioritize going through the depth (height) of the tree first. There are multiple ways to carry out depth first traversal, and each method changes the order in where we search/print the `root`. Here are three methods for depth first traversal:
 
-The different traversals determine at which point the `Root` is looked at.
-Here are the three different depth first traversals broken down:
+1. Pre-order: `root >> left >> right`
+2. In-order: `left >> root >> right`
+3. Post-order: `left >> right >> root`
 
-1. Preorder
-   - Root, Left, Right
-2. Inorder
-   - Left, Root, Right
-3. Postorder
-   - Left, Right, Root
+![Sample Tree](images/tree-example.png)
 
-![DepthFirst Traversal](images/depthTraversal.PNG){:target="\_blank"}
+Given the sample tree above, our traversals would result in different paths:
 
-Output:
+- _Pre-order:_ `A, B, D, E, C, F`
+- _In-order:_ `D, B, E, A, F, C`
+- _Post-order:_ `D, E, B, F, C, A`
 
-- **_Preorder:_** A, B, D, E, C, F
-- **_Inorder:_** D, B, E, A, F, C
-- **_Postorder:_** D, E, B, F, C, A
+The most common way to traverse through a tree is to use **recursion**. With these traversals, we rely on the _call stack_ to navigate back up the tree when we have reached the end of a sub-path.
 
-The most common way to traverse through a tree is to use recursion.
-With these traversals, we rely on the call stack to navigate back up
-the tree when we have reached the end.
+#### Pre-order
 
-Let's breakdown the `PreOrder` traversal.
-
-Here is the pseudo code for a PreOrder traversal:
+Let's breakdown the pre-order traversal. Here is the pseudo code for this traversal method:
 
 ```javascript
-ALGORITHM PreOrder(root)
+ALGORITHM preOrder(root)
 {
-  OUTPUT <-- root.Value
+  OUTPUT <-- root.value
 
-    if root.LeftChild is not NULL
-        PreOrder(root.LeftChild)
+    if root.left is not NULL
+        preOrder(root.left)
 
-    if root.RightChild is not NULL
-        PreOrder(root.RightChild)
+    if root.right is not NULL
+        preOrder(root.right)
 }
 ```
 
-1. PreOrder means that the `root` has to be looked at first.
-   The first thing we do is look at the root....in our case, we will just output that
-   to the console. When we call `PreOrder` for the first time, the `root`, also refereed to as NodeA,
-   will be added to the call stack.
+Pre-order means that the `root` has to be looked at first. In our case, looking at the root just means that we output its value. When we call `preOrder` for the first time, the `root` will be added to the call stack:
 
-![PreOrder1](images/DepthTraversal1.PNG){:target="\_blank"}
+![PreOrder 01](images/DepthTraversal1.PNG)
 
-2. Next we start reading the code from top to bottom. The first line of code reads this:
+Next, we start reading our `preOrder` function's code from top to bottom. The first line of code reads this:
 
-```javascript
-OUTPUT < --node.Value;
+```
+OUTPUT <-- root.value
 ```
 
-This means that we will output the `root.Value` out to the console.
+This means that we will output the `root.value` out to the console. Then, our next block of code instructs us to check if our `root` has a `left` Node set. If the root does, we will then send the `left` Node to our `preOrder` method recursively. This means that we make another function call, where `B` is our new `root`:
 
-3. Next, the code above is instructing us to check if our `root` has a `LeftChild`.
-   If the root does, we will then send the `LeftChild` to our PreOrder method recursively.
-   `NodeB` is now our new root node, and after this call, `NodeB` is pushed onto the call stack.
+![PreOrder 02](images/DepthTraversal2.PNG)
 
-![PreOrder1](images/DepthTraversal2.PNG){:target="\_blank"}
+This process continues until we reach a leaf Node. Here's the state of our tree when we hit our first leaf, `D`:
 
-4. This process continues until we reach a `Leaf`. When we do hit a leaf, this is the state of our tree:
-
-![PreOrder1](images/DepthTraversal3.PNG){:target="\_blank"}
+![PreOrder 03](images/DepthTraversal3.PNG)
 
 It's important to note a few things that are about to happen.
 
-- The value of the root will output to the console.
-- The program will look for both a `root.LeftChild` and a `root.RightChild`.
-  Both will come be false, so it will end the execution of that method call.
-- `NodeD` will "pop" off of the call stack and the root will be reassigned back to `NodeB`.
+- The value of the `root` will output to the console
+- The program will look for both a `root.left` and a `root.right`. Both will return `null`, so it will end the execution of that method call
+- `D` will _pop_ off of the call stack and the `root` will be reassigned back to `B`
+  - This is the heart of recursion: when we complete a function call, we pop it off the stack and are able to continue execution through the previous function call
 
-![PreOrder1](images/DepthTraversal4.PNG){:target="\_blank"}
+![PreOrder 04](images/DepthTraversal4.PNG)
 
-5. The Code block will now pick up where it left off when we were in the `NodeB` frame.
-   Since it already looked for `root.LeftChild`, it will now look for `root.RightChild`.
+The code block will now pick up where it left off when `B` was the root. Since it already looked for `root.left`, it will now look for `root.right`.
 
-![PreOrder1](images/DepthTraversal5.PNG){:target="\_blank"}
+![PreOrder 05](images/DepthTraversal5.PNG)
 
-6. `NodeE` will output to the console. Since `NodeE` is a leaf, it will complete the method code
-   block, and pop `NodeE` off of the call stack and make it's way back up to `NodeB`.
+`E` will output to the console. Since `E` is a leaf, it will complete the method code block, and pop `E` off of the call stack and make its way back up to `B`.
 
-![PreOrder1](images/DepthTraversal6.PNG){:target="\_blank"}
+![PreOrder 06](images/DepthTraversal6.PNG)
 
-7. In the call frame, `NodeB` has already checked for `root.LeftChild`, and `root.RightChild`,
-   the code block will complete and pop off `NodeB` from the call stack, and leave `NodeA` as the root.
+In the function call, `B` has already checked for `root.left`, and `root.right`. There are no further lines of code to execute, so `B` will be popped off the call stack, so that we can resume execution of `A`.
 
-![PreOrder1](images/DepthTraversal7.PNG){:target="\_blank"}
+![PreOrder 07](images/DepthTraversal7.PNG)
 
-8. Following the same pattern as we did with the other nodes, `NodeA`'s call stack frame will pick
-   up where it left off, and check out `root.RightChild`.
-   `NodeC` will be added to the call stack frame, and it will now be reassigned as the new root.
+Following the same pattern as we did with the other nodes, `A`'s call stack frame will pick up where it left off, and check out `root.right`. `C` will be added to the call stack frame, and it will now be reassigned as the new `root`.
 
-![PreOrder1](images/DepthTraversal8.PNG){:target="\_blank"}
+![PreOrder 08](images/DepthTraversal8.PNG)
 
-9. `NodeC` will be outputted to the console, and `root.LeftChild` will be evaluated, and
-   `PreOrder()` will be called sending `root.LeftChild` as it's root.
+`C` will be outputted to the console, and `root.left` will be evaluated. Because `C` has a left child, `preOrder` will be called, with the parameter `root.left`.
 
-![PreOrder1](images/DepthTraversal9.PNG){:target="\_blank"}
+![PreOrder 09](images/DepthTraversal9.PNG)
 
-10. At this point, the program will find that `NodeF` does not have any children and it will
-    make it's way back up the call stack up to `NodeC`.
+At this point, the program will find that `F` does not have any children and it will make its way back up the call stack up to `eC`.
 
-![PreOrder1](images/DepthTraversal10.PNG){:target="\_blank"}
+![PreOrder 10](images/DepthTraversal10.PNG)
 
-11. NodeC does not have a `root.RightChild`, so it will pop off the call stack and return to Node A.
+`C` does not have a `root.right`, so it will pop off the call stack and return to `A`.
 
-![PreOrder1](images/DepthTraversal11.PNG){:target="\_blank"}
+![PreOrder 11](images/DepthTraversal11.PNG)
 
-12. Congratulations! Your PreOrder traversal is completed!
+Congratulations! Your pre-order traversal is completed!
 
-Here is the pseudo code for all 3 of the depth first traversals.
+#### Traversal Pseudo Code
+
+Here is the pseudo code for all three of the depth first traversals:
+
+##### Pre-order
 
 ```javascript
-ALGORITHM PreOrder(node)
+ALGORITHM preOrder(node)
 // INPUT <-- root Node
-// OUTPUT <-- preorder output of tree nodes
+// OUTPUT <-- pre-order output of tree nodes
 
-    OUTPUT <-- node.Value
+    OUTPUT <-- node.value
 
-    if node.LeftChild is not Null
-        PreOrder(node.LeftChild)
+    if node.left is not Null
+        preOrder(node.left)
 
-    if node.RightChild is not NULL
-        PreOrder(node.RightChild)
-
+    if node.right is not NULL
+        preOrder(node.right)
 ```
+
+##### In-order
 
 ```javascript
-ALGORITHM InOrder(node)
-// INPUT <-- root node
-// OUTPUT <-- inorder output of tree nodes
+ALGORITHM inOrder(node)
+// INPUT <-- root Node
+// OUTPUT <-- in-order output of tree nodes
 
-    if node.LeftChild is not NULL
-        InOrder(node.LeftChild)
+    if node.left is not NULL
+        inOrder(node.left)
 
-    OUTPUT <-- node.Value
+    OUTPUT <-- node.value
 
-    if node.RightChild is not null
-        InOrder(node.RightChild)
-
+    if node.right is not NULL
+        inOrder(node.right)
 ```
+
+##### Post-order
 
 ```javascript
-ALGORITHM PostOrder(node)
-// INPUT <-- root node
-// OUTPUT <-- postorder output of tree nodes
+ALGORITHM postOrder(node)
+// INPUT <-- root Node
+// OUTPUT <-- post-order output of tree nodes
 
-    if node.LeftChild is not NULL
-        InOrder(node.LeftChild)
+    if node.left is not NULL
+        inOrder(node.left)
 
-    if node.RightChild is not null
-        InOrder(node.RightChild)
+    if node.right is not NULL
+        inOrder(node.right)
 
-    OUTPUT <-- node.Value
+    OUTPUT <-- node.value
 ```
 
-Notice the similarities between the three different traversals above.
-The biggest difference between each of the traversals is **_when you are looking
-at the root node_**.
+Notice the similarities between the three different traversals above. The biggest difference between each of the traversals is **_when you are looking at the root node_**.
 
-#### Breadth First
+### Breadth First
 
 The breadth first traversal iterates through the tree by
 going through each level of the tree node by node.
