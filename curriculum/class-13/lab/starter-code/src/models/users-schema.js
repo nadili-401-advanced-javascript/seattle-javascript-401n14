@@ -19,6 +19,9 @@ const users = new mongoose.Schema({
 // === user capabilities easily =====
 // === Utilize virtuals and the populate() mongoose method ===
 
+// === TODO: Implement a methods function can() which takes a string and returns true/false if
+// === the user has that capability ===
+
 /**
  * Pre middleware which converts a string password into a hashed password before every save to MongoDB
  */
