@@ -4,13 +4,13 @@ In this tutorial, we'll be covering **Binary Trees** and **Binary Search Trees**
 
 ## Common Terminology
 
-1. _Node_ - a node is the individual item/data that make up the data structure.
-1. _Root_ - The root is the first/top `Node` in a tree
-1. _Left Child_ - The node that is positioned to the left of the root
-1. _Right Child_ - The node that is positioned to the right of the root
-1. _Edge_ - The edge in a tree is the link between two nodes
-1. _Leaf_ - A leaf is the node that does not contain either a left child or a right child node.
-1. _Height_ - The height of a tree is determined by the number of edges from the root to the bottommost node.
+- _Node_ - a node is the individual item/data that make up the data structure.
+- _Root_ - The root is the first/top `Node` in a tree
+- _Left Child_ - The node that is positioned to the left of the root
+- _Right Child_ - The node that is positioned to the right of the root
+- _Edge_ - The edge in a tree is the link between two nodes
+- _Leaf_ - A leaf is the node that does not contain either a left child or a right child node.
+- _Height_ - The height of a tree is determined by the number of edges from the root to the bottommost node.
 
 ### Sample Tree
 
@@ -18,7 +18,7 @@ In this tutorial, we'll be covering **Binary Trees** and **Binary Search Trees**
 
 ## Traversals
 
-An important aspect of tress is how to traverse them, so that we can either search for a Node we're looking for, or print out all the contents of a tree. There are two categories of traversals when it comes to trees:
+An important aspect of tress is how to traverse them, so that we can either search for a node we're looking for, or print out all the contents of a tree. There are two categories of traversals when it comes to trees:
 
 1. Depth First
 2. Breadth First
@@ -47,7 +47,7 @@ Let's breakdown the pre-order traversal. Here is the pseudo code for this traver
 
 ```javascript
 ALGORITHM preOrder(root)
-{
+
   OUTPUT <-- root.value
 
     if root.left is not NULL
@@ -55,7 +55,7 @@ ALGORITHM preOrder(root)
 
     if root.right is not NULL
         preOrder(root.right)
-}
+
 ```
 
 Pre-order means that the `root` has to be looked at first. In our case, looking at the root just means that we output its value. When we call `preOrder` for the first time, the `root` will be added to the call stack:
@@ -68,11 +68,11 @@ Next, we start reading our `preOrder` function's code from top to bottom. The fi
 OUTPUT <-- root.value
 ```
 
-This means that we will output the `root.value` out to the console. Then, our next block of code instructs us to check if our `root` has a `left` Node set. If the root does, we will then send the `left` Node to our `preOrder` method recursively. This means that we make another function call, where `B` is our new `root`:
+This means that we will output the `root.value` out to the console. Then, our next block of code instructs us to check if our `root` has a `left` node set. If the root does, we will then send the `left` node to our `preOrder` method recursively. This means that we make another function call, where `B` is our new `root`:
 
 ![PreOrder 02](images/DepthTraversal2.PNG)
 
-This process continues until we reach a leaf Node. Here's the state of our tree when we hit our first leaf, `D`:
+This process continues until we reach a leaf node. Here's the state of our tree when we hit our first leaf, `D`:
 
 ![PreOrder 03](images/DepthTraversal3.PNG)
 
@@ -123,7 +123,7 @@ Here is the pseudo code for all three of the depth first traversals:
 
 ```javascript
 ALGORITHM preOrder(node)
-// INPUT <-- root Node
+// INPUT <-- root node
 // OUTPUT <-- pre-order output of tree nodes
 
     OUTPUT <-- node.value
@@ -139,7 +139,7 @@ ALGORITHM preOrder(node)
 
 ```javascript
 ALGORITHM inOrder(node)
-// INPUT <-- root Node
+// INPUT <-- root node
 // OUTPUT <-- in-order output of tree nodes
 
     if node.left is not NULL
@@ -155,7 +155,7 @@ ALGORITHM inOrder(node)
 
 ```javascript
 ALGORITHM postOrder(node)
-// INPUT <-- root Node
+// INPUT <-- root node
 // OUTPUT <-- post-order output of tree nodes
 
     if node.left is not NULL
@@ -171,140 +171,117 @@ Notice the similarities between the three different traversals above. The bigges
 
 ### Breadth First
 
-The breadth first traversal iterates through the tree by
-going through each level of the tree node by node.
+The breadth first traversal iterates through the tree by going through each level of the tree node by node. So, given our starting tree one more time:
 
-**_Output:_** A, B, C, D, E, F
+![Sample Tree](images/tree-example.png)
 
-Traditionally the breadth first traversal leverages a queue to
-traverse the width (or the breadth) of the tree. Let's break down
-the process:
+Our output using breadth first traversal is now:
 
-1. First, Let's take a look at a tree that we can conduct a Breadth First traversal on:
+_Output:_ A, B, C, D, E, F
 
-![DepthFirst Traversal](images/depthTraversal.PNG){:target="\_blank"}
+Traditionally, the breadth first traversal uses a queue (instead of the call stack via recursion) to traverse the width/breadth of the tree. Let's break down the process.
 
-2. Let's start by putting the root Node into the queue (`Queue.Enqueue(root`)
+Given our starting tree shown above, let's start by putting the `root` into the queue:
 
-![DepthFirst Traversal](images/BreadthTraversal2.PNG){:target="\_blank"}
+![Breadth First Traversal 01](images/BreadthTraversal1.PNG)
 
-3. Now that we have one node in our queue, let's `Dequeue`.
+Now that we have one node in our queue, we can `dequeue` it and use that node in our code.
 
-![DepthFirst Traversal](images/BreadthTraversal3.PNG){:target="\_blank"}
+![Breadth First Traversal 02](images/BreadthTraversal2.PNG)
 
-4. Since we have completed the `Dequeue` action on the root node, we can now `Enqueue` both
-   it's `root.LeftChild` and it's `root.rightChild`.
+From our dequeued node `A`, we can `enqueue` the `left` and `right` child (in that order).
 
-![DepthFirst Traversal](images/BreadthTraversal4.PNG){:target="\_blank"}
+![Breadth First Traversal 03](images/BreadthTraversal3.PNG)
 
-4. We will repeat this process with the next node in the front of the queue.
+This leaves us with `B` as the new front of our queue. We can then repeat the process we did with `A`: Dequeue the front node, enqueue that node's `left` and `right` nodes, and move to the next new front of the queue.
 
-![DepthFirst Traversal](images/BreadthTraversal5.PNG){:target="\_blank"}
+![Breadth First Traversal 04](images/BreadthTraversal4.PNG)
 
-5. With `NodeB`, we can then `Enqueue` the two children node.
+Now our front is `C`, so we repeat the dequeue + enqueue children process:
 
-![DepthFirst Traversal](images/BreadthTraversal6.PNG){:target="\_blank"}
+![Breadth First Traversal 05](images/BreadthTraversal5.PNG)
 
-6. `Dequeue` the front of the queue
-   ![DepthFirst Traversal](images/BreadthTraversal7.PNG){:target="\_blank"}
+And we continue onwards. When we reach a node that doesn't have any children, we just dequeue it without any further enqueue.
 
-7. `Enqueue` the children...
-   ![DepthFirst Traversal](images/BreadthTraversal8.PNG){:target="\_blank"}
+![Breadth First Traversal 06](images/BreadthTraversal6.PNG)
+![Breadth First Traversal 07](images/BreadthTraversal7.PNG)
+![Breadth First Traversal 08](images/BreadthTraversal8.PNG)
 
-8. Keep `Dequeue`ing, and only `Enqueue` if the `node.LeftChild` or `node.RightChild` is not null.
-   ![DepthFirst Traversal](images/BreadthTraversal9.PNG){:target="\_blank"}
-   ![DepthFirst Traversal](images/BreadthTraversal10.PNG){:target="\_blank"}
-   ![DepthFirst Traversal](images/BreadthTraversal11.PNG){:target="\_blank"}
+#### Pseudo Code
 
-Here is the pseudo code, utilizing a built in queue, to
-implement a Breadth First traversal.
+Here is the pseudo code, utilizing a built in queue to implement a Breadth First traversal.
 
 ```javascript
-ALGORITHM BreadthFirst(root)
-//INPUT <-- root node
+ALGORITHM breadthFirst(root)
+// INPUT  <-- root node
 // OUTPUT <-- front node of queue to console
 
-    Queue breadth <-- new Queue()
-  breadth.Enqueue(root)
+  Queue breadth <-- new Queue()
+  breadth.enqueue(root)
 
-  while breadth.Peek
-      Node front = breadth.Dequeue()
-    OUTPUT <-- front.Value
+  while breadth.peek()
+    node front = breadth.dequeue()
+    OUTPUT <-- front.value
 
-    if front.LeftChild is not null
-      breadth.Enqueue(front.LeftChild)
+    if front.left is not NULL
+      breadth.enqueue(front.left)
 
-    if front.RightChild is not NULL
-      breadth.Enqueue(front.RightChild)
+    if front.right is not NULL
+      breadth.enqueue(front.right)
 ```
 
 ## Binary Trees
 
-Binary Trees are trees that only contain no more than 2 children. There is not a specific
-sorting order for a binary tree. Nodes can be added into a binary tree wherever space allows.
+In all of our examples, we've been using a Binary Tree. Trees can have any number of children per node, but Binary Trees restrict the number of children to two (hence our `left` and `right` children).
 
-Here is what a binary tree looks like:
+There is not a specific sorting order for a binary tree. nodes can be added into a binary tree wherever space allows. Here is what a binary tree looks like:
 
-![Binary Tree](images/BinaryTree2.PNG){:target="\_blank"}
+![Binary Tree](images/BinaryTree2.PNG)
 
 ### Adding a node
 
-Because there is no structure to where nodes are "supposed to go" in a binary tree, it really doesn't matter where a new node gets placed.
+Because there are no structural rules for where nodes are "supposed to go" in a binary tree, it really doesn't matter where a new node gets placed.
 
-One strategy for adding a new node to a binary tree is to fill all "child" spots from the top down. To do so, we would leverage the use of breadth first traversal.
+One strategy for adding a new node to a binary tree is to fill all "child" spots from the top down. To do so, we would leverage the use of breadth first traversal. During the traversal, we find the first node that does not have 2 child nodes, and insert the new node as a child. We fill the child slots from left to right.
 
-During the traversal, we will find the first node that does not have 2 child nodes, and insert
-the new node as a child. Prefer filling from left to right.
-
-In the event you would like to have a node placed in a specific location, you need to reference not only the new
-node that is created, but also the parent node, to which the new node is attached.
+In the event you would like to have a node placed in a specific location, you need to reference both the new node to create, and the parent node upon which the child is attached to.
 
 ### Big O
 
-The Big O time of an insertion an searching in a Binary tree will always be O(n).
+The Big O time complexity for inserting a new node is `O(n)`. Searching for a specific node will also be `O(n)`. Because of the lack of organizational structure in a Binary Tree, the worst case for most operations will involve traversing the entire tree. If we assume that a tree has `n` nodes, then in the worst case we will have to look at `n` items, hence the `O(n)` complexity.
 
-This is because there is no structure or organization to a Binary Tree. In the worst case scenario, we will have to search the whole tree for the specified value, or the place where we want to insert a new node.
+The Big O space complexity for a node insertion using breadth first insertion will be `O(w)`, where `w` is the largest width of the tree. For example, in the following tree, `w` is 3.
 
-The Big O space for a node insertion using breadth first will be an O(w), with "w" being largest width
-of the tree. This is because at the worst case scenario, the queue will contain all of the nodes at the tree's
-widest point. The maximum width, for a "perfect" binary tree, is `2^(H-1)`, where `H` is the height of the tree. Height can be calculated as `lg n`. Drawing a small example reveals the pattern very quickly.
+![Sample Tree](images/tree-example.png)
+
+A "perfect" binary tree is one where every non-leaf node has exactly two children. The maximum width for a perfect binary tree, is `2^(h-1)`, where `h` is the height of the tree. Height can be calculated as `log n`, where `n` is the number of nodes.
 
 ## Binary Search Trees
 
-A binary search tree is a type of tree that does have structure attached to it. In a binary search tree,
-the tree is organized in a manner where all values that are smaller than the root are placed to the left,
-and all values that are larger than the root are placed to the right.
+A Binary Search Tree (BST) is a type of tree that does have some structure attached to it. In a BST, nodes are organized in a manner where all values that are smaller than the `root` are placed to the left, and all values that are larger than the `root` are placed to the right.
 
-Here is an example of a Binary Search Tree that has numeric values:
+Here is how we would change our Binary Tree example into a Binary Search Tree:
 
-![BST](images/BST1.PNG)
+![Binary Search Tree](images/BST1.PNG)
 
 ### Searching a BST
 
-Searching a BST can be done quickly, because all you do is compare the node you are searching for
-against each root of the tree. Dependent on the value being larger or smaller, will determine
-the direction on which you will traverse.
+Searching a BST can be done quickly, because all you do is compare the node you are searching for against the root of the tree or sub-tree. If the value is smaller, you only traverse the left side. If the value is larger, you only traverse the right side.
 
-Here is an example:
+Let's say we are searching `15`. We start by comparing the value `15` to the value of the root, `23`.
 
-1. Let's say we are searching for the node that contains 60. First thing we do is compare 60 against the root.
+`15 < 23`, so we traverse the left side of the tree. We then treat `8` as our new "root" to compare against.
 
-2. We can see that 60 is less than 100, so we will go left.
+`15 > 8`, so we traverse the right side. `16` is our new root.
 
-3. We then compare 60 against the next root, 50.
-4. We know that 60 is greater than 50, so we will go right.
-5. Next, we compare 60 against 75. We know that 75 is greater than 60, so we go left.
-6. Finally, we compare 60 against 60. These numbers are exactly the same which tells us we found our node. We then return our node back to the user.
+`15 < 16`, so we traverse the left side. And aha! `15` is our new root and also a match with what we were searching for.
 
-The best way to approach a BST search is with a `while` loop. The condition within this `while` loop would
-be to keep running until it hits a leaf.
+![Binary Search Tree](images/BST2.PNG)
 
-The reason for this condition is because, again, the structure of the tree. We should always be able
-to pin point the exact location of the node we are searching for, we will only ever have to go, at most, the height of the tree (from root -> leaf).
+The best way to approach a BST search is with a `while` loop. We cycle through the while loop until we hit a leaf, or until we reach a match with what we're searching for.
 
 ### Big O
 
-The Big O of a Binary Search Tree's insertion and search operations is O(h), or O(height). In the worst case, we will have to search all the way down to a leaf, which will require searching through as many nodes as the tree is tall. In a balanced tree, the height of the tree is lg(n); in an unbalanced tree, the worst case height of the tree is n.
+The Big O time complexity of a Binary Search Tree's insertion and search operations is `O(h)`, or `O(height)`. In the worst case, we will have to search all the way down to a leaf, which will require searching through as many nodes as the tree is tall. In a balanced (or "perfect") tree, the height of the tree is `log(n)`. In an unbalanced tree, the worst case height of the tree is `n`.
 
-The Big O space of a Binary Search Tree (BST) search would be O(1). During the search, we are not allocating
-any additional space when searching for a node.
+The Big O space complexity of a BST search would be O(1). During the search, we are not allocating any additional space when searching for a node.
