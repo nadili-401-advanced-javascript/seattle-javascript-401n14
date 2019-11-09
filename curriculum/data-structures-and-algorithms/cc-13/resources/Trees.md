@@ -4,13 +4,13 @@ In this tutorial, we'll be covering **Binary Trees** and **Binary Search Trees**
 
 ## Common Terminology
 
-- _Node_ - a node is the individual item/data that make up the data structure.
-- _Root_ - The root is the first/top `Node` in a tree
-- _Left Child_ - The node that is positioned to the left of the root
-- _Right Child_ - The node that is positioned to the right of the root
-- _Edge_ - The edge in a tree is the link between two nodes
-- _Leaf_ - A leaf is the node that does not contain either a left child or a right child node.
-- _Height_ - The height of a tree is determined by the number of edges from the root to the bottommost node.
+- _Node_ - A node is the individual item/data that makes up the data structure
+- _Root_ - The root is the first/top `Node` in the tree
+- _Left Child_ - The node that is positioned to the left of a root or node
+- _Right Child_ - The node that is positioned to the right of a root or node
+- _Edge_ - The edge in a tree is the link between a parent and child node
+- _Leaf_ - A leaf is a node that does not contain any children
+- _Height_ - The height of a tree is determined by the number of edges from the root to the bottommost node
 
 ### Sample Tree
 
