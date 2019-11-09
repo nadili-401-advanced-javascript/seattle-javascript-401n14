@@ -1,59 +1,68 @@
-# Code Challenge
+# Lab 15: Trees
 
-Multi-bracket Validation.
+### Implement a Tree
 
 ## Specifications
-- Read all of these instructions carefully. Name things exactly as described.
-- Do all your work in a public repository called `data-structures-and-algorithms`, with a well-formatted, detailed top-level README.md.
-- Create a new branch in your repo called `multi-bracket-validation`.
-- Your top-level readme should contain a "Table of Contents" navigation to all of your challenges and implementations so far. (Don't forget to update it!)
-- This assignment should be completed within the `challenges` subdirectory of the repository.
+- Read all of these instructions carefully. Name things exactly as described. 
+- Do all your work in a public repository (matching the example provided by your instructor) called `data-structures-and-algorithms`, with a well-formatted, detailed top-level README.md
+- Create a branch in your repository called `tree`
 - On your branch, create...
-    - _C#_: a new .NET Core console project named `MultiBracketValidation`. Within your `Program.cs` create a new static method outside of `Main()` following the naming conventions below. Call your newly created method in `Main()` once complete. 
-    - _JavaScript_: a folder named `multiBracketValidation` which contains a file called `multi-bracket-validation.js`
-    - _Python_: a folder named `multi_bracket_validation` which contains a file called `multi_bracket_validation.py`
-    - _Java_: a file called `MultiBracketValidation.java` inside of your `utilities` package
+    - _C#_: Create a class named `Tree.cs` 
+    - _JavaScript_: a folder named `tree` which contains a file called `tree.js`
+    - _Python_:a folder named `tree` which contains a file called `tree.py`
+    - _Java_: a package named `tree` which contains files called `Tree.java`, `BinarySearchTree.java`, and `Node.java`
 - Include any language-specific configuration files required for this challenge to become an individual component, module, library, etc.
     - _NOTE: You can find an example of this configuration for your course in your class lecture repository._
 
-## Feature Tasks
-- On your main file, create...
-    - _C#_: a method called `public static bool MultiBracketValidation(string input)`
-    - _JavaScript_: a function called `multiBracketValidation(input)`
-    - _Python_: a function called `multi_bracket_validation(input)`
-    - _Java_: a method `public static boolean multiBracketValidation(String input)`
+## Features
+- Create a Node class that has properties for the value stored in the node, the left child node, and the right child node. 
+- Create a BinaryTree class
+    - Define a method for each of the depth first traversals called `preOrder`, `inOrder`, and `postOrder`
+	which returns an array of the values, ordered appropriately.  
+- Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
 
-Your function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
-- Round Brackets : `()`
-- Square Brackets : `[]`
-- Curly Brackets : `{}`
+- Create a BinarySearchTree class
+	- Define a method named `add` that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
+	- Define a method named `contains` that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once. 
 
+## Structure and Testing
+Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge. You will be given feedback and marked down if you attempt to define a large, complex algorithm in one function definition.
 
-## Example
+Write tests to prove the following functionality:
+1. Can successfully instantiate an empty tree
+2. Can successfully instantiate a tree with a single root node
+3. Can successfully add a left child and right child to a single root node
+4. Can successfully return a collection from a preorder traversal
+5. Can successfully return a collection from an inorder traversal
+6. Can successfully return a collection from a postorder traversal
 
-| Input | Output |
-|-----|----|
-| `{}` | `TRUE` |
-| `{}(){}` | `TRUE` |
-| `()[[Extra Characters]]` | `TRUE` |
-| `(){}[[]]` | `TRUE` |
-| `{}{Code}[Fellows](())` | `TRUE` |
-| `[({}]` | `FALSE` |
-| `(](` | `FALSE` |
-| `{(})` | `FALSE` |
+Ensure your tests are passing before you submit your solution.
 
-Consider these small examples and why they fail.
+## Stretch Goal
 
-| Input | Output | Why |
-|------|---------|-------|
-| `{`  | `FALSE` | error unmatched opening `{` remaining. |
-| `)`  | `FALSE` | error closing `)` arrived without corresponding opening. |
-| `[}` | `FALSE`  | error closing `}`. Doesn't match opening `(`. |
+Create a new branch called `k-ary-tree`, and, using the resources available to you online, implement a k-ary tree, where each node can have any number of children.
 
+## Documentation: Your README.md
 
-## Requirements
-Ensure your complete solution follows the standard requirements. 
+```markdown
+# Trees
+<!-- Short summary or background information -->
 
-1. Write [unit tests](../../Challenge_Testing){:target="_blank"}
-1. Follow the [template for a well-formatted README](../../Challenge_Documentation){:target="_blank"}
-1. Submit the assignment following [these instructions](../../Challenge_Submission){:target="_blank"}
+## Challenge
+<!-- Description of the challenge -->
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+## API
+<!-- Description of each method publicly available in each of your trees -->
+```
+
+## Submission Instructions
+1. Create a pull request from your branch to your `master` branch
+1. In your open pull request, leave as a comment [a checklist](https://github.com/blog/1825-task-lists-in-all-markdown-documents){:target="_blank"} of the specifications and tasks above, with the actual steps that you completed checked off
+1. Submitting your completed work to Canvas:
+    1. Copy the link to your open pull request and paste it into the corresponding Canvas assignment
+    1. Leave a description of how long this assignment took you in the comments box
+    1. Add any additional comments you like about your process or any difficulties you may have had with the assignment
+1. Merge your branch into `master`, and delete your branch (don't worry, the PR link will still work)
