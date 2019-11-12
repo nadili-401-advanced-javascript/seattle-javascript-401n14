@@ -36,13 +36,15 @@ let roles = {
 };
 
 beforeAll(async done => {
+  let users = new Users();
+  let roles = new Roles();
   await startDB();
-  const admin = await new Users(users.admin).save();
-  const editor = await new Users(users.editor).save();
-  const user = await new Users(users.user).save();
-  const adminRole = await new Roles(roles.admin).save();
-  const editorRole = await new Roles(roles.editor).save();
-  const userRole = await new Roles(roles.user).save();
+  const admin = await users.create(users.admin);
+  const editor = await users.create(users.editor);
+  const user = await users.create(users.user);
+  const adminRole = await roles.create(roles.adminRole);
+  const editorRole = await roles.create(roles.editorRole);
+  const userRole = await roles.create(roles.userRole);
   done();
 });
 
