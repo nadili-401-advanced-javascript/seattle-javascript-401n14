@@ -24,6 +24,8 @@ Then, run the starter code using the script `npm start`, or run it in developmen
 
 Your starter code contains data for MongoDB. This data should be a database named `app` with a collections named `users`, `books` and `roles`. Each should have three unique records to start. Here is the data for these collections (note that in the database, the passwords are stored as hashes instead of plain-text):
 
+### Users
+
 ```javascript
 {
     role: "admin",
@@ -45,6 +47,8 @@ Your starter code contains data for MongoDB. This data should be a database name
 }
 ```
 
+### Roles
+
 ```javascript
 {
     role: "admin",
@@ -59,6 +63,8 @@ Your starter code contains data for MongoDB. This data should be a database name
     capabilities: [ "read" ]
 }
 ```
+
+### Books
 
 ```javascript
 {
