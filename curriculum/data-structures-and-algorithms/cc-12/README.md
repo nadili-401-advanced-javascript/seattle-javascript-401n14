@@ -7,8 +7,7 @@ In this challenge you will build a Queue that represents an animal shelter.
 -   Read all of these instructions carefully. Name things exactly as described.
 -   Do all your work in a public repository called `data-structures-and-algorithms`, with a well-formatted, detailed top-level `README.md`.
     -   Your top-level readme should contain a "Table of Contents" navigation to all of your challenges and implementations so far. (Don't forget to update it!)
--   Create a new branch in your repo called `fifo-animal-shelter`.
--   This assignment should be completed within the `challenges` subdirectory of the repository.
+-   Create a new branch in your repo called `fifo-animal-shelter`
 -   On your branch, create a folder named `fifoAnimalShelter` which contains a file called `fifo-animal-shelter.js`
 -   Include any language-specific configuration files required for this challenge to become an individual component, module, library, etc.
     -   _NOTE: You can find an example of this configuration for your course in your class lecture repository._
