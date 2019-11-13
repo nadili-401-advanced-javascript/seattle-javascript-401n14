@@ -87,17 +87,19 @@ Write tests for each of the sample input-output examples shown in the Examples s
 
 1. Create a pull request from your branch to your `master` branch
 2. In your open pull request, leave as a comment [a checklist](https://github.com/blog/1825-task-lists-in-all-markdown-documents) of the specifications and tasks above, with the actual steps that you completed checked off. Include in that checklist the following items:
-    ```markdown
-    -   [ ] Top-level README “Table of Contents” is updated
-    -   [ ] Feature tasks for this challenge are completed
-    -   [ ] Unit tests written and passing
-        -   [ ] Travis is correctly connected to this pull request
-        -   [ ] Travis shows green passing
-    -   [ ] README for this challenge is complete
-        -   [ ] Summary, Description, Approach & Efficiency, Solution
-        -   [ ] Link to code
-        -   [ ] Picture of whiteboard
-    ```
+
+```markdown
+-   [ ] Top-level README “Table of Contents” is updated
+-   [ ] Feature tasks for this challenge are completed
+-   [ ] Unit tests written and passing
+    -   [ ] Travis is correctly connected to this pull request
+    -   [ ] Travis shows green passing
+-   [ ] README for this challenge is complete
+    -   [ ] Summary, Description, Approach & Efficiency, Solution
+    -   [ ] Link to code
+    -   [ ] Picture of whiteboard
+```
+
 3. Submitting your completed work to Canvas:
     1. Copy the link to your `README` (which must have a link to your pull request inside of it) and paste it into the corresponding Canvas assignment
     1. Leave a description of how long this assignment took you in the comments box
