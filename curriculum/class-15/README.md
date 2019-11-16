@@ -31,7 +31,7 @@ Now, we're going to take a step away from client-server interactions towards a m
 
 ## Where We're Going
 
-Many of you might have some familiarity with the term **_event_**. It is very commonly used in JQuery when buttons are clicked or when items on the page are interacted with. Here's an example of how a JQuery event might be set up:
+Many of you might have some familiarity with the term **_event_**. It is very commonly used in HTML and JavaScript when buttons are clicked or when items on the page are interacted with. Here's an example of how a JavaScript event might be set up:
 
 ```html
 <form onsubmit="handleSubmit(event)"></form>
@@ -47,7 +47,7 @@ function handleClick(event) {
 
 Here, our form will raise an event whenever it is submitted, and it will assign a `onSubmit` **_listener_**, which will handle the form submission with an **_event handler_** called `handleSubmit`. The `handleSubmit` function will be given all the event details, and can then access data or methods within the event object in some unique way.
 
-You may have also used events, listeners and handlers in JQuery when attempting to execute some code when the `window` or `document` changes:
+You may have also used events, listeners and handlers in JavaScript when attempting to execute some code when the `window` or `document` changes:
 
 ```javascript
 window.addEventListener('resize', function() {
