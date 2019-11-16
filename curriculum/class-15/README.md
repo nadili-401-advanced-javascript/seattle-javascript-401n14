@@ -41,9 +41,9 @@ function handleClick(event) {
 }
 ```
 
-Here, our form will raise an event whenever it is submitted, and it will assign a **_listener_** called `handleSubmit` to deal with that event. The `handleSubmit` listener will be given all the event details, and can then access data or functions within the event object in some unique way.
+Here, our form will raise an event whenever it is submitted, and it will assign a `onSubmit` **_listener_**, which will handle the form submission with an **_event handler_** called `handleSubmit`. The `handleSubmit` function will be given all the event details, and can then access data or methods within the event object in some unique way.
 
-You may have also used events and listeners in JQuery when attempting to execute some code when the `window` or `document` changes:
+You may have also used events, listeners and handlers in JQuery when attempting to execute some code when the `window` or `document` changes:
 
 ```javascript
 window.addEventListener('resize', function() {
