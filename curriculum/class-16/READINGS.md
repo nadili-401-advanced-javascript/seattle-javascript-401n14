@@ -13,7 +13,7 @@ Wiki Entry Ideas:
 ## Read
 
 -   [TCP Explained](https://www.lifewire.com/tcp-transmission-control-protocol-3426736)
-    [What is TCP](https://searchnetworking.techtarget.com/definition/TCP)
+-   [What is TCP](https://searchnetworking.techtarget.com/definition/TCP)
 
 ## Skim
 
