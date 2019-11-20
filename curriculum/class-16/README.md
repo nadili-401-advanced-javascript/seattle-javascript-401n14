@@ -242,4 +242,52 @@ socket.on('data', data => {
 
 And that's about it! As simple as that, we can have independent applications share data and events WITHOUT using HTTP. We're able to skip the application layer and move directly into the transport layer, thereby removing the need for our servers to build HTTP layer configurations.
 
+### Example TCP Connection
+
+Here's a full example of two applications talking to one another via TCP:
+
+#### TCP Server
+
+```javascript
+const net = require('net');
+const server = net.createServer();
+
+let port = 3000;
+server.listen(port, () => console.log(`Server up on`, port));
+
+let socketPool = [];
+
+server.on('connection', socket => {
+  socketPool.push(socket);
+
+  let index = socketPool.length - 1;
+  socket.on('close', () => {
+    socketPool = socketPool.splice(index, 1);
+  });
+
+  socket.write('Sample data to send');
+});
+```
+
+### TCP Socket
+
+```javascript
+const net = require('net');
+const socket = new net.Socket();
+
+socket.connect(
+  {
+    port: 3000,
+    host: 'localhost',
+  },
+  () => {
+    console.log('Connected to server');
+  },
+);
+
+socket.on('data', data => {
+  console.log('Received data: ', data);
+});
+```
+
 ## Summary
