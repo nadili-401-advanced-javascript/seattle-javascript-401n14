@@ -1,21 +1,27 @@
 'use strict';
 
 const net = require('net');
+const socket = new net.Socket();
 
-const client = new net.Socket();
+let config = {
+  port: 3000,
+  host: 'localhost',
+};
 
-client.connect(3001, 'localhost', () => {});
-
-const events = ['create','foo','read','baz','update','bing','rain','attack','error','bark','error'];
-
-setInterval( () => {
-  let event = events[ Math.floor( Math.random() * events.length ) ];
-  client.write( `${event} an event (${event}) just happened!` );
-},500);
-
-client.on('close', function() {
-  console.log('Connection closed');
+socket.on('connect', () => {
+  console.log('App.js >> connected!');
 });
 
-// client.destroy(); // kill client after server's response
+socket.connect(config, () => {});
 
+setTimeout(function() {
+  socket.write('App.js >> I am pinging the server');
+}, 2000);
+
+setTimeout(function() {
+  socket.destroy();
+}, 4000);
+
+socket.on('data', data => {
+  console.log('App.js >> I just wrote a thing!');
+});
