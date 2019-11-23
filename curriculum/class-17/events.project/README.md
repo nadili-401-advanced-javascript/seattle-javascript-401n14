@@ -23,7 +23,7 @@
             - Emits a TCP `data` event titled `MESSAGE_WRITE` and sends a payload to all connected sockets, containing the new message object.
         - PUT /messages/:id
             - Receives a message object on the request.
-            - Replaces a message object in `messages` by searching for the `id` on on a message object matching the request parameter `:id`.
+            - Replaces a message object in `messages` by searching for the `id` on a message object matching the request parameter `:id`.
             - Emits a TCP `data` event titled `MESSAGE_UPDATE` and sends a payload to all connected sockets, containing the updated message object.
 
 - Create a file called `logger.js` that connects to the open Socket server.
