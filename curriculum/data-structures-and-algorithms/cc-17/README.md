@@ -26,15 +26,12 @@ Write a breadth first traversal method which takes a Binary Tree as its unique i
 ### Output
 
 ```
-2
-7
-5
-2
-6
-9
-5
-11
-4
+A
+B
+C
+D
+E
+F
 ```
 
 ## Requirements
