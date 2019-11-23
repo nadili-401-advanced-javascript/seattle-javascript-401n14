@@ -144,10 +144,10 @@ Using `net`, we will be making a TCP **_server_** and multiple **_socket connect
 
 Our TCP server will manage all connections and receive inbound data. It will then broadcast events which any connections will be able to read and handle. These are the major processes a TCP server will undergo:
 
-- Will run continuously on a port
-- Will manage connections by having a _pool_ of sockets
-- Will remove sockets from the pool when the connection ends
-- Whenever it receives data, it will check if the data is an event, and then "broadcast" those events to all connected sockets
+-   Will run continuously on a port
+-   Will manage connections by having a _pool_ of sockets
+-   Will remove sockets from the pool when the connection ends
+-   Whenever it receives data, it will check if the data is an event, and then "broadcast" those events to all connected sockets
 
 We can create a TCP server using the `net` module easily:
 
@@ -160,12 +160,12 @@ Now, our `server` will have access to a lot of different functions, some of whic
 ```javascript
 // Starts the server, telling it to being on a certain port
 server.listen(port, () => {
-  console.log('Server running on Port:', port);
+    console.log('Server running on Port:', port);
 });
 
 // Listen for a built-in 'connect' event (provided by the `net` module)
 server.on('connection', socket => {
-  console.log('Connection event raised!');
+    console.log('Connection event raised!');
 });
 ```
 
@@ -184,7 +184,7 @@ Within our TCP server, we should have some collection of all the connected socke
 let socketPool = [];
 
 server.on('connection', socket => {
-  socketPool.push(socket);
+    socketPool.push(socket);
 });
 ```
 
@@ -200,13 +200,13 @@ In order to connect our socket to our TCP server, we need to call the `connect()
 
 ```javascript
 socket.connect(
-  {
-    port: 3000,
-    host: 'localhost',
-  },
-  () => {
-    console.log('Connected to server!');
-  },
+    {
+        port: 3000,
+        host: 'localhost',
+    },
+    () => {
+        console.log('Connected to server!');
+    },
 );
 ```
 
@@ -258,35 +258,35 @@ server.listen(port, () => console.log(`Server up on`, port));
 let socketPool = [];
 
 server.on('connection', socket => {
-  socketPool.push(socket);
+    socketPool.push(socket);
 
-  let index = socketPool.length - 1;
-  socket.on('close', () => {
-    socketPool = socketPool.splice(index, 1);
-  });
+    let index = socketPool.length - 1;
+    socket.on('close', () => {
+        socketPool = socketPool.splice(index, 1);
+    });
 
-  socket.write('Sample data to send');
+    socket.write('Sample data to send');
 });
 ```
 
-### TCP Socket
+#### TCP Socket
 
 ```javascript
 const net = require('net');
 const socket = new net.Socket();
 
 socket.connect(
-  {
-    port: 3000,
-    host: 'localhost',
-  },
-  () => {
-    console.log('Connected to server');
-  },
+    {
+        port: 3000,
+        host: 'localhost',
+    },
+    () => {
+        console.log('Connected to server');
+    },
 );
 
 socket.on('data', data => {
-  console.log('Received data: ', data);
+    console.log('Received data: ', data);
 });
 ```
 
