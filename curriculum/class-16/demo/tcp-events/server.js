@@ -2,39 +2,45 @@
 
 const net = require('net');
 
-const port = process.env.PORT || 3001;
 const server = net.createServer();
 
-server.listen(port, () => console.log(`Server up on ${port}`) );
+let port = 3000;
+let host = 'localhost';
 
-let allowedEvents = ['create','read','update','delete','error','attack'];
-let socketPool = {};
-
-server.on('connection', (socket) => {
-  const id = `Socket-${Math.random()}`;
-  socketPool[id] = socket;
-  socket.on('data', (buffer) => dispatchEvent(buffer));
-  socket.on('close', () => {
-    delete socketPool[id];
-  });
+// start the server
+server.listen(port, host, () => {
+  console.log('Listening on port:', port);
 });
 
-let dispatchEvent = (buffer) => {
-  let text = buffer.toString().trim();
-  let [event,payload] = text.split(/\s+(.*)/);
+// create an empty collection of sockets
+let socketPool = [];
 
-  // Push to the pool that matches the event name
-  if ( allowedEvents.includes(event) ) {
+// whenever a socket tries to connect
+server.on('connection', socket => {
+  // add it to my pool
+  socketPool.push(socket);
 
-    let eventPayload = {event,payload};
+  // try to keep track of socket in array
+  let index = socketPool.length - 1;
 
-    for (let socket in socketPool) {
-      socketPool[socket].write(JSON.stringify(eventPayload));
-    }
-  }
-  else {
-    console.log(`IGNORE ${event}`);
-  }
-};
+  // log the number of connections (sockets)
+  console.log('Server >> I am connected to', socketPool.length, 'sockets');
 
+  // when the current socket I'm adding gets a 'data' event
+  socket.on('data', data => {
+    console.log('Server >> I got a data event in a socket!');
+    // go through every socket in this server, and send another 'data' event
+    socketPool.forEach(socket => {
+      socket.write(data.toString());
+    });
+  });
 
+  socket.id = index;
+
+  // when the current socket gets a 'close' event
+  socket.on('close', error => {
+    console.log('Server >> socket closed!');
+    socketPool = socketPool.splice(socket.id, 1);
+    console.log('Server >> I am connected to', socketPool.length, 'sockets');
+  });
+});

@@ -1,16 +1,27 @@
 'use strict';
 
 const net = require('net');
+const socket = new net.Socket();
 
-const client = new net.Socket();
+let config = {
+  port: 3000,
+  host: 'localhost',
+};
 
-client.connect(3001, 'localhost', () => {});
-
-client.on('data', function(data) {
-  let payload = JSON.parse(data);
-  console.log(payload);
+// Listen for a 'connect' event, and call the anon function specified
+socket.on('connect', () => {
+  console.log('Logger.js >> connected!');
 });
 
-client.on('close', function() {
-  console.log('Connection closed');
+// Connect to TCP server
+socket.connect(config, () => {});
+
+socket.on('close', () => {
+  console.log('I am closing!');
+});
+
+// Listen for the 'data' event, and call the anon function specified
+socket.on('data', data => {
+  console.log('Logger.js >> I just received data from an outside source!');
+  console.log('Logger.js >> That data is:', data.toString());
 });
