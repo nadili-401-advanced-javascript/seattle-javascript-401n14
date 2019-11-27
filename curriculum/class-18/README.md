@@ -1,71 +1,56 @@
 # Class 18 - Component Based UI
 
-## Learning Objectives
+## Key Terms
 
-* Desribe in general terms "Component Architecture"
-* Describe in general terms application and component "State"
-* Begin a React project locally with `create-react-app`
-* Use codesandbox.io to work live on a React application
-* Create and render `Class` and `Functional` React components to the DOM
-* Add event listeners to React components
-* Update React component state
-* Style React applications/components
+| Term                   | Definition | Supporting Links |
+| ---------------------- | ---------- | ---------------- |
+| Component Architecture |            |                  |
+| State                  |            |                  |
+| DOM                    |            |                  |
+| Libraries              |            |                  |
+| Frameworks             |            |                  |
 
-## Outline
-* :05 **Housekeeping/Recap**
-* :30 **Whiteboard/DSA Review**
-* :15 **Lightning Talk**
-* Break
-* :30 **CS/UI Concepts** -
-* :20 **Code Review**
-* Break
-* :60 **Main Topic**
+## Key Packages
 
-## UI Concept:
-* SASS
-  * Nesting of selectors
-  * Variables
+## Where We're Coming From
 
-## Main Topic:
-Component based UI systems like `React`, `Angular`, `Vue` and the like all operate on similar architectural principles.
+So far, we've been spending a lot of time creating web applications without a client-side or front-end. We have learned:
 
-* Rather than view an application as an enourmous interconnected codebase, the application is a **composition** of `components` that work together to make the application work.
-* The secret sauce is how they work together.
-* We use Classes and Functions to classify functionality
-* We require what we need
-* We render it where we want
-* We pay attention to `state` and react as it changes.
+-   How to make classes so that we can define our own object types
+-   How to use an express server to create pages or "routes" in our applications
+-   How to store and read data from a database so that our applications "persist" information
+-   How data is sent over the internet via HTTP and TCP.
 
-#### COMPONENTS!
-<img src="components.png" width="400">
+Now, it's time to shift our focus to the front-end. While you may be familiar with creating websites using HTML files and JQuery-enabled JavaScript files, we're going to dive into a different way of thinking about our websites. We're going to see what it looks like when our HTML and JavaScript is in the same file, and when our web pages are broken up into modular pieces with access to all of our Node modules. And we'll be doing all of this using a library called React.
 
-#### STATE!
-<img src="state.jpg" width="400">
+## Where We're Going
 
+React was created in 2011 by a Facebook engineer, with the goal to improve how UIs were developed for web applications. No more using vanilla JavaScript or JQuery intermixed with HTML files. With React, the focus is all on creating _components_.
 
-### React
-**We will be using React in this course to learn these basic principles**
+In HTML there are currently a number of default components available to us. We can use a `<div>`, `<table>`, `<section>`, `<header>` or `<footer>` for example. What if we were able to make our own complex component called `<UserSigninForm>` which contained all the input fields required for a "sign-in" form in our application? Better yet, what if we were able to bundle the UI and front-end logic into that `<UserSigninForm>` component?
 
-As a component based system, React does an awful lot for us, principally, it gets out out of the way and makes it EASY to implement your application the way you see it, using familiar tools.
+```jsx
+class UserSigninForm extends React.Component {
+    onSubmit(e) {
+        e.preventDefault();
+        console.log('I submitted my form!');
+    }
 
-* JSX looks like markup, but it's actually Javascript. If you had to code it out, you wouldn't...
-
-JSX
-```
-const element = (
-  <h1 className="greeting">
-    Hello, world!
-  </h1>
-);
-```
-Behind the scenes...
-```
-const element = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'Hello, world!'
-);
+    render() {
+        return (
+            <form onSubmit={this.onSubmit}>
+                <input type="email" name="email" />
+                <input type="password" name="password" />
+            </form>
+        );
+    }
+}
 ```
 
-
-
+```html
+<html>
+    <body>
+        <UserSigninForm />
+    </body>
+</html>
+```
