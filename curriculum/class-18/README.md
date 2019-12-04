@@ -196,7 +196,7 @@ class Counter extends React.Component {
     }
 ```
 
-When creating a component, we can choose to make it either a function or a class. Let's focus on the class implementation first, and move to implementing a functional component [later]().
+When creating a component, we can choose to make it either a function or a class. Let's focus on the class implementation first, and move to implementing a functional component [later](#functional-component).
 
 In this class component implementation, we create a class that extends `React.Component`. We then also create a constructor with a parameter called `props`.
 
