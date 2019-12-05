@@ -1,23 +1,27 @@
 # Class 18 - Component Based UI
 
+| [Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e9121bdb995374c472823) | [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e9123bdb995374c47282c) |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+
+
 ## Key Terms
 
-| Term       | Definition | Supporting Links |
-| ---------- | ---------- | ---------------- |
-| Components |            |                  |
-| JSX        |            |                  |
-| State      |            |                  |
-| Render     |            |                  |
-| DOM        |            |                  |
-| Libraries  |            |                  |
-| Frameworks |            |                  |
+| Term       | Definition                                                                                                                                                                                                                                                                                                                               | Supporting Links                                                                                                                                                                                         |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Components | Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and produce HTML code. Components come in two types, class components and functional components.                                                                                                        | [1](https://reactjs.org/docs/components-and-props.html) / [2](https://www.w3schools.com/react/react_components.asp) / [3](https://medium.com/the-andela-way/understanding-react-components-37f841c1f3bb) |
+| JSX        | JSX stands for JavaScript XML, and it allows us to write HTML in React.                                                                                                                                                                                                                                                                  | [1](https://reactjs.org/docs/introducing-jsx.html) / [2](https://www.w3schools.com/react/react_jsx.asp)                                                                                                  |
+| State      | React class components have a built-in state object, where dynamic properties are stored for that component. When the state object changes, the component re-renders.                                                                                                                                                                    | [1](https://reactjs.org/docs/faq-state.html) / [2](https://reactjs.org/docs/state-and-lifecycle.html) / [3](https://www.w3schools.com/react/react_state.asp)                                             |
+| Render     | To render something means to display it on the screen. All react components have some HTML that they want to render. Class components will watch for state changes and re-render (or re-display) the component seamlessly on the web page.                                                                                               | [1](https://reactjs.org/docs/rendering-elements.html) / [2](https://css-tricks.com/an-overview-of-render-props-in-react/)                                                                                |
+| DOM        | DOM stands for Document Object Model, and it refers to how HTML pages are stored in memory once they are loaded. The HTML page is morphed into a tree-like structure, and DOM methods allow us to access nodes in that tree.                                                                                                             | [1](https://en.wikipedia.org/wiki/Document_Object_Model) / [2](https://www.w3schools.com/js/js_htmldom.asp) / [3](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)                |
+| Libraries  | A JavaScript library is a collection of code modules or building blocks. For example, JQuery is a library that exposes functions such as `.slideIn()` or `.click()`. React is also a library which has mostly optional features, and it exposes new functionality on JavaScript without major changes to how that JavaScript is written. | [1](https://en.wikipedia.org/wiki/JavaScript_library) / [2](https://www.quora.com/Is-React-a-library-or-a-framework-and-why)                                                                             |
+| Frameworks | A JavaScript framework is a collection of rules and structure enforced upon JavaScript code. A framework typically describes the entire application's design, and will only work if the application conforms to that. React can also be considered a framework, though it is more flexible and so is often referred to as a library.     | [1](https://en.wikipedia.org/wiki/JavaScript_framework) / [2](https://www.quora.com/Is-React-a-library-or-a-framework-and-why)                                                                           |
 
 ## Key Packages
 
-| Package     | Description | Link |
-| ----------- | ----------- | ---- |
-| `react`     |             |      |
-| `react-dom` |             |      |
+| Package     | Description                                                                                                                                     | Link                                           |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `react`     | A JavaScript library for creating user interfaces.                                                                                              | [npm](https://www.npmjs.com/package/react)     |
+| `react-dom` | A package that is meant to be paired with the `react` package. This package allows us to use and manipulate the DOM within our JavaScript code. | [npm](https://www.npmjs.com/package/react-dom) |
 
 ## Where We're Coming From
 
@@ -38,7 +42,7 @@ React was created in 2011 by a Facebook engineer, with the goal to improve how U
 
 By using React, we'll be able to create a modular _component_ for that Header or NavBar (or any other piece of UI). This will allow us to have one _JSX_ file defining our component, and any changes we make to that file will propagate throughout our application.
 
-> JSX stands for "JavaScipt Extended", and refers to React JavaScript files which allow for JavaScript and HTML to be seamlessly mixed together. The only requirement is that the HTML code is enclosed in parentheses `()`
+> JSX stands for "JavaScipt XML", and refers to React JavaScript files which allow for JavaScript and HTML to be seamlessly mixed together. The only requirement is that the HTML code is enclosed in parentheses `()`
 
 These modular components can either be classes or functions, and they can maintain a _state_. The state of a component refers to a collection of variables which will trigger a _re-render_ of the component whenever they are changed.
 
