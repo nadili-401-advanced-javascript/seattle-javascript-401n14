@@ -10,9 +10,7 @@ Your task for this lab will be to create a Mad Libs generator. Mad Libs is a wor
 
 You can find an example of a possible solution to this lab here:
 
-```
 [Sample Mad Libs Lab](https://js401n14-lab18.netlify.com/)
-```
 
 Note that this example is just for your reference, **your final lab does not need to match this example exactly**. A few things to note from this implementation:
 
