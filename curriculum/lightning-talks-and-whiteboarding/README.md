@@ -20,7 +20,7 @@ Each student can max do 2 lightning talks.
 | ~~Dependency Inversion Principle~~  | ~~[Link](https://deviq.com/dependency-inversion-principle/)~~                                | ~~Nov 02, 2019~~ | ~~Jessica Elliott~~ |
 | ~~Strategy Pattern~~                | ~~[Link](https://www.dofactory.com/javascript/strategy-design-pattern)~~                     | ~~Nov 09, 2019~~ | ~~Morgan T Shaw~~   |
 | ~~Observer Pattern~~                | ~~[Link](https://www.dofactory.com/javascript/observer-design-pattern)~~                     | ~~Nov 16, 2019~~ | ---                 |
-| Memento Pattern                     | [Link](https://www.dofactory.com/javascript/memento-design-pattern)                          | Nov 23, 2019     | ---                 |
+| ~~Memento Pattern~~                     | ~~[Link](https://www.dofactory.com/javascript/memento-design-pattern)~~                          | ~~Nov 23, 2019~~     | ---                 |
 | Facade Pattern                      | [Link](https://www.dofactory.com/javascript/facade-design-pattern)                           | Dec 14, 2019     | ---                 |
 | Singleton Pattern                   | [Link](https://www.dofactory.com/javascript/singleton-design-pattern)                        | Dec 21, 2019     | Anna Li             |
 | Proxy Pattern                       | [Link](https://www.dofactory.com/javascript/proxy-design-pattern)                            | Jan 04, 2020     | Meron Sibani        |
