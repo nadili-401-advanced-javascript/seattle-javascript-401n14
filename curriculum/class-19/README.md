@@ -17,9 +17,10 @@
 
 ## Key Packages
 
-| Package  | Description | Link |
-| -------- | ----------- | ---- |
-| `enzyme` |             |      |
+| Package     | Description | Link |
+| ----------- | ----------- | ---- |
+| `node-sass` | --          | --   |
+| `enzyme`    |             |      |
 
 ## Where We're Coming From
 
@@ -161,3 +162,212 @@ In this course, we will be focusing on three methods of deploying React applicat
 ## How To Get There
 
 Now, we've talked a lot about the broader concepts, but let's get into some code examples and see how Sass, testing and deployment can all work for our own applications.
+
+For these examples, we will be using code from the [demo/sass-test-deploy folder](./demo/sass-test-deploy).
+
+### Styling In Sass
+
+As you learn how to think about styling using Sass, be sure to save the [Sass documentation](https://sass-lang.com/guide) as a handy reference.
+
+Sass has two major syntax styles, you can choose which to use based on personal preference. The first syntax is `SCSS`, which is more of a hybrid between `CSS` syntax and `Sass` syntax. This is a great place to start for beginners, and so we'll be focusing on `SCSS` in this class. The second syntax is full `Sass` syntax, using primarily whitespace to delineate styles instead of curly brackets `{}`. This is a great choice if you want to speed up your style development even further, or if you're used to whitespace-oriented languages like Python.
+
+#### Getting Set Up With Sass
+
+Because Sass is _compiled_ into CSS, we need a tool that will do that compile for us. We will be using the package `node-sass`, which will compile our sass code into css for us when we run `npm start`
+
+```
+npm install node-sass
+```
+
+From there on, you can create `.scss` files (or `.sass` files if you wish) in your project, and then import them just as you would a `.css` file:
+
+```jsx
+import './styles.scss';
+```
+
+And that's it! Everything else should be handled for you by `node-sass`.
+
+#### Variables
+
+Suppose you wanted to style multiple elements with a light blue color (`#03c2fc`). You could write your CSS as such:
+
+```css
+h1,
+h2 {
+    color: #03c2fc;
+}
+
+.colored-box {
+    background-color: #03c2fc;
+}
+
+.bordered-box {
+    border: 2px solid #03c2fc;
+}
+```
+
+As you can see, we're using the hex value `#03c2fc` in three different places, using three different CSS properties (`color`, `background-color` and `border`). We cannot combine these classes into one; that would give us an outcome we don't want. But what happens if we later decide we want to change the color to a light green (`#a1ff9c`) instead? Unfortunately, we would have to manually change every instance of our light blue hex value, and this can get very error-prone and difficult if we have a large collection of CSS code or CSS files. Luckily, this process becomes much easier when using Sass:
+
+```scss
+$theme-color: #03c2fc;
+
+h1,
+h2 {
+    color: $theme-color;
+}
+
+.colored-box {
+    background-color: $theme-color;
+}
+
+.bordered-box {
+    border: 2px solid $theme-color;
+}
+```
+
+As we're used to with JavaScript or other coding languages, we can now define a variable using `$`, and then reference that variable anywhere in our sass styles. Variables in Sass are very powerful, and can contain any CSS value such as a color, a font, a pixel size, etc.
+
+#### Partials
+
+Suppose you had 50 variables used in your UI. When adjusting the variables, you again probably don't want to search through a large collection of files or style code. Sass allows you to modularize you style logic very easily through **partials** and the `@import` command. A partial is a file that contains Sass styles meant to be imported into another large Sass file. All partial filenames begin with an underscore `_`.
+
+In the style directory, create a file called `_variables.scss` (or `_variables.sass` if you prefer). In this file, define all the variables you may need.
+
+```scss
+// _variables.scss partial
+
+$theme-color: #03c2fc;
+```
+
+Then, in your main style file `styles.scss`, you can import the contents of `_variables.scss`:
+
+```scss
+// styles.scss
+
+@import './variables';
+
+h1 {
+    color: $theme-color;
+}
+```
+
+And thus, we can make our styles modular and our files small and single-purpose.
+
+#### Nesting
+
+Another great feature of Sass is the ability to nest your class definitions. For example, suppose we had the following CSS:
+
+```css
+.bordered-box {
+    border: 2px solid #03c2fc;
+}
+
+.bordered-box h2 {
+    font-style: italic;
+}
+
+.bordered-box h2 span {
+    color: #46dab5;
+}
+
+.bordered-box button {
+    color: #03c2fc;
+}
+```
+
+We can improve and condense this code easily using nesting in Sass:
+
+```scss
+.bordered-box {
+    border: 2px solid $theme-color;
+
+    h2 {
+        font-style: italic;
+        span {
+            color: $highlight-color;
+        }
+    }
+
+    button {
+        color: $theme-color;
+    }
+}
+```
+
+Immediately our code becomes more readable and easy to understand; the implied nesting from the CSS code is now part of the Sass code implementation!
+
+#### Mixins
+
+Suppose we wanted to add a border radius to our `.bordered-box` class. Some of you might be used to CSS code that looks like:
+
+```css
+.bordered-box {
+    border: 2px solid $theme-color;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+```
+
+> Note: Technically we don't really need the `-webkit` and `-moz` prefixes anymore (see [why](https://css-tricks.com/do-we-need-box-shadow-prefixes/)), but they really help to illustrate the power of mixins.
+
+Now, the bad thing about the above code is that it's three lines of CSS to do one action. What if we had 100 classes that needed a border-radius? We now have 300 more lines of code!
+
+A **mixin** is a collection of code not meant to stand alone, but to be imported into other functions, classes, etc. If you're thinking that this definition sounds a lot like the definition for partials, then here's where they differ:
+
+-   Mixins are code snippets meant to be used inside of another class
+-   Partials are variables and classes that are modularized from another larger file
+    -   There's not much difference between a partial and a standard `.scss` file, the only difference is how it's used (imported into another Sass file instead of imported into a React component)
+
+So let's look at how we would define a mixin to make our border radius easier to implement:
+
+```scss
+// _mixins.scss partial
+
+@mixin border-radius($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    border-radius: $size;
+}
+```
+
+```scss
+@import './mixins';
+
+.bordered-box {
+    border: 2px solid $theme-color;
+    @include border-radius(6px);
+}
+```
+
+Here, in the bottom Sass snippet, we are importing the contents of the `_mixins` partial, and then we are using / calling the mixin `border-radius` using the `@include` syntax. You can think of mixins like functions; they can accept 0 or more parameters and then "return" Sass or CSS code.
+
+We can use mixins to add style content to our classes independently, thereby reducing repeated code. For example, suppose we wanted a set of padding and margin defaults for a lot of different containers:
+
+```scss
+// _variables.scss partial
+
+$spacing: 20px;
+```
+
+```scss
+// _mixins.scss partial
+
+@mixin format-box() {
+    padding: $spacing;
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+    text-align: center;
+}
+```
+
+```scss
+@import './variables';
+@import './mixins';
+
+.bordered-box {
+    @include format-box();
+}
+```
+
+With variables, partials, nesting and mixins, we can vastly decrease the size of our style files, and make it much easier to change things as our styles grow. We'll be learning even more Sass features as this course progresses, an all labs from now on will ask you to write your code in Sass (`.scss` or `.sass`) instead of CSS.
