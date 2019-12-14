@@ -71,7 +71,6 @@ Configure your folder with the following files and directories.
 -   `.eslintignore` - contains the course linter ignore configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.eslintignore))
 -   `.travis.yml` - contains the course linter ignore configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.travis.yml))
 -   `package.json` - contains `npm` package config and scripts ([script template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/package.json.notes))
-    -   Add your name in the `author` field (you can do this easily using `npm init`)
 
 ### Submit to Canvas
 
@@ -96,6 +95,7 @@ Once you've ensured your `README.md` is correct, within Canvas submit a link to 
 
 -   Your open pull request will be your gateway to resubmitting
 -   Commit and push your changes in your lab branch, and they should be updated on the pull request
+-   **You must re-deploy your application if you are resubmitting**
 -   Only one resubmit allowed
 
 ## Grading Rubric
