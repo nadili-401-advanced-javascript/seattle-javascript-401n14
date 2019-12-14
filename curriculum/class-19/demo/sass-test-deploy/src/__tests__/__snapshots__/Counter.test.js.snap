@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter component renders correctly 1`] = `
+<div
+  className="bordered-box"
+>
+  <h2>
+    Your current count is: 
+    <span>
+      -1
+    </span>
+  </h2>
+  <button
+    id="subtract"
+    onClick={[Function]}
+  >
+    Subtract
+  </button>
+  <button
+    id="add"
+    onClick={[Function]}
+  >
+    Add
+  </button>
+</div>
+`;

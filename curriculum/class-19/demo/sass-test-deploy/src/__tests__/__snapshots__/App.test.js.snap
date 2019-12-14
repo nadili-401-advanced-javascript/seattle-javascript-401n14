@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders correctly 1`] = `
+<div
+  className="container App"
+>
+  <h1>
+    Demo Application
+  </h1>
+  <div
+    className="bordered-box"
+  >
+    <h2>
+      Your current count is: 
+      <span>
+        0
+      </span>
+    </h2>
+    <button
+      id="subtract"
+      onClick={[Function]}
+    >
+      Subtract
+    </button>
+    <button
+      id="add"
+      onClick={[Function]}
+    >
+      Add
+    </button>
+  </div>
+</div>
+`;

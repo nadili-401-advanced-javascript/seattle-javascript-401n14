@@ -1,0 +1,30 @@
+@import './variables';
+@import './mixins';
+
+h1,
+h2 {
+    color: $theme-color;
+}
+
+.colored-box {
+    background-color: $theme-color;
+}
+
+.bordered-box {
+    border: 2px solid $theme-color;
+    @include border-radius(6px);
+    @include format-box();
+
+    h2 {
+        font-style: italic;
+        span {
+            color: $highlight-color;
+        }
+    }
+
+    button {
+        color: $theme-color;
+        margin: $spacing;
+        width: 100px;
+    }
+}
