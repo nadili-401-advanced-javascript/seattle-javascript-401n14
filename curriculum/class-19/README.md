@@ -14,13 +14,17 @@
 | Snapshot Testing      | --         | --               |
 | Sass                  | --         | --               |
 | CSS Preprocessor      | --         | --               |
+| Partial               | --         | --               |
+| Mixin                 | --         | --               |
 
 ## Key Packages
 
-| Package     | Description | Link |
-| ----------- | ----------- | ---- |
-| `node-sass` | --          | --   |
-| `enzyme`    |             |      |
+| Package                   | Description | Link |
+| ------------------------- | ----------- | ---- |
+| `node-sass`               | --          | --   |
+| `react-test-renderer`     | --          | --   |
+| `enzyme`                  | --          | --   |
+| `enzyme-adapter-react-16` | --          | --   |
 
 ## Where We're Coming From
 
@@ -163,7 +167,7 @@ In this course, we will be focusing on three methods of deploying React applicat
 
 Now, we've talked a lot about the broader concepts, but let's get into some code examples and see how Sass, testing and deployment can all work for our own applications.
 
-For these examples, we will be using code from the [demo/sass-test-deploy folder](./demo/sass-test-deploy).
+For these examples, we will be using code from the [demos/sass-test-deploy folder](./demos/sass-test-deploy).
 
 ### Styling In Sass
 
@@ -209,6 +213,8 @@ h2 {
 As you can see, we're using the hex value `#03c2fc` in three different places, using three different CSS properties (`color`, `background-color` and `border`). We cannot combine these classes into one; that would give us an outcome we don't want. But what happens if we later decide we want to change the color to a light green (`#a1ff9c`) instead? Unfortunately, we would have to manually change every instance of our light blue hex value, and this can get very error-prone and difficult if we have a large collection of CSS code or CSS files. Luckily, this process becomes much easier when using Sass:
 
 ```scss
+// styles.scss
+
 $theme-color: #03c2fc;
 
 h1,
@@ -278,6 +284,8 @@ Another great feature of Sass is the ability to nest your class definitions. For
 We can improve and condense this code easily using nesting in Sass:
 
 ```scss
+// styles.scss
+
 .bordered-box {
     border: 2px solid $theme-color;
 
@@ -332,6 +340,8 @@ So let's look at how we would define a mixin to make our border radius easier to
 ```
 
 ```scss
+// styles.scss
+
 @import './mixins';
 
 .bordered-box {
@@ -362,6 +372,8 @@ $spacing: 20px;
 ```
 
 ```scss
+// styles.scss
+
 @import './variables';
 @import './mixins';
 
@@ -371,3 +383,198 @@ $spacing: 20px;
 ```
 
 With variables, partials, nesting and mixins, we can vastly decrease the size of our style files, and make it much easier to change things as our styles grow. We'll be learning even more Sass features as this course progresses, an all labs from now on will ask you to write your code in Sass (`.scss` or `.sass`) instead of CSS.
+
+### Writing UI Tests
+
+In our application, we have a simple counter component that adds or subtracts from our count. We can also initialize our counter to start at a value other than zero.
+
+```jsx
+// Counter.js
+
+import React from 'react';
+
+class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.state.count = this.props.count ? this.props.count : 0;
+    }
+
+    add(e) {
+        this.setState({ count: this.state.count + 1 });
+    }
+
+    subtract(e) {
+        this.setState({ count: this.state.count - 1 });
+    }
+
+    render() {
+        return (
+            <div className='bordered-box'>
+                <h2>
+                    Your current count is: <span>{this.state.count}</span>
+                </h2>
+
+                <button id='subtract' onClick={this.subtract.bind(this)}>
+                    Subtract
+                </button>
+                <button id='add' onClick={this.add.bind(this)}>
+                    Add
+                </button>
+            </div>
+        );
+    }
+}
+
+export default Counter;
+```
+
+We then import and render the `<Counter />` component within `App.js`:
+
+```jsx
+// App.js
+
+import React from 'react';
+import Counter from './Counter.js';
+import '../styles/styles.scss';
+
+function App() {
+    return (
+        <div className='container App'>
+            <h1>Demo Application</h1>
+            <Counter />
+        </div>
+    );
+}
+
+export default App;
+```
+
+Let's see how we can write tests to cover these components and verify that our UI is working correctly.
+
+#### Snapshot Tests
+
+> [Jest Snapshot Testing Documentation](https://jestjs.io/docs/en/snapshot-testing)
+
+Let's assume that we're done with developing our UI for our application, and instead want to refactor some code so that it's cleaner. We don't want the look of our application to change at all, since we're just making JavaScript logic changes behind-the-scenes instead of HTML changes. This is the perfect use-case for a snapshot test.
+
+In order to do snapshot tests, we will need to install the package `react-test-renderer`:
+
+```
+npm install react-test-renderer
+```
+
+Within our `App.test.js` file, we can verify that our application matches a snapshot. The very first time Jest runs tests on your application, it will generate a snapshot and save it. Any subsequent test runs will compare against the saved snapshot.
+
+```js
+import React from 'react';
+import renderer from 'react-test-renderer';
+import App from './App.js';
+
+describe('App component', () => {
+    it('renders correctly', () => {
+        const page = renderer.create(<App />).toJSON();
+        expect(page).toMatchSnapshot();
+    });
+});
+```
+
+When you run the test for the first time, you'll see that in the same directory as your test file, Jest creates a folder called `__snapshots__`, with the file `App.test.js.snap` added to the folder. If you view this file, you can see that it is essentially the expected HTML content of the page.
+
+If you need to update your snapshots for future tests, you can run the command
+
+```
+jest --updateSnapshot
+```
+
+And that's it! As you can see, snapshot tests are very simple and sometimes not even necessary in an application, especially when your development results constant UI changes. However, snapshot tests can be essential during refactoring, modularization, and logic changes that expect the end UI to remain constant.
+
+#### Testing With Enzyme
+
+Now, let's move to individual component testing with the Enzyme plugin for Jest. First, let's install Enzyme and its dependencies:
+
+```
+npm install enzyme
+npm install enzyme-adapter-react-16
+```
+
+Let's start by creating a full mount test. Remember, a full mount test specifies that all children component of the current component are fully rendered and tested as well. Currently, our Counter component doesn't have any children components, so let's write our full `mount` tests for our App component within `App.test.js`. First, we need `configure` enzyme and import the `mount` function.
+
+```js
+import { configure, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+```
+
+These above lines will enable us to use Enzyme (specifically the `mount` function) in our tests. Here's an example test for our App, where we check that `<Counter />` was correctly rendered by searching for the `<h2>` text within our counter.
+
+```js
+it('has a Counter', () => {
+    let component = mount(<App />);
+    expect(component.find('div.bordered-box h2').text()).toBe(
+        'Your current count is: 0',
+    );
+});
+```
+
+Here, we use the `.find()` function to use a selector upon the DOM and get one specific element. We then use `.text()` to get the text content of that element, and then use the Jest `.toBe()` function to compare that with a hard-coded string.
+
+Just like with Jest, Enzyme has a [large API](https://airbnb.io/enzyme/docs/api/) that you will get more familiar with over time. Enzyme exposes a lot of functions that allow us to find specific pieces of the rendered result.
+
+One of the more useful features of Enzyme is that it can _simulate_ user interaction, such as button clicking. Let's modify our test so that it checks if our counter adds correctly.
+
+```js
+it('adds one to Counter', () => {
+    let component = mount(<App />);
+    let addBtn = component.find('div.bordered-box button#add');
+
+    addBtn.simulate('click');
+    expect(component.find('div.bordered-box h2').text()).toBe(
+        'Your current count is: 1',
+    );
+});
+```
+
+In our current tests, we're checking if the text content of an HTML element is equal to something. That is useful, but as our UI changes we may have to update this test frequently. Instead, what if we were just checking the value of a state variable within the Counter element? In order to do this, we need to make a test on the Counter component itself. Let's make this a shallow test, since Counter doesn't have any child components we need to worry about.
+
+```js
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Counter from '../components/Counter';
+
+configure({ adapter: new Adapter() });
+
+describe('Counter component', () => {
+    it('correctly adds one to state count variable', () => {
+        let component = shallow(<Counter />);
+        let addBtn = component.find('div.bordered-box button#add');
+
+        addBtn.simulate('click');
+        expect(component.state('count')).toBe(1);
+    });
+});
+```
+
+Finally, if you do not care about state variables and just want to verify simple HTML elements with selectors, then you can use the `render` function from Enzyme:
+
+```js
+import React from 'react';
+import { configure, render } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Counter from '../components/Counter';
+
+configure({ adapter: new Adapter() });
+
+describe('Counter component', () => {
+    it('correctly adds one to state count variable', () => {
+        let component = render(<Counter />);
+        expect(component.find('div.bordered-box h2')).toBeDefined();
+    });
+});
+```
+
+### Deploying
+
+Now that we have a styled and tested application, let's try to deploy it.
