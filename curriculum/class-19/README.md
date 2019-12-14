@@ -1,30 +1,30 @@
 # Class 19 - Sass, React Testing, and Deployment
 
-| [Lecture Video]() | [Lab Video]() |
-| ----------------- | ------------- |
+| [Lecture Video](https://frontrowviews.com/Home/Event/Details/5d8e9123bdb995374c472834) | [Lab Video](https://frontrowviews.com/Home/Event/Details/5d8e9123bdb995374c47283b) |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 
 
 ## Key Terms
 
-| Term                  | Definition | Supporting Links |
-| --------------------- | ---------- | ---------------- |
-| Shallow Mount Testing | --         | --               |
-| Full Mount Testing    | --         | --               |
-| Render Testing        | --         | --               |
-| Snapshot Testing      | --         | --               |
-| Sass                  | --         | --               |
-| CSS Preprocessor      | --         | --               |
-| Partial               | --         | --               |
-| Mixin                 | --         | --               |
+| Term                  | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Supporting Links                                                                                                                                                         |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| CSS Preprocessor      | A CSS preprocessor is a program that lets you generate CSS from the preprocessor's own unique syntax. There are many CSS preprocessors to choose from, however most CSS preprocessors will add some features that don't exist in pure CSS, such as mixin, nesting selector, inheritance selector, and so on. These features make the CSS structure more readable and easier to maintain.                                                                                                                                                                                                 | [1](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor) / [2](https://htmlmag.com/article/an-introduction-to-css-preprocessors-sass-less-stylus)         |
+| Sass                  | Sass (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into CSS. Sass consists of two syntaxes. The original syntax, called "the indented syntax," uses indentation to separate code blocks and newline characters to separate rules. The newer syntax, "SCSS" (Sassy CSS), uses block formatting like that of CSS. It uses braces to denote code blocks and semicolons to separate lines within a block. The indented syntax and SCSS files are traditionally given the extensions `.sass` and `.scss`, respectively. | [1](<https://en.wikipedia.org/wiki/Sass_(stylesheet_language)>) / [2](https://sass-lang.com/)                                                                            |
+| Partial               | Partials in Sass help break up style files into smaller pieces without affecting performance. A partial is simply a Sass file preceded by an underscore. An example is `_name-of-file.scss`. The underscore tells Sass that the file is a partial and that it should not be compiled to CSS. This partial can then be imported into another file that will be compiled to CSS                                                                                                                                                                                                            | [1](https://dev.to/sarah_chima/using-sass-partials-7mh) / [2](https://sass-lang.com/documentation/at-rules/import) / [3](https://www.w3schools.com/sass/sass_import.asp) |
+| Mixin                 | Mixins allow you to define styles that can be re-used throughout your stylesheet. They make it easy to avoid using non-semantic classes, and to distribute collections of styles in libraries.                                                                                                                                                                                                                                                                                                                                                                                           | [1](https://sass-lang.com/documentation/at-rules/mixin) / [2](https://scotch.io/tutorials/how-to-use-sass-mixins)                                                        |
+| Snapshot Testing      | A typical snapshot test case for an app renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.                                                                                                                                                                                                                                                  | [1](https://jestjs.io/docs/en/snapshot-testing) / [2](https://medium.com/javascript-in-plain-english/should-i-be-writing-snapshot-tests-47da13a62085)                    |
+| Full Mount Testing    | --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | --                                                                                                                                                                       |
+| Shallow Mount Testing | --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | --                                                                                                                                                                       |
+| Render Testing        | --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | --                                                                                                                                                                       |
 
 ## Key Packages
 
-| Package                   | Description | Link |
-| ------------------------- | ----------- | ---- |
-| `node-sass`               | --          | --   |
-| `react-test-renderer`     | --          | --   |
-| `enzyme`                  | --          | --   |
-| `enzyme-adapter-react-16` | --          | --   |
+| Package                   | Description                                                                                                                    | Link                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| `node-sass`               | This package allows you to compile sass files into CSS during builds                                                           | [npm](https://www.npmjs.com/package/node-sass)               |
+| `react-test-renderer`     | This package allows you to create a snapshot from your React application to test against                                       | [npm](https://www.npmjs.com/package/react-test-renderer)     |
+| `enzyme`                  | Enzyme is a testing utility made by AirBnB, and it makes it very simple to test the code and state output of a React component | [npm](https://www.npmjs.com/package/enzyme)                  |
+| `enzyme-adapter-react-16` | This is required to run enzyme commands, and must be updated to match your version of React. Currently, React is on version 16 | [npm](https://www.npmjs.com/package/enzyme-adapter-react-16) |
 
 ## Where We're Coming From
 
@@ -167,7 +167,7 @@ In this course, we will be focusing on three methods of deploying React applicat
 
 Now, we've talked a lot about the broader concepts, but let's get into some code examples and see how Sass, testing and deployment can all work for our own applications.
 
-For these examples, we will be using code from the [demos/sass-test-deploy folder](./demos/sass-test-deploy).
+For these examples, we will be using code from the [demo/sass-test-deploy folder](./demo/sass-test-deploy).
 
 ### Styling In Sass
 
@@ -466,7 +466,7 @@ npm install react-test-renderer
 
 Within our `App.test.js` file, we can verify that our application matches a snapshot. The very first time Jest runs tests on your application, it will generate a snapshot and save it. Any subsequent test runs will compare against the saved snapshot.
 
-```js
+```jsx
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './App.js';
@@ -500,7 +500,7 @@ npm install enzyme-adapter-react-16
 
 Let's start by creating a full mount test. Remember, a full mount test specifies that all children component of the current component are fully rendered and tested as well. Currently, our Counter component doesn't have any children components, so let's write our full `mount` tests for our App component within `App.test.js`. First, we need `configure` enzyme and import the `mount` function.
 
-```js
+```jsx
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -509,7 +509,7 @@ configure({ adapter: new Adapter() });
 
 These above lines will enable us to use Enzyme (specifically the `mount` function) in our tests. Here's an example test for our App, where we check that `<Counter />` was correctly rendered by searching for the `<h2>` text within our counter.
 
-```js
+```jsx
 it('has a Counter', () => {
     let component = mount(<App />);
     expect(component.find('div.bordered-box h2').text()).toBe(
@@ -524,7 +524,7 @@ Just like with Jest, Enzyme has a [large API](https://airbnb.io/enzyme/docs/api/
 
 One of the more useful features of Enzyme is that it can _simulate_ user interaction, such as button clicking. Let's modify our test so that it checks if our counter adds correctly.
 
-```js
+```jsx
 it('adds one to Counter', () => {
     let component = mount(<App />);
     let addBtn = component.find('div.bordered-box button#add');
@@ -538,7 +538,7 @@ it('adds one to Counter', () => {
 
 In our current tests, we're checking if the text content of an HTML element is equal to something. That is useful, but as our UI changes we may have to update this test frequently. Instead, what if we were just checking the value of a state variable within the Counter element? In order to do this, we need to make a test on the Counter component itself. Let's make this a shallow test, since Counter doesn't have any child components we need to worry about.
 
-```js
+```jsx
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -559,7 +559,7 @@ describe('Counter component', () => {
 
 Finally, if you do not care about state variables and just want to verify simple HTML elements with selectors, then you can use the `render` function from Enzyme:
 
-```js
+```jsx
 import React from 'react';
 import { configure, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -577,4 +577,8 @@ describe('Counter component', () => {
 
 ### Deploying
 
-Now that we have a styled and tested application, let's try to deploy it.
+Now that we have a styled and tested application, let's deploy it! You can use any of the video tutorials below to learn the deployment process. In this class, we will primarily be using Netlify, because of its ease of use and quick auto-deploy setup with GitHub.
+
+-   [AWS S3 Deployment](https://www.youtube.com/watch?v=Kay-UvVCNFs)
+-   [AWS Amplify Deployment](https://www.youtube.com/watch?v=DHLZAzdT44Y)
+-   [Netlify Deployment](https://www.youtube.com/watch?v=sGBdp9r2GSg)
