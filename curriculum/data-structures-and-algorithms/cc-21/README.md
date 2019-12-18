@@ -1,85 +1,40 @@
-# Merge Sort
+# Mock Interviews
 
-## Resources
-Readings, Videos, Drawings
+## Specifications
 
-1. [Merge Sort Wiki](https://en.wikipedia.org/wiki/Merge_sort){:target="_blank"}
-2. [Merge Sort Resource #2](https://www.geeksforgeeks.org/merge-sort/){:target="_blank"}
-3. [Merge Sort Resource #3](https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm){:target="_blank"}
+- Read all of the following instructions carefully. 
+- Today, you and a peer will take turns interviewing each other with a code challenge
+- The interviewer will score the candidate according to the [Whiteboard Rubric](https://docs.google.com/spreadsheets/d/1scthkmARfzAFZrSYAp6LA2coOaoWUWbSzMbtIU4jcHw){:target="_blank"}
+  - Notes can be taken in an electronic copy of the doc, or a print out of it
+  - In either case, the completed rubric will be given to the candidate for review purposes
+- The candidate submits the rubric with the score they achieved as a candidate 
+- Each interview should be timeboxed to a strict 30 minutes
 
-## Assignment
+## Interview questions
 
-- Complete a working, tested implementation of Merge Sort, based on the pseudo code provided
-- Create a blog post on understanding the **Merge Sort Algorithm** suitable for a 301 level student. Alternately, prepare a presentation that presents the algorithm in a novel way. E.g. a short skit, live mini-lecture, interpretive dance.
+Don't look at the interview questions until you decide who will be the first interviewer. 
+
+1. The first interviewer will ask [this question](interview-01.md){:target="_blank"}
+1. The second interviewer will ask [this question](interview-02.md){:target="_blank"}
 
 
-## Pseudo Code
-```javascript
+## Structure
 
-ALGORITHM Mergesort(arr)
-    DECLARE n <-- arr.length
-           
-    if n > 1
-      DECLARE mid <-- n/2
-      DECLARE left <-- arr[0...mid]
-      DECLARE right <-- arr[mid...n]
-      // sort the left side
-      Mergesort(left)
-      // sort the right side
-      Mergesort(right)
-      // merge the sorted left and right sides together
-      Merge(left, right, arr)
+Utilize your whiteboard skills to solve the problem according to the steps in the Rubric, and example whiteboard layout. 
 
-ALGORITHM Merge(left, right, arr)
-    DECLARE i <-- 0
-    DECLARE j <-- 0
-    DECLARE k <-- 0
+## Example
 
-    while i < left.length && j < right.length
-        if left[i] <= right[j]
-            arr[k] <-- left[i]
-            i <-- i + 1
-        else
-            arr[k] <-- right[j]
-            j <-- j + 1
-            
-        k <-- k + 1
+By the end of the interview, your whiteboard should resemble the example whiteboard layout:
 
-    if i = left.length
-       set remaining entries in arr to remaining values in right
-    else
-       set remaining entries in arr to remaining values in left
+![example whiteboard layout](../../assets/DataStructuresWhiteboard.PNG).
 
-```
+## Documentation
 
-## Requirements
-Ensure your complete solution follows the standard requirements. 
+The interviewer should take detailed notes on the Rubric form. Points should be assessed for every item on the Rubric. The total points should be summed and recorded on the form. 
 
-1. Write [unit tests](../../Challenge_Testing){:target="_blank"}
-1. Follow the [template for a well-formatted README](../../Challenge_Documentation){:target="_blank"}
-1. Submit the assignment following [these instructions](../../Challenge_Submission){:target="_blank"}
+## Submission Instructions
 
-### Implementation
-* Convert the pseudo-code into working code in your language
-* Present a complete set of working tests
-
-### Blog Notes
-
-* Use the [template](./BLOG-TEMPLATE.md){:target="_blank"} provided
-* 1 short video resource
-* 2 quality readings/references
-* An organized, ordered blog outline
-
-* Working pseudo code 
-* Description of the algorithm
-* Supportive Images
-
-(Basically, a tricked out version of our Whiteboard)
-
-## Submission
-
-Submit a link to your completed version of `BLOG.md`
-
-## Stretch Goal
-
-Post your blog post to Linked In
+1. Review the notes your interviewer recorded for you on the Rubric. 
+1. Submit the final result of your interview as a candidate to Canvas:
+    1. Paste the link the rubric that evaluated you as a candidate (either a google doc, or a photo of a printout)
+    1. Comment on your submission with summary of how it went for you, what went well, and what you'd like to improve
