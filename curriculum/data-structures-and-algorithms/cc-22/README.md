@@ -1,78 +1,40 @@
-# Quick Sort
+# Mock Interviews
 
-## Resources
-Readings, Videos, Drawings
+## Specifications
 
-1. [Quick Sort Wiki](https://en.wikipedia.org/wiki/Quicksort){:target="_blank"}
-2. [Quick Sort Resource #2](https://www.geeksforgeeks.org/quick-sort/){:target="_blank"}
+- Read all of the following instructions carefully. 
+- Today, you and a peer will take turns interviewing each other with a code challenge
+- The interviewer will score the candidate according to the [Whiteboard Rubric](https://docs.google.com/spreadsheets/d/1scthkmARfzAFZrSYAp6LA2coOaoWUWbSzMbtIU4jcHw){:target="_blank"}
+  - Notes can be taken in an electronic copy of the doc, or a print out of it
+  - In either case, the completed rubric will be given to the candidate for review purposes
+- The candidate submits the rubric with the score they achieved as a candidate 
+- Each interview should be timeboxed to a strict 30 minutes
 
-## Assignment
-- Complete a working, tested implementation of Quick Sort, based on the pseudo code provided
-- Create a blog post on understanding the **Quick Sort Algorithm** suitable for a 301 level student. Alternately, prepare a presentation that presents the algorithm in a novel way. E.g. a short skit, live mini-lecture, interpretive dance.
+## Interview questions
+
+Don't look at the interview questions until you decide who will be the first interviewer. 
+
+1. The first interviewer will ask [this question](interview-01.md){:target="_blank"}
+1. The second interviewer will ask [this question](interview-02.md){:target="_blank"}
 
 
-## Pseudo Code
-```javascript
-ALGORITHM QuickSort(arr, left, right)
-    if left < right
-        // Partition the array by setting the position of the pivot value 
-        DEFINE position <-- Partition(arr, left, right)
-        // Sort the left
-        QuickSort(arr, left, position - 1)
-        // Sort the right
-        QuickSort(arr, position + 1, right)
+## Structure
 
-ALGORITHM Partition(arr, left, right)
-    // set a pivot value as a point of reference
-    DEFINE pivot <-- arr[right]
-    // create a variable to track the largest index of numbers lower than the defined pivot
-    DEFINE low <-- left - 1
-    for i <- left to right do
-        if arr[i] <= pivot
-            low++
-            Swap(arr, i, low)
+Utilize your whiteboard skills to solve the problem according to the steps in the Rubric, and example whiteboard layout. 
 
-     // place the value of the pivot location in the middle.
-     // all numbers smaller than the pivot are on the left, larger on the right. 
-     Swap(arr, right, low + 1)
-    // return the pivot index point
-     return low + 1
+## Example
 
-ALGORITHM Swap(arr, i, low)
-    DEFINE temp;
-    temp <-- arr[i]
-    arr[i] <-- arr[low]
-    arr[low] <-- temp
-```
+By the end of the interview, your whiteboard should resemble the example whiteboard layout:
 
-## Requirements
-Ensure your complete solution follows the standard requirements. 
+![example whiteboard layout](../../assets/DataStructuresWhiteboard.PNG).
 
-1. Write [unit tests](../../Challenge_Testing){:target="_blank"}
-1. Follow the [template for a well-formatted README](../../Challenge_Documentation){:target="_blank"}
-1. Submit the assignment following [these instructions](../../Challenge_Submission){:target="_blank"}
+## Documentation
 
-### Implementation
-* Convert the pseudo-code into working code in your language
-* Present a complete set of working tests
+The interviewer should take detailed notes on the Rubric form. Points should be assessed for every item on the Rubric. The total points should be summed and recorded on the form. 
 
-### Blog Notes
+## Submission Instructions
 
-* Use the [template](./BLOG-TEMPLATE.md){:target="_blank"} provided
-* 1 short video resource
-* 2 quality readings/references
-* An organized, ordered blog outline
-
-* Working pseudo code 
-* Description of the algorithm
-* Supportive Images
-
-(Basically, a tricked out version of our Whiteboard)
-
-## Submission
-
-Submit a link to your completed version of `BLOG.md`
-
-## Stretch Goal
-
-Post your blog post to Linked In
+1. Review the notes your interviewer recorded for you on the Rubric. 
+1. Submit the final result of your interview as a candidate to Canvas:
+    1. Paste the link the rubric that evaluated you as a candidate (either a google doc, or a photo of a printout)
+    1. Comment on your submission with summary of how it went for you, what went well, and what you'd like to improve
