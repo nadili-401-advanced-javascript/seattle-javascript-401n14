@@ -4,21 +4,15 @@ Sum of numbers in a binary tree
 
 ## Specifications
 
-- Read all of the following instructions carefully.
-- Act as an interviewer, giving a candidate a code challenge
-- Score the candidate according to the [Whiteboard Rubric](https://docs.google.com/spreadsheets/d/1scthkmARfzAFZrSYAp6LA2coOaoWUWbSzMbtIU4jcHw){:target="_blank"}
-- You are free to offer suggestions or guidance (and see how they respond),  but don't solve it for the candidate
+-   Read all of the following instructions carefully.
+-   Act as an interviewer, giving a candidate a code challenge
+-   Score the candidate according to the [Whiteboard Rubric](https://docs.google.com/spreadsheets/d/1scthkmARfzAFZrSYAp6LA2coOaoWUWbSzMbtIU4jcHw)
+-   You are free to offer suggestions or guidance (and see how they respond), but don't solve it for the candidate
 
 ## Feature Tasks
 
-- Describe to the candidate the following problem:
+Write a function that finds the sum of all the odd numbers in a given binary search tree. Any type of traversal (depth or breadth) will work for this.
 
-```
-Find the sum of all the odd numbers in a binary search tree. 
-```
-
-- Any of the traversals (depth or breadth) will work for this 
-  
 ## Structure
 
 Familiarize yourself with the grading rubric, so you know how to score the interview.
@@ -32,13 +26,12 @@ Assign points for each item on the Rubric, according to how well the candidate e
 Add up all the points at the end, and record the total at the bottom of the page.
 
 ## Example
+
 Considering the following Tree:
 
 ![example](./bst.png)
 
-
 Output: 24
-
 
 ## Documentation
 
