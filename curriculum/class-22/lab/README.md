@@ -12,7 +12,7 @@ Your task for this lab will be to create an application which shows a quiz a use
 
 You can find an example of a possible solution to this lab here:
 
-[Sample Card Generator](https://js401n14-lab22.netlify.com/)
+[Sample Quiz](https://js401n14-lab22.netlify.com/)
 
 Note that this example is just for your reference, **your final lab does not need to match this example exactly**. A few things to note from this implementation:
 
