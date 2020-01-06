@@ -1,78 +1,110 @@
 # LAB - Props and State
 
-This lab is an opportunity to practice passing props and state between components. Its also the first refactoring of a "To Do List" application.
+In this lab, you will be asked to create completely modular form components that could be used in any project. Use this as an opportunity to make your form components a nice packaged mix of HTML and style, with most logic based on props instead of state.
 
-## Before you begin
-Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
-## Getting Started
+Note that there is **no starter code** for this lab.
 
-Starter code has been provided for you in the `/lab/starter-code` folder. There are 3 separate assignments, each with it's own folder.
+## Requirements
 
-Open [Code Sandbox](http://codesandbox.io) and Create a new application. When prompted, choose "From GitHub" and then paste in the URL to the correct starter code folder from your fork of the class repository.
+Your task for this lab will be to create at least three self-contained and completely modular form elements, as well as a modular state printer.
 
-You will be submitting the URL to this working sandbox as part of your assignment.
+### Sample Implementation
 
-## Practice Assignments
+You can find an example of a possible solution to this lab here:
 
-**Pass down some text**
+[Sample Forms Lab](https://js401n14-lab20.netlify.com/)
 
-Begin with: `/lab/starter-code/practice`
+Note that this example is just for your reference, **your final lab does not need to match this example exactly**. A few things to note from this implementation:
 
-* Create a new component called `<Message />` under `components/message.js`
-* Import this into your `<App />` and render the Message component with an attribute called `text`, with the value "This is my amazing application"
-* In the Message component, create a state property named `words`
-* Set it's value to "These words belong to the message component"
-* The Message component should render an `<h2>` displaying the value of the text property sent to it from the App component
-* The Message component should render an `<h3>` displaying the value of the words property from it's internal state
+-   The [Bootstrap](https://getbootstrap.com/) CSS framework is used for styling
+-   This project has the `App` component, as well as a component for `FormInput`, `FormSelect`, `FormCheckbox`, and `StatePrinter`
+    -   The only class component within these is `App`; all the others are stateless functional components
 
-**Pass through some text to a sub-sub component**
+### Use CodeSandbox
 
-* In the `<App />` component, send an additional attribute to the `<Message />` component called "title", with the value "This is my title"
-* Create a new component called `<Title />` in `title.js`
-* Import this component into the `<Message />` component
-* In the `<Message />` component, render the `<Title />` component above the `<h2>` and `<h3>` tabs you already have, setting an attribute named "text" with the value being the "title" property sent in from the `<App />`
-* In the `<Title />` component, render an `<h1>` tag with the value of the "text" property sent in from the `<Message />` component
+For this React lab, you will be required to work in a [CodeSandbox](https://codesandbox.io/) project, instead of local code uploaded to Git. The reason for this is so that we can grade your work easier!
 
-**Pass a method to work with external state**
+You can find instructions for how to create a CodeSandbox project in the class 18 [README](../../class-18/README.md#CodeSandbox).
 
-* In the `<App />` component, create a state object in the constructor with a property called `input`
-* In the `<App />` component, write a method called `sayIt()` that will take a string, and set the state property called `input` with that string.
-* In the `<App />` component, send an additional attribute to the `<Message />` component called `action`, which sends a reference to the `sayIt` method.
-* In the `<App />` component, send an additional attribute to the `<Message />` component called `input`, which sends `this.state.input`
-* Create a new component called `<Form />` in `form.js`
-* Import this component into the `<Message />` component
-* Render this from `<Message />` with an attribute called `do` that is a reference to the `action` property sent to the `<Message />` component from the `<App /`
-  * Note that what we've done here is to create a method in `<App />`, sent it to `<Message />` and then passed it along to `<Form />`
-* In the `<Form />` component, render a `<form>` tag with an `<input>` element.
-* The `<form>` should call a method `onSubmit` that will prevent the default behavior on the form.
-* The `<input>` element should call a method `onChange` that will capture current value of the input field and then call the method sent in the `do` property with that value
-  * This will bubble all the way up and run the `sayIt()` method in the `<App />`
-* In the `<Message />` component, render an `<h4>` tag at the end, containing the value of the `input` property sent to it from `<App />`
+### Must-Haves
 
-When operational, your application should look like the image below, and the words you type should appear as you type them.
+For these front-end assignments, there is a lot more room for creativity and exploration. Typically, there will be a provided sample implementation that you can use for reference / inspiration. You do not have to duplicate this sample implementation; instead there are always a few key requirements that your application **must have** to get full points. Here are the must-haves for this lab:
 
-![Screen Shot](./lab28-practice.png)
+-   You must have three components that are form elements (inputs, checkboxes, radio buttons, buttons, dropdowns, textarea, sliders, etc. )
+    -   These components should be stateless and should instead use values from any props passed to them
+    -   Design these components as if you were creating a component to share as an NPM package
+    -   Be sure to include as many props as necessary to make this fully modular
+        -   Think about:
+            -   Adding custom classes
+            -   Adding custom style
+            -   Adding handlers
+            -   Adding default or set values
+            -   Having a variable number of options for dropdowns or radio buttons
+-   You must have a component that takes in a state object as a props parameter, and prints the state key value pairs in a nice way
+    -   Should support a state object of any size
+    -   Handle when there's no state object passed
+-   Custom Sass styling
+    -   All custom style code must be in Sass
+    -   If you would like to use a CSS framework, you must have some custom sass styles as well
+    -   Sass code should be well structured and non-repetitive using partials and mixins
 
----
+### Commenting
 
-## To Do Application Refactor
+You are required to comment each class and function using proper [JSDoc comments](https://devhints.io/jsdoc).
 
-Begin with: `/lab/starter-code/todo`
+### Tests
 
-You will be refactoring this simple "To Do" application, written with HTML, CSS, Vanilla Javascript and Handlebars Templates in a React app.
+This lab will be graded for test coverage (80% is what to shoot for). You should not implement any snapshot tests. Instead, implement mount (shallow, full or render) tests using Enzyme. Here are some ideas of what you might want to test for:
 
-* Create a new React application at [Code Sandbox](http://codesandbox.io)
-* Replicate the functionality of the starter application
-  * Add whatever is typed into the form to the list
-  * Clicking an item changes it's 'complete' state
-    * Use that to set a new class on the item for styling
-  * Clicking the delete link removes the item from the list
-* Some basic CSS has been provided in the starter code
-  * Convert this to SASS
+-   Form elements
+    -   Renders correctly
+        -   All props work when passed
+        -   Form element doesn't break when props are missing
+    -   Can accept passed handlers and connect them correctly
+-   State printer
+    -   Works for a state of any size
+    -   Renders correctly
+        -   All props work when passed
+        -   Doesn't break when missing props
+-   App
+    -   Displays three form elements and a state printer
 
-## Tests
+### Deployment
 
-Write mount/enzyme tests for each component in all assignments
+Deploy your CodeSandbox application to Netlify (CodeSandbox has that built in!)
 
 ## Assignment Submission Instructions
-Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
+
+As usual, you will be required to have a `README.md` that you submit, containing a link to your CodeSandbox, deployed website, and UML Diagram.
+
+Create a new repository for this lab. It's okay if the contents of the repository are just your `README.md` and UML Diagram. You can also create a repository that is [linked to your CodeSandbox](https://codesandbox.io/docs/git) if you would like, though this is not required as long as your `README.md` has a link to your CodeSandbox.
+
+### Submit to Canvas
+
+-   Ensure that your `README.md` exists and has:
+    -   A link to your CodeSandbox
+    -   A link to your deployed site
+    -   Instructions for how to operate your application
+        -   Please be clear and descriptive
+        -   If parts of your application are broken, use this section of your README to describe how to run the working code so you can get partial points
+    -   Embedded UML diagram image
+
+**Be sure to delete any placeholder content if you use `README-template.md`.**
+
+Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
+
+### Resubmitting
+
+In order to resubmit, you can add another submission on the Canvas assignment with the same link to your `README.md`. Optionally, add a comment on your submission describing what changed in your resubmit.
+
+## Grading Rubric
+
+| Criteria                                                          | Points |
+| ----------------------------------------------------------------- | ------ |
+| Features: Score based on % of features demonstrably completed     | 2      |
+| Code Implementation: Efficiency of code + Comments + Code Quality | 2      |
+| Style: Components are styled in a pleasing way with custom Sass   | 2      |
+| Testing: 0 for no tests, full points for 80% coverage             | 2      |
+| Deployment to Netlify                                             | 1      |
+| Documentation: README + UML + Links                               | 1      |
+| Total:                                                            | 10     |

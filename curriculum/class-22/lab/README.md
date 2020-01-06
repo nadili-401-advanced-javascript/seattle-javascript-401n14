@@ -1,70 +1,124 @@
 # LAB - Hooks API
 
-Using the React "Hooks" API, refactor a functioning application, upgrading the implementation from a class-based component state driven system in a more modern functional hooks-based state system.
+In this lab, you will be asked to create an application with a short quiz that categorizes a user.
 
-## Before you begin
-Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
+Note that there is **no starter code** for this lab.
 
-## Getting Started
-Starter code has been provided for you in the `/lab/starter-code` folder. 
+## Requirements
 
-Open [Code Sandbox](http://codesandbox.io) and Create a new application. When prompted, choose "From GitHub" and then paste in the URL to today's starter code folder from your fork of the class repository.
+Your task for this lab will be to create an application which shows a quiz a user can take, and returns a category the user belongs in. Users should be able to answer fields in a form (any of: radio buttons, checkboxes, text inputs, dropdowns) and should be able to submit and reset the form to see results or clear out their entries.
 
-You will be submitting the URL to this working sandbox as part of your assignment.
+### Sample Implementation
 
-## Assignment
+You can find an example of a possible solution to this lab here:
 
+[Sample Quiz](https://js401n14-lab22.netlify.com/)
 
-### Hooks Practice
+Note that this example is just for your reference, **your final lab does not need to match this example exactly**. A few things to note from this implementation:
 
-Begin with: `starter-code/practice`
+-   The [Bootstrap](https://getbootstrap.com/) CSS framework is used for styling, along with some custom Sass
+-   This project has the `App` component, as well as a component for `Quiz`, `QuizQuestion`, and `FormRadio`
+-   The hook `useReducer` is used to create a state manager
+-   The hook `useEffect` is used to update the page background color and tab title on change in quiz
+-   The hook `useState` is used to maintain simple state variables that do not need complex state manager logic
 
-To get familiar with the hooks API, you'll build a simple application that uses the state hook to manage form state, a reducer hook to manage application state, and the effect hook to handle a simple side effect.
+### Use CodeSandbox
 
-* Convert the app component from a class into a function
-* Import `useState`. `useEffect`, and `useReducer` from react
-* In your `<App />` component
-  * Initialize `input` and `setInput` from `useState`
-  * Initialize `state` and `reducer` from `useReducer`
-  * Write a reducer (ouside of the function) that handles 2 actions
-    * 'enter' - sets a state property called `words` to the uppercased value of the payload
-    * 'reset' - sets state back to it's initial value (empty string)
-  * Use the `useEffect` hook to change `document.title` with the current value of `state.words`
-  * Create a div that will show a value called `state.words`
-  * Create a form with an onSubmit event pointing a local function called `_handleSubmit`
-    * In this function, dispatch the `enter` action to the reducer with the payload being the value of `input`
-  * Create an input field with an onChange event pointing to a local function called `_handleChange`
-    * In this function, use the `setInput` method you created from `useState` to change the value of `input`
-  * Create a button called "reset" that when clicked, will dispatch the 'reset' action, which should clear the output.
-  
-When functioning, this application should take your form field input and show it in uppercase in the `<div>` as well as in the tab title.
+For this React lab, you will be required to work in a [CodeSandbox](https://codesandbox.io/) project, instead of local code uploaded to Git. The reason for this is so that we can grade your work easier!
 
+You can find instructions for how to create a CodeSandbox project in the class 18 [README](../../class-18/README.md#CodeSandbox).
 
-### To Do App: Hooks Conversion
+### Must-Haves
 
-Begin with: `starter-code/todo`
+For these front-end assignments, there is a lot more room for creativity and exploration. Typically, there will be a provided sample implementation that you can use for reference / inspiration. You do not have to duplicate this sample implementation; instead there are always a few key requirements that your application **must have** to get full points. Here are the must-haves for this lab:
 
-The starter code for this assignment is a "complete" To Do application that is monolithic (one enormous component) in nature and uses class components to manange state.
+-   You must implement `useReducer`, `useEffect` and `useState` somewhere in your application
+-   You must have a "quiz" of some sort that has _at least_ three questions
+    -   Tip: Can you reuse any form fields you created from Lab 20?
+-   You must have a submit button that returns a category calculated from the quiz inputs
+-   You must have a reset button which clears out both the state and the form inputs
+-   Custom Sass styling
+    -   All custom style code must be in Sass
+    -   If you would like to use a CSS framework, you must have some custom sass styles as well
+    -   Sass code should be well structured and non-repetitive using partials and mixins
+    -   Add some custom styling for each of your form inputs
+        -   Tip: Handy resource for styling checkboxes, radio buttons and dropdowns: [link](https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes/)
 
-You will be refactoring this on 2 levels.
+### Commenting
 
-1. Modularize
-1. Convert to functional components, with Hooks for state
+You are required to comment each class and function using proper [JSDoc comments](https://devhints.io/jsdoc).
 
-**Work only in "in-memory" state at first**
+### Tests
 
-* Modularize the large component into single responsibility components (i.e. List, Form, Details)
-* Implement each as function components
-* Use the `useState` hooks to manage component state where you would normally use state for a single component
-* Use the `useReducer()` hook to manage the To Do application in the wrapper component
+This lab will be graded for test coverage (80% is what to shoot for). You should not implement any snapshot tests. Instead, implement mount (shallow, full or render) tests using Enzyme. Here are some ideas of what you might want to test for:
 
-#### Stretch Goals
+-   Form fields
+    -   How is invalid input handled? (i.e. entering a string when you want a number, etc.)
+    -   Can interact with each input group
+    -   Radio buttons only select one from collection
+    -   Checkboxes can select any / all from collection
+-   Submit
+    -   User category is correctly calculated based on input
+    -   Check the extremes of each category
+        -   For example, in the sample implementation you can have a color of red, purple, green or blue. Does the quiz work when the input results in barely a red score or barely a purple score? Is there any case where the result is ambiguous or incorrectly set?
+-   Reset
+    -   Do all form fields clear out?
+    -   Do state variables clear out?
+    -   Is the result hidden / removed on reset?
+-   UseEffect
+    -   Does this trigger every time the state or trigger state variable changes?
+-   All components
+    -   Renders correctly when given no props
+    -   Doesn't break when given bad or incorrect props
+    -   Accepts props correctly when given
+    -   Update on state changes correctly
 
-* Implement persistence with the live API to save data to the server
-* Start the application with the initial list of items pulled from the server
+### Deployment
 
-### Testing
-* Tests should assert all functionality
+Deploy your CodeSandbox application to Netlify (CodeSandbox has that built in!)
 
-### Assignemnt Submission Instructions
-Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
+## Assignment Submission Instructions
+
+As usual, you will be required to have a `README.md` that you submit, containing a link to your CodeSandbox, deployed website, and UML Diagram.
+
+Create a new repository for this lab. [Connect this repository to your CodeSandbox](https://codesandbox.io/docs/git), and connect your repository to Travis as in your backend labs.
+
+### Configure your repository
+
+Configure your folder with the following files and directories.
+
+-   `README.md` - contains your lab documentation ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/reference/submission-instructions/labs/README-template.md))
+-   `.gitignore` - contains a robust .gitignore file ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.gitignore))
+-   `.travis.yml` - contains default travis configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.travis.yml))
+    -   Note: React has a built-in linter, and so for react labs you do not need to have ESLint or any ESLint configuration files. Also, be sure to remove the `npm run lint` command from your `.travis.yml`
+-   `package.json` - contains `npm` package config and scripts
+
+### Submit to Canvas
+
+-   Ensure that your `README.md` exists and has:
+    -   A link to your CodeSandbox
+    -   A link to your deployed site
+    -   Instructions for how to operate your application
+        -   Please be clear and descriptive
+        -   If parts of your application are broken, use this section of your README to describe how to run the working code so you can get partial points
+    -   Embedded UML diagram image
+
+**Be sure to delete any placeholder content if you use `README-template.md`.**
+
+Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
+
+### Resubmitting
+
+In order to resubmit, you can add another submission on the Canvas assignment with the same link to your `README.md`. Optionally, add a comment on your submission describing what changed in your resubmit.
+
+## Grading Rubric
+
+| Criteria                                                          | Points |
+| ----------------------------------------------------------------- | ------ |
+| Features: Score based on % of features demonstrably completed     | 2      |
+| Code Implementation: Efficiency of code + Comments + Code Quality | 2      |
+| Style: Components are styled in a pleasing way with custom Sass   | 2      |
+| Testing: 0 for no tests, full points for 80% coverage             | 2      |
+| Deployment to Netlify                                             | 1      |
+| Documentation: README + UML + Links                               | 1      |
+| Total:                                                            | 10     |

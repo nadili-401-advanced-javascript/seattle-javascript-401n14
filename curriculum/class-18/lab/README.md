@@ -1,4 +1,4 @@
-1# LAB - Component Based UI
+# LAB - Component Based UI
 
 Welcome to your first React lab! React labs will be following different coding and submission instructions, so be sure to read this document thoroughly! Also, note that there is **no starter code** for this lab.
 
