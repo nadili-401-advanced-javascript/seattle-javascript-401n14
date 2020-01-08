@@ -1,4 +1,4 @@
-# LAB - Hooks API
+# LAB - Custom Hooks: Socket and Fetch
 
 In this lab, you will be creating a two page application, where one page exhibits a socket connection, and another page loads some data from an external API.
 
