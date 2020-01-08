@@ -7,23 +7,22 @@ const port = 3005 || process.env.PORT;
 
 let socketPool = {};
 
-io.on('message', data => {
-    console.log('read message');
-    console.log(data);
-});
-
 io.on('connection', socket => {
-    socketPool[socket.id] = socket;
+    console.log('Socket', socket.id, 'connected');
+
+    socketPool[socket.id.toString()] = socket;
+
+    socket.on('disconnect', data => {
+        delete socketPool[socket.id.toString()];
+        console.log('Socket', socket.id, 'disconnected');
+    });
+
     socket.on('message', function(data) {
         let sockets = Object.keys(socketPool);
         sockets.forEach(val => {
-            if (val != socket.id) socketPool[val].emit('read message', data);
+            socketPool[val].emit('read message', data);
         });
     });
-});
-
-io.on('disconnect', socket => {
-    delete socketPool[socket.id];
 });
 
 const listenCb = () =>
