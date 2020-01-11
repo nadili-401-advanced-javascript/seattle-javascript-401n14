@@ -45,6 +45,6 @@ Each student can sign up for a max of 2 white-boarding interviews. If you would 
 | ~~Dec 21, 2019~~     | ---                 |
 | ~~Jan 04, 2020~~     | ~~James Dunn~~          |
 | Jan 11, 2020     | Nadya Ilinskaya     |
-| Jan 18, 2020     | ---                 |
-| Jan 25, 2020     | ---                 |
-| Feb 01, 2020     | ---                 |
+| Jan 18, 2020     | Martin Balke                 |
+| Jan 25, 2020     | Morgan T Shaw                 |
+| Feb 01, 2020     | Morgan T Shaw                 |
