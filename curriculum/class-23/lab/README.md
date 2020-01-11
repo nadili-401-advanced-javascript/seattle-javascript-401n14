@@ -1,91 +1,126 @@
-# LAB - Custom Hooks: Sockets and Fetch
+# LAB - Custom Hooks: Socket and Fetch
 
-For this assignment, you will be refactoring a socket.io based chat application to make use of React Hooks and Context APIs
+In this lab, you will be creating a two page application, where one page exhibits a socket connection, and another page loads some data from an external API.
 
-In addition to the raw functionality, you should give careful consideration to the visual layout of your application, color choices, animations, and overall usability.
+## Requirements
 
-## Before you begin
-Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
+Your task for this lab will be to write custom hooks for getting data from socket events, and for fetching data from an external API. There is a lot of flexibility in this lab; you can use any socket or any API you like.
 
-## Getting Started
+### Sample Socket
 
-Starter code has been provided for you in the `/lab/starter-code` folder. 
+You will have a sample socket server available to use in the lab starter code. To run this, download the server folder onto your machine, run `npm install` and `npm start`, and then the socket server should be running and allow for connections on port 3005. Note that _you do not have to use this provided socket_. You can edit this socket, you can write your own, or you can use any other socket exposed on the web.
 
-Open [Code Sandbox](http://codesandbox.io) and Create a new application. When prompted, choose "From GitHub" and then paste in the URL to today's starter code folder from your fork of the class repository.
+### Sample Implementation
 
-You will be submitting the URL to this working sandbox as part of your assignment.
+You can find an example of a possible solution to this lab here:
 
+[Sample Lab](https://js401n14-lab23.netlify.com/)
 
-## Practice creating custom hooks
-Begin with: `starter-code/practice`
+Note that this example is just for your reference, **your final lab does not need to match this example exactly**. A few things to note from this implementation:
 
-In this folder, you'll find 2 sub-folders
-* `server` contains a minimalist server that runs a `socket.io` server on port 3000 and also starts up a version of the `Q` server from block 4. Each listens for different events.  Review this code and note what's being listened for and what's being emitted.
-* `client` contains a React application that
-  * Takes your form input and displays it on screen as you type
-  * When you 'submit' the form
-    * Publishes separate messages to the `Q` server and the `socket.io` server with the form data
-  * Subscribes to those events and renders their 'payload' 
+-   The [Bootstrap](https://getbootstrap.com/) CSS framework is used for styling, along with some custom Sass
+-   This project has the `App` component, as well as a component for `Unsplash` and `Socket`
+-   The custom hook `useSockets` is used to connect to the chat socket server provided in the starter code
+-   The custom hook `useUnsplashPhotos` is used to connect to the unsplash API and return a response]
 
-When the server is running, this app should show your form entry 3 times.
-  
-**Refactor this application as follows**
+### Use CodeSandbox
 
-* Create a custom hook called `form` 
-  * This should handle the change for each field, the form submission
-  * Export submit & change handlers and form data
-  * The hook should accept a callback function that it will call (if supplied) on form submit, with the form data
-  * Convert the current form implementation to use your new hook
-  
-* Create a custom hook called `socket`
-  * Connect to the socket.io server on port 3000
-    * Where in the hook do you make this connection?
-  * Export a subscribe method that takes an event and a callback
-    * Runs the callback with the payload when an event fires
-  * Export a publish method that takes an event and some payload
-    * Emits the event and payload to the server for broadcasting
-  * Convert the current socket publish/subscribe implementation to use your new hook
-    
-* Create a custom hook called `q`
-  * Connect to the socket.io server on port 3333
-    * Where in the hook do you make this connection?
-  * Export a subscribe method that takes an event and a callback
-    * Runs the callback with the payload when an event fires
-  * Export a publish method that takes an event and some payload
-    * Emits the event and payload to the server for broadcasting
-  * Convert the current Q publish/subscribe implementation to use your new hook
+For this React lab, you will be required to work in a [CodeSandbox](https://codesandbox.io/) project, instead of local code uploaded to Git. The reason for this is so that we can grade your work easier!
 
-### Testing
-* Complete basic logic/unit testing on the hooks
+You can find instructions for how to create a CodeSandbox project in the class 18 [README](../../class-18/README.md#CodeSandbox).
 
-## To Do Application Refactor
+### Socket Connection
 
-You've been supplied starter code for the To Do application that can (optionally) connect to a live API server. In this assignment, you'll need to refactor the application in a number of ways:
+Regardless of which socket you use, you must include detailed instructions in your README about how to run the socket server (if running a socket server is required). We won't be able to test your socket otherwise!
 
-* Modularize both the todo and todo-connected components.
-  * They will both use the same form, list, details sub-components
-  * Use the `useReducer` hook to manage your displayed lists.
-  * The application should work the same way, with the obvious exception that the 'connected' version is hitting server.
-* Alter the application to use the connected component, as you'll need to use your live server to save real data and fire real events.
-* Convert the form component use the `form` hook you created in the practice assignment
-* Implement the `Q` hook and subscribe to the various **CRUD** events that your deployed API and Q server are wired for.
-* As you save/delete records, anyone using your application (e.g. having multiple tabs open) should see updates in real time.
+### Must-Haves
 
-### Testing
-* Write tests before you start the refactoring process
-* Your tests should continue to work after the refactor
-* You should expand on them after you add in the Q connection.
+For these front-end assignments, there is a lot more room for creativity and exploration. Typically, there will be a provided sample implementation that you can use for reference / inspiration. You do not have to duplicate this sample implementation; instead there are always a few key requirements that your application **must have** to get full points. Here are the must-haves for this lab:
 
-### Resources
+-   You must implement two custom hooks in your application
+    -   One should have the purpose of returning an API response
+    -   One should have the purpose of connecting to / retrieving socket data
+-   You must have two pages in your application using react router
+    -   Include some navigation header to route between the two pages
+-   You must have a page that demonstrates a connection to a running socket server
+    -   Either use the socket server in the starter code, or write / find your own
+    -   Provide information either on this page or in your README on how to best check the socket connection (for example, in the Sample Lab you can see instructions for opening it again in a new tab)
+-   You must have a page which GETS, POSTS, PUTS, or DELETES content to an API endpoint
+    -   Use something other than the Unsplash search API
+    -   Demonstrate that you are able to call the API on a state change
+    -   Provide information either on this page or in your README on how to best check the API connection
+-   Custom Sass styling
+    -   All custom style code must be in Sass
+    -   If you would like to use a CSS framework, you must have some custom sass styles as well
+    -   Sass code should be well structured and non-repetitive using partials and mixins
+    -   Add some custom styling for each of your pages
 
-* You will need a deployed API server to store your data inot a 'todo' collection
-* You will need a deployed Q server to handle events.
-* The API server should be connected to, and publish CRUD events to your Q server
+### Commenting
 
-If you are having issues or troubles getting these servers deployed on your own, you may connect to the public API and Q servers. We highly recommend using your own, however.
+You are required to comment each class and function using proper [JSDoc comments](https://devhints.io/jsdoc).
 
-* [API Server](https://api-js401.herokuapp.com/api/v1)
-* [Q Server](https://q-js401.herokuapp.com)
+### Tests
 
-## Assignemnt Submission Instructions
-Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
+This lab will be graded for test coverage (80% is what to shoot for). You should not implement any snapshot tests. Instead, implement mount (shallow, full or render) tests using Enzyme. Here are some ideas of what you might want to test for:
+
+-   Page Navigation
+    -   The correct component renders on each page
+    -   Navigation buttons work correctly
+-   Socket connection
+    -   You DO NOT need to test socket connection
+    -   Test that when socket data is received, it is displayed properly
+    -   Test that this component loads as expected when not connected to a socket (doesn't break)
+-   API connection
+    -   Test that you are able to get a response
+    -   Test what happens when your api returns an error (bad input)
+    -   Test that results are displayed correctly
+
+### Deployment
+
+Deploy your CodeSandbox application to Netlify (CodeSandbox has that built in!)
+
+## Assignment Submission Instructions
+
+As usual, you will be required to have a `README.md` that you submit, containing a link to your CodeSandbox, deployed website, and UML Diagram.
+
+Create a new repository for this lab. [Connect this repository to your CodeSandbox](https://codesandbox.io/docs/git), and connect your repository to Travis as in your backend labs.
+
+### Configure your repository
+
+Configure your folder with the following files and directories.
+
+-   `README.md` - contains your lab documentation ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/reference/submission-instructions/labs/README-template.md))
+-   `.gitignore` - contains a robust .gitignore file ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.gitignore))
+-   `.travis.yml` - contains default travis configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.travis.yml))
+    -   Note: React has a built-in linter, and so for react labs you do not need to have ESLint or any ESLint configuration files. Also, be sure to remove the `npm run lint` command from your `.travis.yml`
+-   `package.json` - contains `npm` package config and scripts
+
+### Submit to Canvas
+
+-   Ensure that your `README.md` exists and has:
+    -   A link to your CodeSandbox
+    -   A link to your deployed site
+    -   Instructions for how to operate your application
+        -   Please be clear and descriptive
+        -   If parts of your application are broken, use this section of your README to describe how to run the working code so you can get partial points
+    -   Embedded UML diagram image
+
+**Be sure to delete any placeholder content if you use `README-template.md`.**
+
+Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
+
+### Resubmitting
+
+In order to resubmit, you can add another submission on the Canvas assignment with the same link to your `README.md`. Optionally, add a comment on your submission describing what changed in your resubmit.
+
+## Grading Rubric
+
+| Criteria                                                          | Points |
+| ----------------------------------------------------------------- | ------ |
+| Features: Score based on % of features demonstrably completed     | 2      |
+| Code Implementation: Efficiency of code + Comments + Code Quality | 2      |
+| Style: Components are styled in a pleasing way with custom Sass   | 2      |
+| Testing: 0 for no tests, full points for 80% coverage             | 2      |
+| Deployment to Netlify                                             | 1      |
+| Documentation: README + UML + Links                               | 1      |
+| Total:                                                            | 10     |
