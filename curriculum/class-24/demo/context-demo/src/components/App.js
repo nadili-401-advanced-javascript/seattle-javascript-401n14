@@ -1,38 +1,21 @@
 import React from 'react';
+import GetName from './GetName';
 import Child from './Child';
+import GrandChildConsumer from './GrandChildConsumer';
+import NameChanger from './NameChanger';
 
-export const AppContext = React.createContext();
-
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-        };
-    }
-
-    changeName(e) {
-        this.setState({ name: e.target.value });
-    }
-
-    render() {
-        return (
-            <AppContext.Provider value={this.state}>
-                <div className='App'>
-                    <h1>Enter Your Name:</h1>
-                    <input
-                        value={this.state.name}
-                        onChange={this.changeName.bind(this)}
-                    />
-
-                    <h2>
-                        Now, you should see this update my descendant consumers:
-                    </h2>
-                    <Child />
-                </div>
-            </AppContext.Provider>
-        );
-    }
+function App() {
+    return (
+        <div>
+            <h1>My App!</h1>
+            <GetName>
+                <Child>
+                    <GrandChildConsumer />
+                    <NameChanger />
+                </Child>
+            </GetName>
+        </div>
+    );
 }
 
 export default App;
