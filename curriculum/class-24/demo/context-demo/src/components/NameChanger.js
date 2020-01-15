@@ -8,10 +8,19 @@ function NameChanger(props) {
         context.update(faker.name.firstName());
     };
 
+    const changeBear = () => {
+        context.updateBear('Polar');
+    };
+
     return (
-        <button className='btn btn-primary' onClick={changeName}>
-            Change Name
-        </button>
+        <div>
+            <button className='btn btn-primary' onClick={changeName}>
+                Change Name
+            </button>
+            <button className='btn btn-primary' onClick={changeBear}>
+                Change Name
+            </button>
+        </div>
     );
 }
 

@@ -6,7 +6,7 @@ function GrandChildConsumer() {
     return (
         <div>
             <p>My name is {context.name}</p>
-            <p>My name is also {context.name}</p>
+            <p>My Bear is {context.bear}</p>
         </div>
     );
 }

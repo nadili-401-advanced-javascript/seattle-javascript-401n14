@@ -1,0 +1,134 @@
+h1[data-attr='0'] {
+    text-decoration: underline;
+}
+
+$mobile: 600px;
+$tablet: 1000px;
+
+@mixin respond-mobile {
+    @media (max-width: $mobile) {
+        background-color: greenyellow;
+    }
+}
+
+@mixin respond-max($amt) {
+    @media (max-width: $amt) {
+        background-color: darkorchid;
+    }
+}
+
+@mixin respond-between($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        background-color: royalblue;
+    }
+}
+
+@function getLum($bk) {
+    $red: getCo(red($bk));
+    $gre: getCo(green($bk));
+    $blu: getCo(blue($bk));
+
+    @return (0.2126 * $red) + (0.7152 * $gre) + (0.0722 * $blu);
+}
+
+@function getCo($col) {
+    @if $col <= 0.03928 {
+        $col: $col/12.92;
+    } @else {
+        $col: pow((($col + 0.055)/1.055), 2.4);
+    }
+
+    @return $col;
+}
+
+@function pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $number;
+        }
+    }
+
+    @return $value;
+}
+
+@mixin setColor($bk) {
+    $white: getLum(#ffffff);
+    $black: getLum(#000000);
+    $bkLum: getLum($bk);
+
+    $contrastWhite: ($white + 0.05) / ($bkLum + 0.05);
+    $contrastBlack: ($black + 0.05) / ($bkLum + 0.05);
+
+    @if $contrastWhite > 3.1 {
+        background-color: $bk;
+        color: white;
+    } @else {
+        background-color: $bk;
+        color: black;
+    }
+}
+
+.text-container {
+    @include setColor(#ccc);
+}
+
+.responsive-box {
+    width: calc(20% + 20px);
+    height: 200px;
+    background-color: lavender;
+
+    @include setColor(green);
+
+    @include respond-mobile();
+
+    @include respond-between($mobile, $tablet);
+
+    // on mobile do something
+    // on tablet do something;
+}
+
+.list {
+    // > refers to direct child (not grandchild or descendant)
+    color: gray;
+    li {
+        color: red;
+
+        &.special + .item {
+            color: green;
+        }
+    }
+
+    // & refers to myself (in this case .list)
+    & > li > * {
+        color: blue;
+    }
+
+    &:hover {
+        background-color: lightblue;
+    }
+}
+
+p:last-child {
+    color: darkmagenta;
+}
+
+p:nth-child(2n) {
+    font-style: italic;
+}
+
+.blah + p {
+    &:not(:last-child) {
+        margin-bottom: 0px;
+        color: orange;
+
+        &::after {
+            display: block;
+            content: 'After!';
+            width: 100px;
+            height: 100px;
+            background-color: indianred;
+        }
+    }
+}
