@@ -5,7 +5,10 @@ export const NameContext = React.createContext();
 function GetName(props) {
     const [state, setState] = useState({
         update: newName => {
-            setState({ ...state, name: newName });
+            setState(state => ({ ...state, name: newName }));
+        },
+        updateBear: newBear => {
+            setState(state => ({ ...state, bear: newBear }));
         },
         name: '',
         bear: 'grizzly',
