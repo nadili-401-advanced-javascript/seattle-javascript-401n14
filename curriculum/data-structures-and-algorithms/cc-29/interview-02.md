@@ -1,6 +1,6 @@
 # Interview 02
 
-Identify anagrams.
+Determine if a string is full of unique characters
 
 ## Specifications
 
@@ -10,20 +10,17 @@ Identify anagrams.
 - You are free to offer suggestions or guidance (and see how they respond),  but don't solve it for the candidate
 
 ## Feature Tasks
+- Ask the candidate to write a function that will determine if the given string is full of unique characters. 
+- We can assume that spaces don't count, and the charactes are not case sensitive (i.e. "A" is the same as "a"). 
+- The most efficient solution is going to use a Hashmap. The candidate should iterate through the string
+and for each of the characters put them in the Hashset, if the value already exists, they can return false as soon as
+a duplicate occurs. 
+- We can assume they have a Hashset readily available (they do not have to implement one)
+- This solution is of an O(n) time and O(n) space
 
-- Actual code is required for a complete answer  
-- Ask the candidate to write a function to validate whether or not two given strings are anagrams (contain the same letters). 
-- Disregard spaces
-- Help the candidate understand the definition of a anagram if they are unsure of it.
-  - Two strings are anagrams if one can be built from exactly the same letters as the other. 
-- Avoid utilizing any of the built-in methods available in your language.
-- This problem can be solved using different approaches:
-  - Look at each letter in the first string, and determine if it's in the second string (removing it, if found).
-    - This is an `O(n^2)` brute-force solution
-  - Sort the characters in each string, and then see if they are equal. 
-    - Best sorts are `O(n log n)`, so this won't be better than that. 
-  - Use a hash to count the occurances of each charater in the first string, and ensure the second string matches. 
-    - This requires a single pass through both strings, so at worst is `O(n)`. 
+### Stretch Goal
+If they solve this question too quickly, increase the difficulty by saying that the sentance is case sensitive.
+(i.e. "A" and "a" are not the same. )
 
 ## Structure 
 
@@ -41,10 +38,9 @@ Add up all the points at the end, and record the total at the bottom of the page
 
 | Input | Output |
 |-----|----| 
-| `"Eleven plus two", "Twelve plus one"` | `TRUE` |
-| `"Clint Eastwood", "Old West Action"` | `TRUE` |
-| `"Software", "Swear often"` | `FALSE` |
-| `"Astronomers", "Moon starers"` | `TRUE` |
+| `The quick brown fox jumps over the lazy dog` | `FALSE` |
+| `I love cats` | `TRUE` |
+| `Donald the duck` | `FALSE` |
 
 ## Documentation
 

@@ -1,6 +1,6 @@
-# Interview 02
+# Interview 01
 
-Identify anagrams.
+Reverse a string, three different ways.
 
 ## Specifications
 
@@ -12,18 +12,15 @@ Identify anagrams.
 ## Feature Tasks
 
 - Actual code is required for a complete answer  
-- Ask the candidate to write a function to validate whether or not two given strings are anagrams (contain the same letters). 
-- Disregard spaces
-- Help the candidate understand the definition of a anagram if they are unsure of it.
-  - Two strings are anagrams if one can be built from exactly the same letters as the other. 
-- Avoid utilizing any of the built-in methods available in your language.
-- This problem can be solved using different approaches:
-  - Look at each letter in the first string, and determine if it's in the second string (removing it, if found).
-    - This is an `O(n^2)` brute-force solution
-  - Sort the characters in each string, and then see if they are equal. 
-    - Best sorts are `O(n log n)`, so this won't be better than that. 
-  - Use a hash to count the occurances of each charater in the first string, and ensure the second string matches. 
-    - This requires a single pass through both strings, so at worst is `O(n)`. 
+- Ask the candidate to write 3 functions, that each utilize a different algorithms for reversing a string.
+- One of the 3 methods may utilize any of the built-in methods, except for `String#reverse`, available in your language. The other 2 may not. 
+- This problem can be approached in many ways....
+  - Popular techniques involve converting the string to an array of characters, reversing the array, and then converting back to a string. 
+  - Encourage the candidate to try at least one recursive solution, with no loops (`for` / `while`).
+    - A base case should be clearly identified
+    - The recursive call might look like concatenating the last character of the string, with `reverse` of the whole string (without the last char). 
+      - `rev = str[lastChar] + strWithoutLastChar`
+  - Ensure the candidate evaluates Big O for every algorithm. Be extra thoughtful of what any built-in methods are doing under the hood! 
 
 ## Structure 
 
@@ -41,10 +38,9 @@ Add up all the points at the end, and record the total at the bottom of the page
 
 | Input | Output |
 |-----|----| 
-| `"Eleven plus two", "Twelve plus one"` | `TRUE` |
-| `"Clint Eastwood", "Old West Action"` | `TRUE` |
-| `"Software", "Swear often"` | `FALSE` |
-| `"Astronomers", "Moon starers"` | `TRUE` |
+| `"Code Fellows"` | `"swolleF edoC"` |
+| `"Tacocat"` | `"tacocaT"` |
+| `"A ship in port is safe, but that's not what ships are built for."` | `".rof tliub era spihs tahw ton s'taht tub ,efas si trop ni pihs A"` |
 
 ## Documentation
 

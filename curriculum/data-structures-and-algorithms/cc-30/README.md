@@ -20,11 +20,11 @@ Don't look at the interview questions until you decide who will be the first int
 
 ## Structure
 
-Utilize your whiteboard skills to solve the problem according to the steps in the Rubric, and example whiteboard layout. 
+Utilize your whiteboard skills to solve the problem with accurate, runnable code, according to the steps in the Rubric and example whiteboard layout. 
 
 ## Example
 
-By the end of the interview, your whiteboard should resemble the example whiteboard layout:
+By the end of the interview, your whiteboard should resemble the example whiteboard layout, with an additional section of actual code, in the language of your course:
 
 ![example whiteboard layout](../../assets/DataStructuresWhiteboard.PNG).
 
