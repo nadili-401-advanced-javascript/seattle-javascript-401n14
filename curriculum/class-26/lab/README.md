@@ -10,8 +10,7 @@ Your task for this lab will be to implement a Redux store which contains a list 
 
 You can find an example of a possible solution to this lab here:
 
-> Note: this is currently not live, I'm working on it! :D
-> [Sample Lab](https://js401n14-lab26.netlify.com/)
+[Sample Lab](https://js401n14-lab26.netlify.com/)
 
 Note that this example is just for your reference, **your final lab does not need to match this example exactly**. A few things to note from this implementation:
 
