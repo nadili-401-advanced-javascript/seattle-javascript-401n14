@@ -10,9 +10,11 @@ You lab will be a fully developed back-end and front-end. Utilize code from prev
 
 You should have a backend which allows you to use HTTP requests to authenticate, create tasks, and persist those tasks across multiple logins. There should be a MongoDB which creates and stores records, and your API should be live an accessible via Heroku.
 
+You must also add a GET route `/priority/:level` which returns any tasks for that user at the given priority level.
+
 ## Frontend
 
-You should have a sign-in portal that allows users to log in to view their tasks. Implement OAuth sign in / sign up with either Google or GitHub. You should then allow users to see their list of tasks, add some tasks, and modify existing tasks. All of this should be mobile responsive.
+You should have a sign-in portal that allows users to log in to view their tasks. You should then allow users to see their list of tasks, add some tasks, and modify existing tasks. All of this should be mobile responsive.
 
 ### Use CodeSandbox
 
@@ -52,11 +54,7 @@ You are required to comment each class and function using proper [JSDoc comments
 This lab will be graded for test coverage on the front-end side only (80% is what to shoot for). You should not implement any snapshot tests. Instead, implement mount (shallow, full or render) tests using Enzyme. Here are some ideas of what you might want to test for:
 
 -   User can log in
-    -   OAuth
-    -   Manual
 -   User can sign up and create a new user
-    -   OAuth
-    -   Manual
 -   User can create a task
 -   User can edit a task
 -   User can mark a task as done
