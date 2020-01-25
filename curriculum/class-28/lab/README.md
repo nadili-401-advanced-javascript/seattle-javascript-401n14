@@ -1,49 +1,114 @@
-# LAB - Remote APIs
+# LAB - ToDo Application
 
-Using asynchronous action creators via 'thunk', wire CRUD functionality into the To Do application, with Redux
+In this lab, we will be combining what we've learned over the course of the curriculum to make a full-featured ToDo application. This lab will largely be coded in class, with additional clean up, styling, commenting and tweaks made on your own time.
 
-## Before you begin
-Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
+# Requirements
 
-## Getting Started
+You lab will be a fully developed back-end and front-end. Utilize code from previous labs where you can!
 
-Starter code has been provided for you in the `/lab/starter-code` folder. 
+## Backend
 
-Open [Code Sandbox](http://codesandbox.io) and Create a new application. When prompted, choose "From GitHub" and then paste in the URL to today's starter code folder from your fork of the class repository.
+You should have a backend which allows you to use HTTP requests to authenticate, create tasks, and persist those tasks across multiple logins. There should be a MongoDB which creates and stores records, and your API should be live an accessible via Heroku.
 
-You will be submitting the URL to this working sandbox as part of your assignment.
+## Frontend
 
-## Assignment
-### To Do - Reduxified and Fully Connected
-* Upgrade the provided `todo` application 
-* Keep the settings context in place so that you can manage those options within the components
-* Use Redux for global state management
-* For the to do form, if you're using JSON Schema Forms ...
-  * Fetch the To Do schema from the server in the form component on it's initial render
-  * Bonus points if you do this with `<Suspense>`
-  * Convert the To Do forms to use the live schema
-* For all CRUD ops, convert the native `fetch...()` calls from being in the components to instead invoking action methods
-  * These should return functions that dispatch the real action
-  * You'll need to have `thunk` in place to make this work
-* Update the results in the store
-  * **Question** -- Do you update the full store after every write operation or do you try and keep your store in sync manually?  How you approach/answer this will determine what action(s) you dispatch.
+You should have a sign-in portal that allows users to log in to view their tasks. Implement OAuth sign in / sign up with either Google or GitHub. You should then allow users to see their list of tasks, add some tasks, and modify existing tasks. All of this should be mobile responsive.
 
-### Styling
-* Clearly, this needs a little bit of TLC
-* Use your generic design to apply core styling and layout
-* Use your creativity ...
-  * A pop-up modal for the details instead of a simple list?
-  * Accordions?
-  * Slide Out?
-  * Rotator?
+### Use CodeSandbox
 
-### Testing
-* tests that ensure the list module functions correctly with error-check parameters
+For this React lab, you will be required to work in a [CodeSandbox](https://codesandbox.io/) project, instead of local code uploaded to Git. The reason for this is so that we can grade your work easier!
 
-### Stretch Goals:
-* Paginate the results.  The initial calls to the people list will give a total number people, pages, and a link to the next page.
-* Create a new component for navigation that will use those links to draw a list of pages to fetch, and then keep re-calling that initial fetch method to update the list based on what page you are "on"
-* Multi-User / Event Driven ... Once you're fully wired for CRUD, re-integrate the Q connection (the `useQ()` hook) and do event driven updates
+You can find instructions for how to create a CodeSandbox project in the class 18 [README](../../class-18/README.md#CodeSandbox).
 
-### Assignemnt Submission Instructions
-Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
+### Must-Haves
+
+For the front-end portion, there is a lot more room for creativity and exploration. We will be coding this lab primarily in-class, so most of the must-have requirements will be covered. Here are the must-haves for this lab so you can double check that your own lab has these needs met.
+
+-   You must implement a redux store
+-   You must implement a sign in / sign up user flow
+    -   Allow users to create an account manually
+    -   Allow users to create an account via Google OR GitHub (choose one)
+    -   Allow users to sign in to an existing account manually
+    -   Allow users to sign in to an existing account using Google OR GitHub (choose one)
+-   You must implement a ToDo management page with the following features:
+    -   List all the user's current tasks
+    -   Allow user to mark tasks as done
+    -   Allow user to add new tasks
+    -   Allow user to delete tasks
+    -   Allow user to edit tasks
+    -   Allow user to change task order (utilizing drag-and-drop)
+-   Custom Sass styling
+    -   All custom style code must be in Sass
+    -   If you would like to use a CSS framework, you must have some custom sass styles as well
+    -   Sass code should be well structured and non-repetitive using partials and mixins
+    -   You must attempt to make your styling mobile-responsive (does not have to be perfect!)
+
+### Commenting
+
+You are required to comment each class and function using proper [JSDoc comments](https://devhints.io/jsdoc).
+
+### Tests
+
+This lab will be graded for test coverage on the front-end side only (80% is what to shoot for). You should not implement any snapshot tests. Instead, implement mount (shallow, full or render) tests using Enzyme. Here are some ideas of what you might want to test for:
+
+-   User can log in
+    -   OAuth
+    -   Manual
+-   User can sign up and create a new user
+    -   OAuth
+    -   Manual
+-   User can create a task
+-   User can edit a task
+-   User can mark a task as done
+-   User can delete a task
+-   User can change task order via drag-and-drop
+
+### Deployment
+
+Deploy your CodeSandbox application to Netlify (CodeSandbox has that built in!)
+
+## Assignment Submission Instructions
+
+As usual, you will be required to have a `README.md` that you submit, containing a link to your CodeSandbox, deployed website, and UML Diagram.
+
+Create a new repository for this lab. [Connect this repository to your CodeSandbox](https://codesandbox.io/docs/git), and connect your repository to Travis as in your backend labs.
+
+### Configure your repository
+
+Configure your folder with the following files and directories.
+
+-   `README.md` - contains your lab documentation ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/reference/submission-instructions/labs/README-template.md))
+-   `.gitignore` - contains a robust .gitignore file ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.gitignore))
+-   `.travis.yml` - contains default travis configuration ([template](https://github.com/codefellows/seattle-javascript-401n14/blob/master/configs/.travis.yml))
+    -   Note: React has a built-in linter, and so for react labs you do not need to have ESLint or any ESLint configuration files. Also, be sure to remove the `npm run lint` command from your `.travis.yml`
+-   `package.json` - contains `npm` package config and scripts
+
+### Submit to Canvas
+
+-   Ensure that your `README.md` exists and has:
+    -   A link to your CodeSandbox
+    -   A link to your deployed site
+    -   Instructions for how to operate your application
+        -   Please be clear and descriptive
+        -   If parts of your application are broken, use this section of your README to describe how to run the working code so you can get partial points
+    -   Embedded UML diagram image
+
+**Be sure to delete any placeholder content if you use `README-template.md`.**
+
+Once you've ensured your `README.md` is correct, within Canvas submit a link to your `README.md`
+
+### Resubmitting
+
+In order to resubmit, you can add another submission on the Canvas assignment with the same link to your `README.md`. Optionally, add a comment on your submission describing what changed in your resubmit.
+
+## Grading Rubric
+
+| Criteria                                                          | Points |
+| ----------------------------------------------------------------- | ------ |
+| Features: Score based on % of features demonstrably completed     | 5      |
+| Code Implementation: Efficiency of code + Comments + Code Quality | 5      |
+| Style: Components are styled in a pleasing way with custom Sass   | 5      |
+| Testing: 0 for no tests, full points for 80% coverage             | 2      |
+| Deployment to Netlify                                             | 1      |
+| Documentation: README + UML + Links                               | 2      |
+| Total:                                                            | 20     |
