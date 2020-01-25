@@ -39,6 +39,7 @@ For these front-end assignments, there is a lot more room for creativity and exp
     -   Show the user when their typed JSON is valid or invalid
         -   Hint: You should be able to utilize `JSON.parse` and/or `JSON.stringify`
 -   You must have a dynamically created form that updates when the JSON entry changes
+    - You do not need to have all possible form inputs planned for, just have at least a minium of four unique form inputs (buttons included) that can be generated via JSON
     -   Respond to invalid JSON elegantly
     -   Everything should be dynamic - empty JSON would result in a non-existent form.
 -   You must have some method to allow for form submission
