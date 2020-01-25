@@ -20,12 +20,12 @@ Each student can max do 2 lightning talks.
 | ~~Dependency Inversion Principle~~  | ~~[Link](https://deviq.com/dependency-inversion-principle/)~~                                | ~~Nov 02, 2019~~ | ~~Jessica Elliott~~ |
 | ~~Strategy Pattern~~                | ~~[Link](https://www.dofactory.com/javascript/strategy-design-pattern)~~                     | ~~Nov 09, 2019~~ | ~~Morgan T Shaw~~   |
 | ~~Observer Pattern~~                | ~~[Link](https://www.dofactory.com/javascript/observer-design-pattern)~~                     | ~~Nov 16, 2019~~ | ---                 |
-| ~~Memento Pattern~~                     | ~~[Link](https://www.dofactory.com/javascript/memento-design-pattern)~~                          | ~~Nov 23, 2019~~     | ---                 |
-| ~~Facade Pattern~~                      | ~~[Link](https://www.dofactory.com/javascript/facade-design-pattern)~~                           | ~~Dec 14, 2019~~     | ---                 |
-| ~~Singleton Pattern~~                   | ~~[Link](https://www.dofactory.com/javascript/singleton-design-pattern)~~                        | ~~Dec 21, 2019~~     | ~~Anna Li~~             |
-| ~~Proxy Pattern~~                       | ~~[Link](https://www.dofactory.com/javascript/proxy-design-pattern)~~                            | ~~Jan 04, 2020~~     | ~~Meron Sibani~~        |
-| State Pattern                       | [Link](https://www.dofactory.com/javascript/state-design-pattern)                            | Jan 11, 2020     | Martin Balke                 |
-| Behavior Driven Development         | [Link](https://en.wikipedia.org/wiki/Behavior-driven_development)                            | Jan 18, 2020     | Nadya Ilinskaya     |
+| ~~Memento Pattern~~                 | ~~[Link](https://www.dofactory.com/javascript/memento-design-pattern)~~                      | ~~Nov 23, 2019~~ | ---                 |
+| ~~Facade Pattern~~                  | ~~[Link](https://www.dofactory.com/javascript/facade-design-pattern)~~                       | ~~Dec 14, 2019~~ | ---                 |
+| ~~Singleton Pattern~~               | ~~[Link](https://www.dofactory.com/javascript/singleton-design-pattern)~~                    | ~~Dec 21, 2019~~ | ~~Anna Li~~         |
+| ~~Proxy Pattern~~                   | ~~[Link](https://www.dofactory.com/javascript/proxy-design-pattern)~~                        | ~~Jan 04, 2020~~ | ~~Meron Sibani~~    |
+| ~~State Pattern~~                   | ~~[Link](https://www.dofactory.com/javascript/state-design-pattern)~~                        | ~~Jan 11, 2020~~ | ~~Martin Balke~~    |
+| ~~Behavior Driven Development~~     | ~~[Link](https://en.wikipedia.org/wiki/Behavior-driven_development)~~                        | ~~Jan 18, 2020~~ | ~~Nadya Ilinskaya~~ |
 | Acceptance Test Driven Development  | [Link](https://en.wikipedia.org/wiki/Acceptance_test%E2%80%93driven_development)             | Jan 25, 2020     | Meron Sibani        |
 | SCRUM/Agile/Waterfall               | [Link](https://www.visual-paradigm.com/scrum/scrum-vs-waterfall-vs-agile-vs-lean-vs-kanban/) | Feb 01, 2020     | Nadya Ilinskaya     |
 
@@ -40,11 +40,11 @@ Each student can sign up for a max of 2 white-boarding interviews. If you would 
 | ~~Nov 02, 2019~~ | ~~Martin Balke~~    |
 | ~~Nov 09, 2019~~ | ~~Nadya Ilinskaya~~ |
 | ~~Nov 16, 2019~~ | ~~Meron Sibani~~    |
-| ~~Nov 23, 2019~~     | ~~---~~                 |
-| ~~Dec 14, 2019~~     | ~~Meron Sibani~~        |
-| ~~Dec 21, 2019~~     | ---                 |
-| ~~Jan 04, 2020~~     | ~~James Dunn~~          |
-| Jan 11, 2020     | Nadya Ilinskaya     |
-| Jan 18, 2020     | Martin Balke                 |
-| Jan 25, 2020     | Morgan T Shaw                 |
-| Feb 01, 2020     | Morgan T Shaw                 |
+| ~~Nov 23, 2019~~ | ~~---~~             |
+| ~~Dec 14, 2019~~ | ~~Meron Sibani~~    |
+| ~~Dec 21, 2019~~ | ---                 |
+| ~~Jan 04, 2020~~ | ~~James Dunn~~      |
+| ~~Jan 11, 2020~~ | ~~Nadya Ilinskaya~~ |
+| ~~Jan 18, 2020~~ | ~~Morgan T Shaw~~   |
+| Jan 25, 2020     | Martin Balke        |
+| Feb 01, 2020     | Morgan T Shaw       |
