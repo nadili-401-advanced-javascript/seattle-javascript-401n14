@@ -10,11 +10,22 @@ You lab will be a fully developed back-end and front-end. Utilize code from prev
 
 You should have a backend which allows you to use HTTP requests to authenticate, create tasks, and persist those tasks across multiple logins. There should be a MongoDB which creates and stores records, and your API should be live an accessible via Heroku.
 
-You must also add a GET route `/priority/:level` which returns any tasks for that user at the given priority level.
+You can find the (mostly complete) API [here](https://github.com/soniakandah/toDoServer). Clone this into your own repository and put comments, adjustments and additions there.
+
+You must add a GET route `/priority/:level` which returns any tasks for that user at the given priority level.
 
 ## Frontend
 
-You should have a sign-in portal that allows users to log in to view their tasks. You should then allow users to see their list of tasks, add some tasks, and modify existing tasks. All of this should be mobile responsive.
+You should have a sign-in portal that allows users to log in to view their tasks. You should then allow users to see their list of tasks, add some tasks, and modify existing tasks.
+
+You can find the (mostly complete) Front End [here](https://github.com/soniakandah/toDoApp). Clone this into your own repository and put comments, adjustments and additions there. To get this application working with your deployed API, be sure to change the `api` variable in `util.js` to be the correct path:
+
+```javascript
+// replace this url with your personal API url
+export const api = 'https://js401n14-todo-server.herokuapp.com';
+```
+
+You must add some front-end way to filter your tasks based on priority level, utilizing your `/priority/:level` route.
 
 ### Use CodeSandbox
 
@@ -27,18 +38,16 @@ You can find instructions for how to create a CodeSandbox project in the class 1
 For the front-end portion, there is a lot more room for creativity and exploration. We will be coding this lab primarily in-class, so most of the must-have requirements will be covered. Here are the must-haves for this lab so you can double check that your own lab has these needs met.
 
 -   You must implement a redux store
--   You must implement a sign in / sign up user flow
-    -   Allow users to create an account manually
-    -   Allow users to create an account via Google OR GitHub (choose one)
-    -   Allow users to sign in to an existing account manually
-    -   Allow users to sign in to an existing account using Google OR GitHub (choose one)
--   You must implement a ToDo management page with the following features:
+-   You must implement a login user flow
+    -   Allow users to create an account using a login form
+    -   Allow users to sign in to existing accounts using a login form
+-   You must implement a Task page with the following features:
     -   List all the user's current tasks
     -   Allow user to mark tasks as done
     -   Allow user to add new tasks
     -   Allow user to delete tasks
     -   Allow user to edit tasks
-    -   Allow user to change task order (utilizing drag-and-drop)
+    -   Allow user to filter tasks based on priority level (tasks without a priority level should default to priority 5)
 -   Custom Sass styling
     -   All custom style code must be in Sass
     -   If you would like to use a CSS framework, you must have some custom sass styles as well
@@ -59,7 +68,6 @@ This lab will be graded for test coverage on the front-end side only (80% is wha
 -   User can edit a task
 -   User can mark a task as done
 -   User can delete a task
--   User can change task order via drag-and-drop
 
 ### Deployment
 
